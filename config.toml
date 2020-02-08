@@ -1,0 +1,72 @@
+baseurl = "https://mrkaran.dev/"
+languageCode = "en-us"
+title = "Karan Sharma"
+theme = "hugo-ink"
+paginate = 5
+
+# Enable syntax highlighting.
+pygmentsstyle = "solarized-light"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+# Your Google analytics code.
+googleAnalytics = "UA-60501485-2"
+
+[params]
+	# Blog subtitle which appears below blog title. Supports markdown.
+	subtitle = "Ramblings on tech, cycling, and finance"
+	# Content types which are excluded from recent posts and archive page (Optional). Defaults to ["page"]
+	mainSections = ["post"]
+	# Content types which are excludes Disqus comments (Optional). Defaults to ["page"]
+	disableDisqusTypes = ["page", "post"]
+	# If social media links are enabled then enable this to fetch icons from CDN instead of hosted on your site.
+	featherIconsCDN = true
+    customCSS = "css/custom.css"
+
+
+# Main menu which appears below site header.
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "All posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 3
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 4
+
+[[menu.main]]
+name = "DNSCrypt"
+url = "/dnscrypt"
+weight = 5
+
+# Social media links which shows up on site header.
+# Uses feather icons for icons. You can [search icon names from here](https://feathericons.com/).
+[[params.social]]
+name = "Github"
+icon = "github"
+url = "https://github.com/mr-karan"
+
+[[params.social]]
+name = "Twitter"
+icon = "twitter"
+url = "https://twitter.com/mrkaran_"
+
+[[params.social]]
+name = "RSS"
+icon = "rss"
+url = "/index.xml"
+
+# Enable tags.
+[taxonomies]
+   tag = "tags"

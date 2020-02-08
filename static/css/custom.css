@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap');
+
+body {
+  font-weight: 400;
+}
+
+.site-title {
+  font-weight: 300;
+}
+
+a,
+a:hover {
+  color: #307ea9;
+}
+
+blockquote {
+  border-color: #307ea9;
+}
+
+/* dark mode. Ref: https://tombrow.com/dark-mode-website-css */
+
+/* @media (prefers-color-scheme: dark) {
+  body {
+    background-color: #282c35;
+    color: hsla(0,0%,100%,0.88);
+  }
+  a {
+    color: #ffa7c4;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: hsla(0,0%,100%,0.88);
+  }
+  img {
+    opacity: .75;
+    transition: opacity .5s ease-in-out;
+    filter: grayscale(30%);
+  }
+  img:hover {
+    opacity: 1;
+  }
+} */

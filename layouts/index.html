@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+{{ partial "header.html" . }}
+<body>
+	<div class="container wrapper">
+		{{ partial "head.html" . }}
+        <p>Hi! I am Karan and I usually go by the handle <span class="highlight-handle">@mrkaran</span> on the interwebz. I work at <a href="https://zerodha.com">Zerodha </a> where I focus mainly on Devops practices, Containers and Kubernetes. I've started my journey in DevOps fairly recently and prior to this I was a fullstack developer building web applications using Python, JS and Golang.
+        </p>
+        <h2>Recent Posts</h2>
+        <div class="recent-posts section">
+			<div class="posts">
+				{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+				{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
+				{{ range $paginator.Pages }}
+					<div class="post">
+						<div class="post-header">
+							<div class="meta">
+								<div class="date">
+									<span class="day">{{ dateFormat "02" .Date }}</span>
+							<span class="rest">{{ if $.Site.Data.month }}{{ index $.Site.Data.month (printf "%d" .Date.Month) }} {{ .Date.Year }}{{ else }}{{ dateFormat "Jan 2006" .Date }}{{ end }}</span>
+								</div>
+							</div>
+							<div class="matter">
+								<h4 class="title small">
+									<a href="{{ .RelPermalink }}">{{.Title}}{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}</a>
+								</h4>
+								<span class="description">
+									{{ if isset .Params "description" }}
+										{{ .Description }}
+									{{ else if gt (len .RawContent) 120 }}
+										{{ slicestr .RawContent 0 120 }}...
+									{{ else }}
+										{{ .RawContent }}
+									{{ end }}
+								</span>
+							</div>
+						</div>
+					</div>
+				{{ end }}
+				{{ template "partials/paginator.html" . }}
+			</div>
+		</div>
+	</div>
+	{{ partial "footer.html" . }}
+</body>
+</html>

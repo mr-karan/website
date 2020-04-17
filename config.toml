@@ -2,7 +2,7 @@ baseurl = "https://mrkaran.dev/"
 languageCode = "en-us"
 title = "Karan Sharma"
 theme = "hugo-ink"
-paginate = 5
+paginate = 3
 
 # Enable syntax highlighting.
 pygmentsstyle = "solarized-light"
@@ -31,13 +31,13 @@ url = "/"
 weight = 1
 
 [[menu.main]]
-name = "All posts"
+name = "Blog"
 url = "/posts"
 weight = 2
 
 [[menu.main]]
-name = "About"
-url = "/about"
+name = "Projects"
+url = "/projects"
 weight = 3
 
 [[menu.main]]
@@ -46,8 +46,8 @@ url = "/tags"
 weight = 4
 
 [[menu.main]]
-name = "DNSCrypt"
-url = "/dnscrypt"
+name = "Contact"
+url = "/contact"
 weight = 5
 
 # Social media links which shows up on site header.

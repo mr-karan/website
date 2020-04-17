@@ -9,10 +9,6 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-.site-title {
-  font-weight: 300;
-}
-
 a,
 a:hover {
   color: #F8481C;
@@ -41,6 +37,15 @@ a:hover {
 
 blockquote {
   border-color: #F8481C;
+}
+
+
+.highlight-handle {
+  background: #040348;
+  border-radius: 4px;
+  color: white;
+  font-family: monospace;
+  padding: 4px 8px;
 }
 
 /* dark mode. Ref: https://tombrow.com/dark-mode-website-css */

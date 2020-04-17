@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
 body {
   font-weight: 400;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .site-title {
@@ -10,32 +15,104 @@ body {
 
 a,
 a:hover {
-  color: #307ea9;
+  color: #F8481C;
+}
+
+a:hover {
+  border-bottom: 2px solid #F8481C;
+}
+
+::-moz-selection {
+  background: #F8481C;
+}
+
+::selection {
+  background: #F8481C;
+}
+
+.post .draft-label {
+  color: #F8481C;
+}
+
+.post .tags a {
+  border: 1px solid #F8481C;
+  color: #F8481C;
 }
 
 blockquote {
-  border-color: #307ea9;
+  border-color: #F8481C;
 }
 
 /* dark mode. Ref: https://tombrow.com/dark-mode-website-css */
-
-/* @media (prefers-color-scheme: dark) {
+/* 
+@media (prefers-color-scheme: dark) {
   body {
-    background-color: #282c35;
-    color: hsla(0,0%,100%,0.88);
+    color: #ddd;
+    background-color: #000;
   }
-  a {
-    color: #ffa7c4;
+  
+  ::-moz-selection {
+      background: #666;
+      text-shadow: none
   }
-  h1, h2, h3, h4, h5, h6 {
-    color: hsla(0,0%,100%,0.88);
+  
+  ::selection {
+      background: #666;
+      text-shadow: none
   }
-  img {
-    opacity: .75;
-    transition: opacity .5s ease-in-out;
-    filter: grayscale(30%);
+  
+  hr {
+      border-color: #333;
   }
-  img:hover {
-    opacity: 1;
+  
+  blockquote {
+    border-color: #ddd;
+  }
+  
+  h1,h2,h3,h4,h5,h6 {
+    color: #ddd;
+  }
+  
+  a,a:hover {
+    color: #ff7979;
+    text-decoration: none;
+  }
+  
+  .site-description a,
+  .site-description a:hover {
+    color: #ddd;
+    text-decoration: underline;
+  }
+  
+  a:hover {
+    opacity: 0.8;
+  }
+  
+  .post-tags .tags a {
+      border: 1px solid #ddd;
+    color: #ddd;
+  }
+  
+  .site-title a {
+    color: #ddd;
+    text-decoration: none !important;
+  }
+  
+  .header nav,
+  .footer {
+    border-color: #333;
+  }
+  
+  .highlight {
+    background-color: #333;
+  }
+  
+  table th {
+    background-color: #333;
+  }
+  
+  table th, table td {
+      padding: 10px 20px;
+      border: 1px solid #666;
   }
 } */

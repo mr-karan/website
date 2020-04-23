@@ -158,7 +158,7 @@ Here are some links that I collected while setting all of this up and might be u
 - [k3s config reference](https://rancher.com/docs/k3s/latest/en/installation/install-options/server-config/)
 - [P2P across NAT](https://bford.info/pub/net/p2pnat/)
 - [Remembering the LAN](https://crawshaw.io/blog/remembering-the-lan)
-- [Cloudskew](https://app.cloudskew.com/) (wonderful tool for creating diagram)
+- [Cloudskew](https://app.cloudskew.com/) (wonderful tool for creating architecture diagrams)
 
 If you've any questions please find me on Twitter [@mrkaran](https://twitter.com/mrkaran_). You can find all of the setup on [GitHub](https://github.com/mr-karan/hydra/).
 

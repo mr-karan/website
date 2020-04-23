@@ -41,23 +41,18 @@ a:hover {
 }
 
 blockquote {
+  font-style: normal;
+  font-size: 1.4rem;
+  font-family: 'Fira Sans', sans-serif;
+  border-left: 6px solid;
   border-color: #F8481C;
 }
-
 
 .highlight-handle {
   background: #040348;
   border-radius: 4px;
   color: white;
   padding: 4px 8px;
-}
-
-.highlight-header {
-  height: 30px;
-  position: relative;
-  top: -30px;
-  max-width: 90vw;
-  background-color: #FC824A;
 }
 
 .title {

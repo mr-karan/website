@@ -15,6 +15,7 @@ googleAnalytics = "UA-60501485-2"
 [params]
 	# Blog subtitle which appears below blog title. Supports markdown.
 	subtitle = "Ramblings on tech, cycling, and finance"
+	description = "Ramblings on tech, cycling, and finance"
 	# Content types which are excluded from recent posts and archive page (Optional). Defaults to ["page"]
 	mainSections = ["post"]
 	# Content types which are excludes Disqus comments (Optional). Defaults to ["page"]

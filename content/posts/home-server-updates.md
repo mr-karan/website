@@ -2,6 +2,7 @@
 title: "Using Tailscale on RPi cluster with k3s"
 date: 2020-04-23T08:10:55+05:30
 type: "post"
+images: ["/images/home-server-hydra.png"]
 description: "In this post, I'll be talking about how I use Tailscale as a mesh VPN and some updates to my previous home server setup"
 tags:
 - Networking

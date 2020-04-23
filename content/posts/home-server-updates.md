@@ -1,5 +1,5 @@
 ---
-title: "Using Tailscale on RPi cluster with k3s"
+title: "Using Tailscale for home server"
 date: 2020-04-23T08:10:55+05:30
 type: "post"
 images: ["/images/home-server-hydra.png"]

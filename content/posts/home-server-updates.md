@@ -116,15 +116,15 @@ Setting the `--node-external-ip <tailscale-ip>` in `k3s` config seemed to have f
 
 Now all of the nodes in the cluster had proper Tailscale IPs advertised and the node went to `Ready` state, at last!
 
-## Storage
-
-Unfortunately, I don't have any external HDD/SSD so I am postponing running any stateful workloads till I get one soon (whenever lockdown gets over in my area). I plan to deploy an NFS server so I can run stateful workloads across any node and have redundancy in form of cloud backups. I've also heard cool things about [Longhorn](https://github.com/longhorn/longhorn) but unfortunately, it doesn't have [ARM support](https://github.com/longhorn/longhorn/issues/6).
-
 ### Who let the DNS out
 
 So, I've a chicken and egg problem in my setup. Since my `laptop` runs a Tailscale agent and whenever I boot up my systemm, `Tailscale` attempts to posts logs to `log.tailsclae.io` and **fails** to start if it cannot. The problem here is who resolves the DNS for me?
 
 I run a local DNS server with [CoreDNS](https://coredns.io/) forwarding my queries to Adguard. Now if I can't reach Adguard (since Tailscale agent hasn't initialised), how am I supposed to resolve `log.tailscale.io`? I did what any sane guy would do, write a simple _hacky_ bash script:
+
+### Storage
+
+Unfortunately, I don't have any external HDD/SSD so I am postponing running any stateful workloads till I get one soon (whenever lockdown gets over in my area). I plan to deploy an NFS server so I can run stateful workloads across any node and have redundancy in form of cloud backups. I've also heard cool things about [Longhorn](https://github.com/longhorn/longhorn) but unfortunately, it doesn't have [ARM support](https://github.com/longhorn/longhorn/issues/6).
 
 ```shell
 #!/bin/bash

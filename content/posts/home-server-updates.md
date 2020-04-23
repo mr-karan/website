@@ -95,7 +95,7 @@ server {
 
 Setting all of this up didn't come without its own challenges or hurdles. Right off the bat, the first problem was that I was seeing really high latencies from my RPi node to DO node through Tailscale. Now, since both the nodes are physically in Bangalore and they are connecting to each other (or that's what I had presumed), I didn't expect latencies to be as high as 500-600ms. Bollocks!
 
-Eventually, I'd figured thanks to my super restrictive rules on the firewall of DO node, I had blocked all inbound UDP connection. That means NAT hole punching through STUN is simply not possible. In such cases, Tailscale runs an encrypted TURN server(called DERP - Designated Encrypted Relay for Packets), which basically are TCP encrypted relays. Tailscale manages this network of DERPs and the one I got connected to was somewhere in the USA.
+Eventually, I'd figured thanks to my super restrictive rules on the firewall of DO node, I had blocked all inbound UDP connection. That means NAT hole punching through STUN is simply not possible. In such cases, Tailscale forwards all packets to an encrypted TURN server(called DERP - Designated Encrypted Relay for Packets), which basically are TCP encrypted relays. Tailscale manages this network of DERPs and the one I got connected to was somewhere in the USA.
 
 Bottom line, I was all pumped up to talk to a DO node from my RPi node but as it _turns_ out (no pun intended) my packets were flowing through the USA! Ah so bad. Anyway, opening up UDP from the Tailscale subnet, fixed the issue and latencies were back to being sub 10ms. Yay!
 

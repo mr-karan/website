@@ -52,7 +52,7 @@ Apart from handling the auth, Tailscale does a pretty good job at handling conne
 
 Tailscale agents can perform NAT traversal using [ICE](https://tools.ietf.org/id/draft-ietf-ice-rfc5245bis-13.html) and [STUN](https://tools.ietf.org/html/rfc5389). What all of this practically means is if you're sitting in a cafe somewhere and you want to access any of your internal service it **is** possible without messing around any firewall ports :D
 
-**TL;DR**: I decided to give Tailscale a shot and was quite impressed by how easy was it to setup. You can refer to the official docs for more instructions but I was able to set it up across 2 RPis and have them talk to each other under 15 minutes. I think that's quite an awesome feat in itself. The only sad bit is they don't have an Android app yet, so I am eagerly waiting for it.
+**TL;DR**: I decided to give Tailscale a shot and was quite impressed by how easy it was to setup. You can refer to the official docs for more instructions but I was able to set it up across 2 RPis and have them talk to each other under 15 minutes. I think that's quite an awesome feat in itself. The only sad bit is they don't have an Android app yet, so I am eagerly waiting for it.
 
 ## Hybrid K3s Cluster
 

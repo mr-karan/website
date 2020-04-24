@@ -58,7 +58,7 @@ Tailscale agents can perform NAT traversal using [ICE](https://tools.ietf.org/id
 
 So, I am running a `k3s` cluster on my RPi. At that time I was still using DO for running Pihole, Unbound, public DNSCrypt resolver etc. I decided to standardise the ad-hoc deployments to manage them efficiently. It also allowed me to play around with more on K8s which was my original goal behind buying these Pi was.
 
-Now, I've 2*RPi nodes, the k8s master node runs on the 4GB RPi while the 2GB variant serves as a worker node. I decided to get a bit fancy with my setup and hooked up the `k3s` agent installation script on a DO node and _ta-da!_ I have a multi-arch(`amd64` and `arm64`), hybrid (bare metal and cloud) K8s cluster ready! I think if I sprinkle some ML/AI + Bitcoins in the above setup, I'm all set to raise VC funding for `hydra`.
+Now, I've 2*RPi nodes, the k8s master node runs on the 4GB RPi while the 2GB variant serves as a worker node. I decided to get a bit fancy with my setup and hooked up the `k3s` agent installation script on a DO node and_ta-da!_ I have a multi-arch(`amd64` and `arm64`), hybrid (bare metal and cloud) K8s cluster ready! I think if I sprinkle some ML/AI + Bitcoins in the above setup, I'm all set to raise VC funding for `hydra`.
 
 I wanted to learn [Terraform](https://www.terraform.io/) as part of my work at my org as well, so I created + managed the entire droplet through `terraform`. The [script](https://github.com/mr-karan/hydra/tree/master/digitalocean-infra) has modules to provision a droplet, attach an elastic IP, configure firewall rules and add my SSH key to the server. Quite easy to manage and I am generally a hater of GUIs, so Terraform is indeed a blessing in disguise.
 

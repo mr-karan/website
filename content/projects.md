@@ -7,7 +7,7 @@ type: "page"
 
 [store-exporter](https://github.com/mr-karan/store-exporter/) Utility to extract metrics from arbitary data stores in Prometheus format
 
-[cAlert](https://github.com/mr-karan/calert) Prometheus' Alertmanager - Google Chat Integration
+[cAlert](https://github.com/mr-karan/calert) Prometheus Alertmanager - Google Chat Integration
 
 [swiggy-analytics](https://github.com/mr-karan/swiggy-analytics) Analyse your Swiggy orders
 
@@ -17,7 +17,7 @@ type: "page"
 
 [webkin](https://github.com/mr-karan/webkin) CLI tool to send webpages to kindle
 
-[fate](https://github.com/mr-karan/fate) Browse FontAawesome icons from your shell
+[fate](https://github.com/mr-karan/fate) Browse Font Awesome icons from your shell
 
 ## Open Source
 

@@ -1,12 +1,12 @@
----
-title: "Resize PVC in Kubernetes"
-date: 2020-01-14T08:10:55+05:30
-type: "post"
-description: "Easily expand Kubernetes Persistent Volumes"
-tags:
-- Kubernetes
-- Devops
----
++++
+title = "Resize PVC in Kubernetes"
+date = 2020-01-14T08:10:55+05:30
+type = "post"
+description = "Easily expand Kubernetes Persistent Volumes"
+in_search_index = true
+[taxonomies]
+tags= ["Kubernetes","Devops"]
++++
 
 Well, the title is self explanatory so let's begin!
 
@@ -45,7 +45,7 @@ volumeBindingMode: WaitForFirstConsumer
 allowVolumeExpansion: true
 ```
 
-Once the `StorageClass` config is correct, all we need to do is update with the new size. 
+Once the `StorageClass` config is correct, all we need to do is update with the new size.
 
 So, for example if size of the PVC was `15GB` orginally:
 
@@ -56,7 +56,7 @@ spec:
       storage: 15Gi
 ```
 
-To update it to `30GB`, you  simply need to edit `spec.resources.requests` field:
+To update it to `30GB`, you simply need to edit `spec.resources.requests` field:
 
 ```yml
 spec:

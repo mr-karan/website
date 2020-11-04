@@ -1,11 +1,12 @@
----
-title: "sshuttle - A better ssh tunnel"
-date: 2020-01-12T09:57:55+05:30
-type: "post"
-description: "Poor man's VPN"
-tags:
-- Networking
----
++++
+title = "sshuttle - A better ssh tunnel"
+date = 2020-01-12T09:57:55+05:30
+type = "post"
+description = "Poor man's VPN"
+in_search_index = true
+[taxonomies]
+tags = ["Networking"]
++++
 
 ## The Motivation
 
@@ -14,6 +15,7 @@ Sometime back I had to access a Kubernetes API server which was firewalled to a 
 The basic idea is pretty simple, `sshuttle` starts a local `python` server in your host machine and creates `iptables` rules to route the destination packets of the specified CIDR blocks to this local server. At the server, the packets are multiplexed over an `ssh` session and sent to the server. The server disassembles the multiplexed packet and the routes them to upstream. So, basically this is a clever hack to avoid TCP over TCP (which again is a mess on unreliable networks). Multiplexed streams on `ssh` is just a single stateful TCP connection (as compared to VPN connections which are stateless). Now you must be wondering, how come the target server disassembles the packets. Yes, there needs to be some kind of `sshuttle` daemon running which does that for you. This is where `sshuttle` does some magic, it _automagically_ deploys a python script on your target host to perform this task. So yes, for `sshuttle` to work, both the client and target need to have `python ` and `iptables` installed.
 
 ### Usage
+
 `sshuttle -r user@port x.x.x.x`
 
 All the packets routed to the CIDR block will now go through `sshuttle` daemon, since it configured `iptables` rules for them.
@@ -22,7 +24,7 @@ Also, `sshuttle` starts a local python server on your host machine. You can see 
 ```shell
 $ sudo netstat -tunapl | grep python
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
-tcp        0      0 127.0.0.1:12300         0.0.0.0:*               LISTEN      27425/python         
+tcp        0      0 127.0.0.1:12300         0.0.0.0:*               LISTEN      27425/python
 ```
 
 There's a `python` server listening on port `12300` in my host machine. To actually verify, this indeed is started by `sshuttle`, you can use `pstree -p | less` and search for `sshuttle`. Here you can see `sshuttle` did indeed start a `python` server and the PID (`27425`) matches with the one we saw in `netstat` command.

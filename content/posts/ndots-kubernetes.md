@@ -1,12 +1,12 @@
----
-title: "DNS Lookups in Kubernetes"
-date: 2020-02-02T10:57:55+05:30
-type: "post"
-description: "In this post, I'll talk about how I learnt about FQDN, Search Paths and ndots to tackle slow DNS resolution in Kubernetes"
-tags:
-- DNS
-- Kubernetes
----
++++
+title = "DNS Lookups in Kubernetes"
+date = 2020-02-02T10:57:55+05:30
+type = "post"
+description = "In this post, I'll talk about how I learnt about FQDN, Search Paths and ndots to tackle slow DNS resolution in Kubernetes"
+in_search_index = true
+[taxonomies]
+tags = ["DNS","Kubernetes"]
++++
 
 One of the primary advantages of deploying workloads in Kubernetes is seamless application discovery. Intra cluster communication becomes easy with the concept of [Service](https://kubernetes.io/docs/concepts/services-networking/service/) which represents a Virtual IP backing a set of Pod IPs. For example, if `vanilla` service needs to talk to a `chocolate` service, it can directly use the Virtual IP for `chocolate`. Now the question is who resolves the DNS query for `chocolate` and how?
 
@@ -90,7 +90,7 @@ CoreDNS logs:
 
 Since `mrkaran` didn't specify any `.` so the search list was used to find the answer.
 
-*Note*: `ndots` value is silently capped to `15` and is `5` in Kubernetes as default.
+_Note_: `ndots` value is silently capped to `15` and is `5` in Kubernetes as default.
 
 ### Handling this in Production
 
@@ -108,7 +108,7 @@ Here are some additional links you can read on the web:
 - [Great read on how ndots affects application performance](https://pracucci.com/kubernetes-dns-resolution-ndots-options-and-why-it-may-affect-application-performances.html)
 - [musl and glibc resolver inconsistencies](https://www.openwall.com/lists/musl/2017/03/15/3)
 
-_Note_: I'm particularly not using `dig` in this post. `dig` apparently automatically adds a `.` (root zone identifier) to make the domain an FQDN one __without__ even first going through the search path. I've mentioned about this briefly in one of my [older](https://mrkaran.dev/posts/dig-overview/) posts. Nonetheless, it's quite surprising to see that you need to give a flag to make it behave in what seems to be a standard way.
+_Note_: I'm particularly not using `dig` in this post. `dig` apparently automatically adds a `.` (root zone identifier) to make the domain an FQDN one **without** even first going through the search path. I've mentioned about this briefly in one of my [older](https://mrkaran.dev/posts/dig-overview/) posts. Nonetheless, it's quite surprising to see that you need to give a flag to make it behave in what seems to be a standard way.
 
 #### It's always DNS, isn't it ;)
 

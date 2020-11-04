@@ -1,13 +1,12 @@
----
-title: "Import existing Route53 records in Terraform"
-date: 2020-10-18T08:10:55+05:30
-type: "post"
-description: "A quick guide on importing Route53 records to Terraform"
-tags:
-  - DevOps
-  - Terraform
-  - AWS
----
++++
+title = "Import existing Route53 records in Terraform"
+date = 2020-10-18T08:10:55+05:30
+type = "post"
+description = "A quick guide on importing Route53 records to Terraform"
+in_search_index = true
+[taxonomies]
+tags = ["DevOps","Terraform","AWS"]
++++
 
 Terraform has a straightforward way of importing existing records (managed outside Terraform) via `terraform import` command. The usage is documented [here](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) and works well if you have a handful of records to import. However when you work with custom Terraform modules _and_ have a whole bunch of records to be imported, you'd look out ways to **script** the entire workflow. I did this a few weeks back at work and thought to share a solution which works well for my usecase.
 

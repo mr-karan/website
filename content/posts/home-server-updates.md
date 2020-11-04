@@ -1,14 +1,13 @@
----
-title: "Using Tailscale for home server"
-date: 2020-04-23T08:10:55+05:30
-type: "post"
-images: ["/images/home-server-hydra.png"]
-description: "In this post, I'll be talking about how I use Tailscale as a mesh VPN and some updates to my previous home server setup"
-tags:
-- Networking
-- Kubernetes
-- HomeServer
----
++++
+title = "Using Tailscale for home server"
+date = 2020-04-23T08:10:55+05:30
+type = "post"
+images = ["/images/home-server-hydra.png"]
+description = "In this post, I'll be talking about how I use Tailscale as a mesh VPN and some updates to my previous home server setup"
+in_search_index = true
+[taxonomies]
+tags = ["Networking","Kubernetes","Homeserver"]
++++
 
 For those of you who are new to my blog, I had written about my [home server setup](https://mrkaran.dev/posts/home-server-setup/) (`hydra`) a few months back. Since then I've tweaked the setup a bit and made some changes to how I organise/deploy applications inside my cluster. I'll be talking about the updates made so far and the reason behind them.
 
@@ -38,7 +37,7 @@ So, before we jump to why I started using Tailscale, let's address a few things 
 
 I started looking at different mesh VPN setups and Tailscale attracted me the most. I heard about Tailscale first time when I saw [bradfitz's](https://bradfitz.com/2020/01/27/leaving-google) post about leaving Google and joining Tailscale on HN. Interestingly, Tailscale is built on top of [wireguard-go](https://git.zx2c4.com/wireguard-go/about/) (the userspace implementation of [Wireguard](https://www.wireguard.com/) kernel module). Since I was already familiar with Wireguard and had been using it for almost a year, I got curious on Tailscale.
 
-Tailscale basically sets up a *point-to-point* **encrypted network** across all your devices. What that means is there's no "relay" (like Wireguard server) and clients can talk to each other _directly_. While it may seem that it is easy to set this up with a bunch of shell scripting-foo (just add all Wireguard peers in each peer config), Tailscale attempts to do a *lot* of the heavy lifting by making the network seamless and handling authentication.
+Tailscale basically sets up a _point-to-point_ **encrypted network** across all your devices. What that means is there's no "relay" (like Wireguard server) and clients can talk to each other _directly_. While it may seem that it is easy to set this up with a bunch of shell scripting-foo (just add all Wireguard peers in each peer config), Tailscale attempts to do a _lot_ of the heavy lifting by making the network seamless and handling authentication.
 
 ### Coordination Server
 
@@ -58,7 +57,7 @@ Tailscale agents can perform NAT traversal using [ICE](https://tools.ietf.org/id
 
 So, I am running a `k3s` cluster on my RPi. At that time I was still using DO for running Pihole, Unbound, public DNSCrypt resolver etc. I decided to standardise the ad-hoc deployments to manage them efficiently. It also allowed me to play around with more on K8s which was my original goal behind buying these Pi was.
 
-Now, I've 2*RPi nodes, the k8s master node runs on the 4GB RPi while the 2GB variant serves as a worker node. I decided to get a bit fancy with my setup and hooked up the `k3s` agent installation script on a DO node and_ta-da!_ I have a multi-arch(`amd64` and `arm64`), hybrid (bare metal and cloud) K8s cluster ready! I think if I sprinkle some ML/AI + Bitcoins in the above setup, I'm all set to raise VC funding for `hydra`.
+Now, I've 2\*RPi nodes, the k8s master node runs on the 4GB RPi while the 2GB variant serves as a worker node. I decided to get a bit fancy with my setup and hooked up the `k3s` agent installation script on a DO node and*ta-da!* I have a multi-arch(`amd64` and `arm64`), hybrid (bare metal and cloud) K8s cluster ready! I think if I sprinkle some ML/AI + Bitcoins in the above setup, I'm all set to raise VC funding for `hydra`.
 
 I wanted to learn [Terraform](https://www.terraform.io/) as part of my work at my org as well, so I created + managed the entire droplet through `terraform`. The [script](https://github.com/mr-karan/hydra/tree/master/digitalocean-infra) has modules to provision a droplet, attach an elastic IP, configure firewall rules and add my SSH key to the server. Quite easy to manage and I am generally a hater of GUIs, so Terraform is indeed a blessing in disguise.
 

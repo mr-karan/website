@@ -1,13 +1,13 @@
----
-title: "Monitoring my home network"
-date: 2020-09-18T08:10:55+05:30
-type: "post"
-images: ["/images/ISP-Monitoring-Grafana2.png"]
-description: "Setting up a home network monitoring stack built with Telegraf, Grafana and Raspberry Pi"
-tags:
-- Networking
-- HomeServer
----
++++
+title = "Monitoring my home network"
+date = 2020-09-18T08:10:55+05:30
+type = "post"
+images = ["/images/ISP-Monitoring-Grafana2.png"]
+description = "Setting up a home network monitoring stack built with Telegraf, Grafana and Raspberry Pi"
+in_search_index = true
+[taxonomies]
+tags = ["Homeserver", "Networking"]
++++
 
 I like monitoring _stuff_. That's what I do at work and when my home ISP started giving me random problems and I decided it would be nice to monitor my home network as well. There are a couple of ways to go around this, a very popular and OSS solution is [SmokePing](https://oss.oetiker.ch/smokeping/). SmokePing is written in Perl and is used to visualise network latencies. It's quite a great solution but for my current stack which involves Prometheus and Grafana, it meant I had to deploy a standalone tool separate from my monitoring stack - something which I wanted to avoid.
 
@@ -19,13 +19,11 @@ I decided to run a Telegraf agent in my RPi connected to my home router over LAN
 
 ![image](/images/ISP-Monitoring-Grafana2.png)
 
-
 ![image](/images/ISP-Monitoring-Grafana1.png)
-
 
 ## Setup
 
-To get started, we need to download [Telegraf](https://github.com/influxdata/telegraf) and configure the [Ping](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/ping) plugin. Telegraf has the concept of **Plugins** for Input, Output, Aggregating and Processing. What this basically means is that you can configure multiple input plugins like DNS, ICMP, HTTP and export the data of these plugins in a format of your choice with Output plugins. 
+To get started, we need to download [Telegraf](https://github.com/influxdata/telegraf) and configure the [Ping](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/ping) plugin. Telegraf has the concept of **Plugins** for Input, Output, Aggregating and Processing. What this basically means is that you can configure multiple input plugins like DNS, ICMP, HTTP and export the data of these plugins in a format of your choice with Output plugins.
 This makes Telegraf extermely extensible, you could write a plugin (in Go) of your choice if you fancy that as well!
 
 Here's what my `telegraf.conf` looks like:
@@ -89,12 +87,11 @@ Perfect! Now, we're all set to configure Prometheus to scrape the metrics from t
 
 In the above config, I am plugging my Tailscale IP assigned to my RPi on the port where Telegraf agent is bound to. This is one of the **many** reasons why Tailscale is so bloody awesome! I can connect different components in my network to each other without setting up any particular firewall rules, exposing ports on a case by case basis.
 
-**Sidenote**: If you haven't read Tailscale's **amazing** [NAT Traversal blog post](https://tailscale.com/blog/how-nat-traversal-works/), do yourself a favour and check it out after you finish reading this one ofcourse! 
+**Sidenote**: If you haven't read Tailscale's **amazing** [NAT Traversal blog post](https://tailscale.com/blog/how-nat-traversal-works/), do yourself a favour and check it out after you finish reading this one ofcourse!
 
 Anyway, coming back to our Prometheus setup, we can see the metrics being ingested:
 
 ![image](/images/Prometheus-Telegraf-Ingest.png)
-
 
 ## Show me the graphs
 
@@ -172,8 +169,8 @@ We can similarly query the DNS response time by visualising the average response
 
 ## Conclusion
 
-So with a pretty simple and minimal OSS solution, I was able to setup monitoring for my home network! Over the last few days whenever my ISP had slightest of trouble, I can correlate it with my metrics! I mean I still can't do anything about it cause the other person on ISP's customer support is "Did you try rebooting your router"  -- the quintessential solution to all tech problems. Wish we could reboot this entire damn 2020 as well, but one could hope!
+So with a pretty simple and minimal OSS solution, I was able to setup monitoring for my home network! Over the last few days whenever my ISP had slightest of trouble, I can correlate it with my metrics! I mean I still can't do anything about it cause the other person on ISP's customer support is "Did you try rebooting your router" -- the quintessential solution to all tech problems. Wish we could reboot this entire damn 2020 as well, but one could hope!
 
-Shoot me for any questions on my Twitter [@mrkaran_](https://twitter.com/mrkaran_) :)
+Shoot me for any questions on my Twitter [@mrkaran\_](https://twitter.com/mrkaran_) :)
 
 Fin!

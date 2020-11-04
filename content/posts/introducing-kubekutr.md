@@ -1,12 +1,12 @@
----
-title: "Introducing kubekutr"
-date: 2019-12-30T08:10:55+05:30
-type: "post"
-description: "kubekutr is a cookie cutter template tool for generating Kubernetes resource manifests"
-tags:
-- Kubernetes
-- Golang
----
++++
+title = "Introducing kubekutr"
+date = 2019-12-30T08:10:55+05:30
+type = "post"
+description = "kubekutr is a cookie cutter template tool for generating Kubernetes resource manifests"
+in_search_index = true
+[taxonomies]
+tags = ["kubernetes", "golang"]
++++
 
 ![](https://raw.githubusercontent.com/mr-karan/kubekutr/master/logo.png)
 
@@ -16,7 +16,7 @@ I found out [kustomize](github.com/kubernetes-sigs/kustomize) few months back an
 
 Then I did what any other programmer would do, spend some more time to automate :P And that is how `kubekutr` was born. (Quite an anticlimax I know!)
 
-`kubekutr` is a really simple tool to bootstrap a Kustomize `base`. `kubekutr` reads a config file, templates out different resources and produces them as YAML files. Now, I know a lot of you reading this would be going _Another damn templating solution_ in your mind and while that reaction is warranted, given that we have 200+ [tools](https://docs.google.com/spreadsheets/d/1FCgqz1Ci7_VCz_wdh8vBitZ3giBtac_H8SBw4uxnrsE/edit#gid=0) in the community (everyone trying to solve similar problems in their own ways), I *legit* could not find a simple enough tool which would let the boring part of scaffolding a base out of my way and let me focus on what's more important: the actual deployment. Hence I just decided to roll out my own solution which is the best one according to [IKEA effect](https://en.wikipedia.org/wiki/IKEA_effect) (_just kidding_).
+`kubekutr` is a really simple tool to bootstrap a Kustomize `base`. `kubekutr` reads a config file, templates out different resources and produces them as YAML files. Now, I know a lot of you reading this would be going _Another damn templating solution_ in your mind and while that reaction is warranted, given that we have 200+ [tools](https://docs.google.com/spreadsheets/d/1FCgqz1Ci7_VCz_wdh8vBitZ3giBtac_H8SBw4uxnrsE/edit#gid=0) in the community (everyone trying to solve similar problems in their own ways), I _legit_ could not find a simple enough tool which would let the boring part of scaffolding a base out of my way and let me focus on what's more important: the actual deployment. Hence I just decided to roll out my own solution which is the best one according to [IKEA effect](https://en.wikipedia.org/wiki/IKEA_effect) (_just kidding_).
 
 ### Workflow
 

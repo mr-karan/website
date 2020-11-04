@@ -1,11 +1,12 @@
----
-title: "Use netcat for port scanning"
-date: 2020-01-11T08:10:55+05:30
-type: "post"
-description: "A very quick guide to debug port connectivity issues"
-tags:
-- Networking
----
++++
+title = "Use netcat for port scanning"
+date = 2020-01-11T08:10:55+05:30
+type = "post"
+description = "A very quick guide to debug port connectivity issues"
+in_search_index = true
+[taxonomies]
+tags = ["Networking"]
++++
 
 Quite often you'd need to check if a port on a target node is opened or blocked by firewall. I've always used `telnet` to test that but it has a few drawbacks:
 
@@ -37,7 +38,7 @@ You can even supply a range of ports to netcat like:
 
 `nc -vz -w 3 host 8000-9000`
 
-*Quick Tip*: You can also give an alias for port instead of the number. For example:
+_Quick Tip_: You can also give an alias for port instead of the number. For example:
 
 ```shell
 $nc -vz -w 3 google.com https
@@ -51,5 +52,3 @@ nc: connect to google.com port 22 (tcp) failed: Network is unreachable
 Hope this post pretty much sums up the usage of netcat for port scanning! Read the [man page](https://linux.die.net/man/1/nc) for more info.
 
 Fin!
-
-

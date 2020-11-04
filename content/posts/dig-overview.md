@@ -1,12 +1,12 @@
----
-title: "A quick primer on dig"
-date: 2019-11-11T10:57:55+05:30
-type: "post"
-description: "Learn how to use dig (DNS lookup tool) effectively with practical examples"
-tags:
-- DNS
-- Devops
----
++++
+title = "A quick primer on dig"
+date = 2019-11-11T10:57:55+05:30
+type = "post"
+description = "Learn how to use dig (DNS lookup tool) effectively with practical examples"
+in_search_index = true
+[taxonomies]
+tags = ["DNS","Devops"]
++++
 
 Dig is a DNS lookup utility developed by [BIND](https://en.wikipedia.org/wiki/BIND) which helps a lot while troubleshooting DNS issues (which are more common than you probably think #hugops). I use `dig` fairly often and thought to write an introductory guide on how you can use `dig` with some practical examples that'll help you `dig` through DNS issues faster (sorry for the lame pun, couldn't resist.)
 
@@ -63,7 +63,6 @@ cruz.ns.cloudflare.com.
 
 Fun Fact: `ANY` query type has become [obsolete](https://blog.cloudflare.com/rfc8482-saying-goodbye-to-any/) as per the new [RFC8482](https://tools.ietf.org/html/rfc8482) and DNS operators can choose to not respond to this query. The reason for this is that the payload response size for an `ANY` query is quite huge (since it has to return all type of DNS records) and this could affect the performance of authoritative servers in case of a [DNS amplification](https://blog.cloudflare.com/deep-inside-a-dns-amplification-ddos-attack/) attack.
 
-
 ### Using different DNS server
 
 Let's say you want to switch to a different resolver, you can use `@` followed by the address of your DNS server.
@@ -83,6 +82,7 @@ dig -x 206.189.89.118
 ### Multiple queries
 
 You can input a list of domain names and pass the file with the arg `-f` to dig.
+
 ```sh
 $ cat digfile
 mrkaran.dev
@@ -109,11 +109,11 @@ zoho.com.		299	IN	MX	50 smtpin3.zoho.com.
 I learnt this recently while debugging a DNS issue in one of the Kubernetes pods. Dig doesn't use search paths by default, so if you have a service say `redis` inside a namespace dig won't fetch any result:
 
 ```sh
-$ dig redis +short 
+$ dig redis +short
 # empty output, indicates no record found
 ```
 
-This is because a service name in Kubernetes is of the form `service.namespace.svc.cluster.local`. So, we should actually be querying for `redis.myns.svc.cluster.local` and we'll get our result. But isn't that too long and painful (sorry for the pun) to type? 
+This is because a service name in Kubernetes is of the form `service.namespace.svc.cluster.local`. So, we should actually be querying for `redis.myns.svc.cluster.local` and we'll get our result. But isn't that too long and painful (sorry for the pun) to type?
 
 So, there's another option `+search` which can be used to find all domains matching the search path defined in `/etc/resolv.conf` namesever configurations.
 

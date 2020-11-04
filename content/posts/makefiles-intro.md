@@ -1,11 +1,12 @@
----
-title: "Makefile for Golang projects"
-date: 2018-10-11T18:10:55+05:30
-type: "post"
-description: "Using Makefile to Automate your Build Process"
-tags:
-- Golang
----
++++
+title = "Makefile for Golang projects"
+date = 2018-10-11T18:10:55+05:30
+type = "post"
+description = "Using Makefile to Automate your Build Process"
+in_search_index = true
+[taxonomies]
+tags = ["Golang"]
++++
 
 Makefile is an awesome tool to group together a bunch of different rules and automate your build process. Makefile is used by `make` which is essentially a file generator tool. It is generally used to compile and build programs from source by following `rules` listed in the Makefile. People use Makefile for a lot of different purposes as well, for example converting `md` to `html` and publish these files to the web server.
 
@@ -58,6 +59,7 @@ clean:
 	rm -f sample.bin
 
 ```
+
 Now when we run `make clean` we get our expected output
 
 ```
@@ -145,7 +147,6 @@ You can even extend your Makefile to commit files to a repo, and rsync these bin
 - If you run `make` without passing any target name, `make` will run the first target present in the Makefile. To override this, you should set `.DEFAULT_GOAL` setting and [override the target](https://www.gnu.org/software/make/manual/html_node/Special-Variables.html#Special-Variables) which you want to make as default.
 
 - `.PHONY` is just one way to tell `make` that it is a special kind of target, you can also do the same by creating a target without any recipe. Read [this](https://www.gnu.org/software/make/manual/html_node/Force-Targets.html#Force-Targets) to know more.
-
 
 To know more about `Makefile`, you can read the manual [here](https://www.gnu.org/software/make/manual/make.html)
 

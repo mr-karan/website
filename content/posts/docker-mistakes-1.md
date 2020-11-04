@@ -3,8 +3,9 @@ title = "Common Docker Mistakes - Episode 1"
 date = 2019-04-15T10:57:55+05:30
 type = "post"
 description = "Sharing my Docker Learnings"
+in_search_index = true
 [taxonomies]
-tags = ["docker","devops"]
+tags = ["Docker","Devops"]
 +++
 
 So, off late, I've been dabbling a lot with Docker to explore the world of containerization (too late to the party, eh?). I plan to write about some common docker gotchas. The plan is to document these learnings so they might help someone getting started with docker and also serve as a reference for myself in the future. Let me be clear, if you read the docs you will find the exact same information and there's nothing new that I have discovered. It took me some time to get around the following issues and I believe some of you might be struggling with the same. I just feel when you're starting out with completely new technology, things quickly can become overwhelming and it's A-OK to feel so. The important part is to not get intimidated by it and focus on learning the basics. Different pieces start coming together and there you have a solved puzzle :)

@@ -1,13 +1,12 @@
----
-title: "Setting up Kong API Gateway - Part 1/2"
-date: 2019-03-23T10:57:55+05:30
-type: "post"
-description: "Ansible Playbook for Deploying Kong Cluster - part 1"
-tags:
-- Devops
-- Ansible
-- Kong
----
++++
+title = "Setting up Kong API Gateway - Part 1/2"
+date = 2019-03-23T10:57:55+05:30
+type = "post"
+description = "Ansible Playbook for Deploying Kong Cluster - part 1"
+in_search_index = true
+[taxonomies]
+tags = ["devops","ansible","kong"]
++++
 
 # Kong
 
@@ -46,20 +45,19 @@ We will use Ansible to automate the task of setting up Kong+Cassandra in each of
 - role: kong
 ```
 
-
 After you run the playbook, there are a couple of important things which needs to be configured in order to have an HA setup. This setup guide
 assumes the playbook is run individually on 2 servers: `srvr A` and `srvr B`.
 
 ### Important Directory Paths
 
-| Local location  | Description |
-| --------------  | ----- |
-| `/usr/local/bin/kong`   | Kong executable binary |
-| `/usr/local/kong`   | All the settings and logs are available under a namespaced directory, which will be called as `PREFIX` in further sections. |
-| `/etc/systemd/service/kong.service`| Managing Kong as systemd service |
-| `/etc/systemd/service/cassandra.service`| Managing Cassandra db as systemd service |
-| `/etc/cassandra/cassandra.yaml`   | Config for Cassandra |
-| `/etc/kong/kong.conf` | Config for Kong |
+| Local location                           | Description                                                                                                                 |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `/usr/local/bin/kong`                    | Kong executable binary                                                                                                      |
+| `/usr/local/kong`                        | All the settings and logs are available under a namespaced directory, which will be called as `PREFIX` in further sections. |
+| `/etc/systemd/service/kong.service`      | Managing Kong as systemd service                                                                                            |
+| `/etc/systemd/service/cassandra.service` | Managing Cassandra db as systemd service                                                                                    |
+| `/etc/cassandra/cassandra.yaml`          | Config for Cassandra                                                                                                        |
+| `/etc/kong/kong.conf`                    | Config for Kong                                                                                                             |
 
 ### First Steps
 
@@ -67,13 +65,13 @@ assumes the playbook is run individually on 2 servers: `srvr A` and `srvr B`.
 
 Let's setup Cassandra first and run in clustering mode. Do these steps in both of the servers.
 
-1. Stop any running cassandra node:
+1.  Stop any running cassandra node:
 
     ```bash
     sudo service cassandra stop
     ```
 
-2. Edit the cassandra config file and update the following values:
+2.  Edit the cassandra config file and update the following values:
 
         cluster_name: 'KongAPICluster'
         seed_provider:
@@ -83,13 +81,13 @@ Let's setup Cassandra first and run in clustering mode. Do these steps in both o
         listen_address: <private_ip_srvr>
             start_rpc: true
 
-3. Start cassandra on both the servers and check the status:
+3.  Start cassandra on both the servers and check the status:
 
     ```bash
     sudo serice cassandra start
     ```
 
-4. Verify Cassandra clustering:
+4.  Verify Cassandra clustering:
 
     ```bash
     sudo nodetool status # Give it a couple of seconds (30-45) for both nodes to warm up and discover each other.
@@ -108,27 +106,27 @@ Let's setup Cassandra first and run in clustering mode. Do these steps in both o
     UN  <REDACTED>  496.36 KiB  256          100.0%            <REDACTED>  rack1
     ```
 
-5. Troubleshooting Cassandra:
+5.  Troubleshooting Cassandra:
 
     - **cqlsh unable to connect to `cassandra` server:**
-        `cqlsh` has a known bug in some versions with Python2.7 where it cannot connect to the cassandra server. Do the following steps to fix:
+      `cqlsh` has a known bug in some versions with Python2.7 where it cannot connect to the cassandra server. Do the following steps to fix:
 
-        ```bash
-        sudo pip install cassandra-driver
-        export CQLSH_NO_BUNDLED=TRUE
-        ```
+      ```bash
+      sudo pip install cassandra-driver
+      export CQLSH_NO_BUNDLED=TRUE
+      ```
 
     - **Unable to discover the other cassandra cluster:**
-        This usally happens because of network connectivity issues. Verify both nodes are able to talk to each other by running Cassandra in single cluster mode and then issue the following commands:
+      This usally happens because of network connectivity issues. Verify both nodes are able to talk to each other by running Cassandra in single cluster mode and then issue the following commands:
 
-        ```bash
-        # in srvrA
-        netstat -lntvp | grep cassandra # should be present (port 9042 usually)
-        # in srvrB, check similarly...
-        # in srvrA
-        telnet private_ip_srvrB 9042 # should connect
-        # in srvrB, check similarly...
-        ```
+      ```bash
+      # in srvrA
+      netstat -lntvp | grep cassandra # should be present (port 9042 usually)
+      # in srvrB, check similarly...
+      # in srvrA
+      telnet private_ip_srvrB 9042 # should connect
+      # in srvrB, check similarly...
+      ```
 
 #### Setting up Kong
 
@@ -136,44 +134,44 @@ Let's setup each Kong node in the cluster as following.
 
 1. Stop any running kong instance:
 
-    ```bash
-    sudo service kong stop
-    ```
+   ```bash
+   sudo service kong stop
+   ```
 
 2. Edit the kong config file and update the following values:
 
-    ```bash
-    ...
-    admin_listen = <private_ip_srvrA>:8001, <private_ip_srvrA>:8444 ssl
-    database = cassandra
-    db_update_propagation = 10 #seconds
-    ...
-    ```
+   ```bash
+   ...
+   admin_listen = <private_ip_srvrA>:8001, <private_ip_srvrA>:8444 ssl
+   database = cassandra
+   db_update_propagation = 10 #seconds
+   ...
+   ```
 
 3. Start kong on both the servers and check the status:
 
-    ```bash
-    sudo serice kong start
-    ```
+   ```bash
+   sudo serice kong start
+   ```
 
 4. Verify if Kong is running:
 
-    ```bash
-    sudo service kong status
-    ```
+   ```bash
+   sudo service kong status
+   ```
 
 5. Run Kong Migrations:
 
-    Run the migrations on *only* one cluster. Since the datastores will be in sync(_eventual consistency_ thanks to Cassandra), we don't have to run migrations on the second cluster.
+   Run the migrations on _only_ one cluster. Since the datastores will be in sync(_eventual consistency_ thanks to Cassandra), we don't have to run migrations on the second cluster.
 
-    ```bash
-    kong migrations -c /etc/path/to/config
-    ```
+   ```bash
+   kong migrations -c /etc/path/to/config
+   ```
 
 6. Troubleshooting Kong:
 
-    - Check if Kong is actually running by `sudo service kong status`. You can check for logs in `$PREFIX/logs/error.log`.
-    - If Kong is not running, you can try running `kong check` for checking if the config file is correct. Kong additionally provides a health check command, which can be executed using `kong health`.
+   - Check if Kong is actually running by `sudo service kong status`. You can check for logs in `$PREFIX/logs/error.log`.
+   - If Kong is not running, you can try running `kong check` for checking if the config file is correct. Kong additionally provides a health check command, which can be executed using `kong health`.
 
 ## Managing Kong
 

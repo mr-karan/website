@@ -43,3 +43,23 @@
 .post-header h1.title {
   margin: -10px 0 0 0;
 }
+
+.archive-year {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.archive-year:before,
+.archive-year:after {
+  content: "";
+  border-top: 2px solid;
+  margin: 0 20px 0 0;
+  flex: 1 0 20px;
+}
+
+.archive-year:after {
+  margin: 0 0 0 20px;
+}

@@ -1,13 +1,12 @@
----
-title: "GitOps approach to Continuous Delivery for Kubernetes"
-date: 2019-11-11T10:57:55+05:30
-type: "draft"
-description: "Setup a deployment pipeline using Gitlab CI/CD for continuous delivery to AWS EKS"
-tags:
-  - Devops
-  - Kubernetes
-  - CI/CD
----
++++
+title = "GitOps approach to Continuous Delivery for Kubernetes"
+date = 2019-11-11T10:57:55+05:30
+type = "draft"
+description = "Setup a deployment pipeline using Gitlab CI/CD for continuous delivery to AWS EKS"
+in_search_index = true
+[taxonomies]
+tags = ["Kubernetes","CI/CD", "Devops"]
++++
 
 In this post, I'd like to share my experience and learnings about configuring a deployment pipeline for Kubernetes. I'll be using Gitlab CI/CD and AWS EKS to demonstrate the concept, but the core idea remains the same: _all changes must come declaratively from a single source of truth_. `GitOps` is a relatively newer term in the town but goes back to the fundamentals of _Infra as Code_.
 

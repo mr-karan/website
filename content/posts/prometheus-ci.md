@@ -1,18 +1,17 @@
----
-title: "Adding Prometheus configuration to your CI/CD workflow"
-date: 2019-03-17T10:57:55+05:30
-type: "post"
-description: "Linting Prometheus Config using Gitlab CI/CD"
-tags:
-- Monitoring
-- Prometheus
-- Devops
-- CI/CD
----
++++
+title = "Adding Prometheus configuration to your CI/CD workflow"
+date = 2019-03-17T10:57:55+05:30
+type = "post"
+description = "Linting Prometheus Config using Gitlab CI/CD"
+in_search_index = true
+[taxonomies]
+tags = ["Monitoring","Prometheus","Devops","CI/CD"]
++++
 
-[Prometheus](https://prometheus.io/) configurations can turn into a mess in no time if you have a lot of different jobs scraping different targets. Certainly you can use tools like [jsonnet](https://jsonnet.org/) to keep your `YAML` files DRY but this post is not about that. I initially started off by writing one job to scrape a set of EC2 instances in a particular AWS VPC. Over the time, I had a requirement to do it over 3-4 different targets, each of them had their own rules and different type of exporters as well. The whole practice of `SSH`ing into the server, opening the config file in `vim` and editing in the server didn't just feel _right_. No surpises for guessing that I f*cked up a few times with config errors (YAML _sigh_) and finally decided that I need a better solution for this.
+[Prometheus](https://prometheus.io/) configurations can turn into a mess in no time if you have a lot of different jobs scraping different targets. Certainly you can use tools like [jsonnet](https://jsonnet.org/) to keep your `YAML` files DRY but this post is not about that. I initially started off by writing one job to scrape a set of EC2 instances in a particular AWS VPC. Over the time, I had a requirement to do it over 3-4 different targets, each of them had their own rules and different type of exporters as well. The whole practice of `SSH`ing into the server, opening the config file in `vim` and editing in the server didn't just feel _right_. No surpises for guessing that I f\*cked up a few times with config errors (YAML _sigh_) and finally decided that I need a better solution for this.
 
 ## CI/CD for config files
+
 "Wait, so now you're telling me that I need to setup a full fledged pipeline just for a few config files?", must have been the thought that echo'ed in your head. Before you jump to the conclusion that it's overdoing things, IMHO it's not. And it's not that difficult either to set it up, so why not? After integrating CI in your workflow, you can be confident that no bad syntax in your PromQL queries or in general the `YAML` syntax would break your monitoring system.
 
 "That sounds amazing, show me teh code already". Our Pipeline is fairly fairly simple:

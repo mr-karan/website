@@ -1,13 +1,12 @@
----
-title: "My Personal Networking Setup"
-date: 2019-06-29T18:10:55+05:30
-type: "post"
-description: "Self hosting personal VPN and DNS server"
-tags:
-- Networking
-- Privacy
-- DNS
----
++++
+title = "My Personal Networking Setup"
+date = 2019-06-29T18:10:55+05:30
+type = "post"
+description = "Self hosting personal VPN and DNS server"
+in_search_index = true
+[taxonomies]
+tags= ["Networking", "Privacy", "DNS"]
++++
 
 > If I have nothing to hide then I have nothing to show either
 
@@ -15,9 +14,9 @@ When you visit a site from your browser, there are several entities which have a
 
 If you're a human you already care about your privacy. You won't give out your Whatsapp chats to a random stranger on the streets to read, you won't leave the door open while bathing, you won't leave your credit card details out in the open, you will have a closed private discussion with your second half. Everyone does care about privacy in real life and everyone should care about the same online too.
 
-"Some" social media companies exist solely on the data you provide. They are in the business of selling data and they don't care a bit about your privacy. Every ad company out there wants an online persona about you, to feed you "personalized" recommendations. You may argue that they are "useful" but you cannot deny the fact that they are invading your privacy. You won't like unwanted relationship advice from your neighbour when he hears you both fighting in the middle of the night. No one likes invaders, period. 
+"Some" social media companies exist solely on the data you provide. They are in the business of selling data and they don't care a bit about your privacy. Every ad company out there wants an online persona about you, to feed you "personalized" recommendations. You may argue that they are "useful" but you cannot deny the fact that they are invading your privacy. You won't like unwanted relationship advice from your neighbour when he hears you both fighting in the middle of the night. No one likes invaders, period.
 
-Correlation of data points is easy to do in this age of ML/AI (_Malai_). Re-iterating an example I read somewhere on the interwebz, say you search for a very generic term "cancer", this alone doesn't indicate that you have cancer but merely is suggestive of the fact that you are interested in knowing more about the disease. Now maybe a few days later you search for the phrase "buy a wig online". These 2 search queries put together _can suggest_ that you've had chemotherapy done recently. This is a piece of information you *might* not want to hide, but you do want to **have an option** right? 
+Correlation of data points is easy to do in this age of ML/AI (_Malai_). Re-iterating an example I read somewhere on the interwebz, say you search for a very generic term "cancer", this alone doesn't indicate that you have cancer but merely is suggestive of the fact that you are interested in knowing more about the disease. Now maybe a few days later you search for the phrase "buy a wig online". These 2 search queries put together _can suggest_ that you've had chemotherapy done recently. This is a piece of information you _might_ not want to hide, but you do want to **have an option** right?
 
 That's the whole fight against companies which invade your privacy is. You have absolutely no choice. You're devoid of any choice.
 
@@ -29,7 +28,7 @@ You may not even realise but we've all been guilty of _Googling_ some random shi
 
 I hope by now you're convinced that you want some basic privacy online. If not, stop reading here because if this didn't persuade you enough, nothing will and the rest of the blog is pretty useless for you anyway, so thanks for stopping by!
 
-For the rest of us folks, there are a few practical things we can immediately start which. These are the things which have very less involvement of effort but are a good kickstart. 
+For the rest of us folks, there are a few practical things we can immediately start which. These are the things which have very less involvement of effort but are a good kickstart.
 
 - Use DNS over HTTPS (DoH) based resolver (personal choice: 1.1.1.1)
 - Use a browser which doesn't ship with its own [god damn resolver](https://discourse.pi-hole.net/t/disable-async-dns-resolver-in-google-chrome/9500) (personal choice: Firefox)
@@ -41,10 +40,9 @@ Only with the above 3 steps you've achieved:
 - Websites cannot serve you random js code in the name of ads
 - A web browser which is more focussed towards privacy in general
 
-If you're someone who wants to spend a bit more time (trust me it won't take even one hour) and a bit of money (one movie ticket a month) you should host your personal VPN. VPNs are awesome because you mitigate a lot of privacy invaders and you are on an anonymous browsing mode _generally_. Theoretically, we have shifted the trust from the ISP to the cloud provider where VPN is hosted, yes. But as long as you're not doing anything illegal in the eyes of the state, you should be fine. 
+If you're someone who wants to spend a bit more time (trust me it won't take even one hour) and a bit of money (one movie ticket a month) you should host your personal VPN. VPNs are awesome because you mitigate a lot of privacy invaders and you are on an anonymous browsing mode _generally_. Theoretically, we have shifted the trust from the ISP to the cloud provider where VPN is hosted, yes. But as long as you're not doing anything illegal in the eyes of the state, you should be fine.
 
 **Protip**: Don't use VPN to do something stupid. You are always trackable. The whole exercise is to not allow bad actors to access your personally identifiable information online and have a non-intrusive browsing experience. If you think by using VPNs you can get away with doing something which is illegal by your state then you're wrong.
-
 
 ## Tools I use
 
@@ -52,7 +50,7 @@ If you're someone who wants to spend a bit more time (trust me it won't take eve
 - Adblocking: [Pi-hole](https://pi-hole.net/)
 - DNS Resolver: [Unbound](https://nlnetlabs.nl/projects/unbound/about/)
 
-The setup is pretty straightforward. I use Wireguard client on my MBP and an Android device to connect to the Wireguard VPN server hosted on a $5 [DO](https://www.digitalocean.com/) droplet in Bengaluru, India. For ad-blocking, I use Pi-hole, which does DNS based ad-blocking. And finally to resolve the DNS queries I use vanilla unbound without any forwarders. 
+The setup is pretty straightforward. I use Wireguard client on my MBP and an Android device to connect to the Wireguard VPN server hosted on a \$5 [DO](https://www.digitalocean.com/) droplet in Bengaluru, India. For ad-blocking, I use Pi-hole, which does DNS based ad-blocking. And finally to resolve the DNS queries I use vanilla unbound without any forwarders.
 
 Read the following sections to know more on each of the above pieces.
 
@@ -61,7 +59,7 @@ Read the following sections to know more on each of the above pieces.
 Wireguard gets all the love from me (thanks to [@sarat](https://twitter.com/iamd3vil) for telling me about this). It is probably the best option out there if you're looking to self-host a VPN. Wireguard gets a lot of things right, first being the ease of setup. Literally takes a few commands and you're all set. Wireguard is very lightweight and consumes minimal resources. Wireguard has better encryption and is a [lot faster](https://www.wireguard.com/performance/) than IPvsec or open VPN. Cloudflare's new app Warp is also based on Wireguard. Oh, and did I mention that Wireguard seamlessly transitions when you switch networks (which happens all the time when you're on shitty 4G network/public WiFis).
 
 Wireguard basically has 2 parts. One is the server and the other is the client.
-Wireguard sits in its own separate network namespace and uses this namespace as an init namespace from where the traffic is received or sent. This namespace is now responsible for flowing your traffic to the other actual interface your network card on the device (which is probably wlan or eth). 
+Wireguard sits in its own separate network namespace and uses this namespace as an init namespace from where the traffic is received or sent. This namespace is now responsible for flowing your traffic to the other actual interface your network card on the device (which is probably wlan or eth).
 
 ### Installing Wireguard
 
@@ -123,9 +121,9 @@ PersistentKeepalive = 25
 
 ### Recap
 
-If you got overwhelmed at this point, let's recap what just happened. 
+If you got overwhelmed at this point, let's recap what just happened.
 
-We have 2 config files, one for the server and one for the client which happens to be my laptop. On each of the devices, generate a public/private key pair. 
+We have 2 config files, one for the server and one for the client which happens to be my laptop. On each of the devices, generate a public/private key pair.
 
 On the server side, while configuring peer, give the public key of the client. On the client side, while configuring peer,give the public key of the server. This is similar to how `ssh` works. Wireguard uses `Curve25519` crypto technique to generate a public/private key pair, which honestly _looks_ so better than lengthy ECDSA/RSA ones :P
 
@@ -183,7 +181,7 @@ peer: <client_public_key>
 
 Wireguard status shows that our client can reach the wireguard server. But still, we're unable to browse the internet on our client.
 
-To debug this further, let's use `tcpdump` and monitor the packets coming in `wg0` interface. Since tcpdump's output can be overwhelming and contains a lot of noise, let's filter to monitor only the ICMP packets. So we'll be using `ping` from a client which is the easiest way to send ICMP packets from point A to point B. 
+To debug this further, let's use `tcpdump` and monitor the packets coming in `wg0` interface. Since tcpdump's output can be overwhelming and contains a lot of noise, let's filter to monitor only the ICMP packets. So we'll be using `ping` from a client which is the easiest way to send ICMP packets from point A to point B.
 
 ```bash
 # on wireguard client
@@ -210,7 +208,7 @@ listening on wg0, link-type RAW (Raw IP), capture size 262144 bytes
 
 Okay, this is getting interesting. wg0 is definitely receiving packets from our client. Arghhh. _Now_ does it strike to you? Our actual network routing is through `eth0` (on DO usually) and `wg0` is just some interface created by Wireguard. They have no "connection" (no pun intended) between them. Let us confirm if this actually is the problem by detecting ICMP traffic on this interface(`eth0`) using the same command:
 
-``` bash
+```bash
 # on wireguard server
 $ sudo tcpdump -nni eth0 -Q in icmp
 tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
@@ -218,7 +216,7 @@ listening on eth0, link-type RAW (Raw IP), capture size 262144 bytes
 ... # nothing happens even if we are sending PING from client
 ```
 
-Wow, see? No ICMP packets received on `eth0`. So that indeed is the problem and we have zero'ed it down using `tcpdump`. 
+Wow, see? No ICMP packets received on `eth0`. So that indeed is the problem and we have zero'ed it down using `tcpdump`.
 (Note to self: Learn more Linux debugging utils, these things are a godsend!)
 
 In order to fix this, we need to do 2 things:
@@ -249,6 +247,7 @@ Now everything's set up and we are browsing the internet privately using a VPN. 
 ### Setting up Pi-hole
 
 Installing Pi-hole is as simple as
+
 ```bash
 curl -sSL https://install.pi-hole.net | bash
 ```
@@ -259,7 +258,7 @@ A nice GUI is always a plus, so make sure you enable that option while installin
 
 ![image](/images/pihole-dashboard.png)
 
-Now, we need to configure our Wireguard client to use Pi-hole as a nameserver for DNS resolution. 
+Now, we need to configure our Wireguard client to use Pi-hole as a nameserver for DNS resolution.
 
 ```bash
 # on the client add the following line
@@ -271,7 +270,6 @@ DNS = <vpn_server_public_ip>
 ```
 
 Pi-hole runs on port 53 and accepts DNS queries over UDP. Any query is first checked by Pi-hole in the blacklist. If it's present in the blacklist, it's immediately dropped. If not, Pi-hole will forward our DNS query to one of the forwarder configured (1.1.1.1 for eg or our custom server, explained in the next step).
-
 
 ### Setting up Unbound DNS
 
@@ -306,7 +304,6 @@ You can configure Pi-hole to forward accepted DNS queries from port `53` (standa
 
 ![PiHole DNS](/images/pihole-dns.png "PiHole DNS")
 
-
 ## The Endgame
 
 I plan to self-host a couple of more things. DNS is something I am really interested in and in future I plan to host my own DNScrypt server _soon-ish_.
@@ -315,7 +312,7 @@ I believe if you _own_ your data you're in better control of your digital identi
 
 Ending this long-ish post by a beautiful quote:
 
-> Study after study has shown that human behaviour changes when we know we’re being watched. Under observation, we act less free, which means we effectively *are* less free.
-― Edward Snowden
-  
+> Study after study has shown that human behaviour changes when we know we’re being watched. Under observation, we act less free, which means we effectively _are_ less free.
+> ― Edward Snowden
+
 Cheers! :)

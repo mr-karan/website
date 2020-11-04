@@ -1,12 +1,12 @@
----
-title: "Receiving notifications from Supervisor"
-date: 2018-06-03T10:57:55+05:30
-type: "post"
-description: "Listening to Events in Supervisor"
-tags:
-- Python
-- Supervisor
----
++++
+title = "Receiving notifications from Supervisor"
+date = 2018-06-03T10:57:55+05:30
+type = "post"
+description = "Listening to Events in Supervisor"
+in_search_index = true
+[taxonomies]
+tags = ["Python","Supervisor"]
++++
 
 ![Supervisor Events Zine](images/supervisor-zine.jpg "Supervisor Events Zine")
 
@@ -50,6 +50,7 @@ The bug with events is that if you make any changes to the event group, `reread`
 ### Supervisor Event Listener Protocol
 
 Supervisor sends a header which is a key value pair of meta-attributes about the process and event. This header looks something like
+
 ```bash
 ver:3.0 server:supervisor serial:208 pool:mylistener poolserial:0 eventname:PROCESS_STATE_RUNNING len:69
 ```
@@ -118,6 +119,7 @@ Let us break this into pieces.
 ```bash
 write_stdout('READY\n')
 ```
+
 We flush `READY` with a linefeed character (`\n`) to `STDOUT`. Supervisor has put mylistener to `BUSY` state now.
 
 ```bash
@@ -133,6 +135,7 @@ data = sys.stdin.read(int(headers['len']))
 
 This part is interesting. Here, we capture the `len` key from the header and read the next `STDIN` line up to this many chars. The `data` would consist of our event payload.
 Event payload looks something like:
+
 ```bash
 processname:prog-restartv3_0 groupname:prog-restartv3 from_state:STOPPED tries:0ver:3.0 server:supervisor serial:25 pool:prog-restartv3 poolserial:3 eventname:PROCESS_STATE_STARTING len:76`
 ```
@@ -146,6 +149,7 @@ This is the handler where you can send an email, send a request to API, log it t
 ```python
 write_stdout('RESULT 2\nOK')
 ```
+
 Finally, we tell Supervisor to put the listener from `BUSY` to `ACKNOWLEDGED` state, by sending a result structure. The result could be `FAIL` or `OK`, so you need to send `RESULT` followed by the length of the state variable. For example for `OK` you will send `RESULT 2\nOK` but for `FAIL` you have to send `RESULT 4\nFAIL`.
 
 That's pretty much all you need to start receiving notifications from Supervisor every time your program changes its state. If you found this article useful, I'd love if you share this on [Twitter](https://twitter.com/intent/tweet?url=https%3A%2F%2Fmr-karan.github.io%2Fposts%2Fsupervisor-notifications&text=Receiving%20notifications%20from%20Supervisor) or [Facebook](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmr-karan.github.io%2Fposts%2Fsupervisor-notifications) and let your friends know about it too.

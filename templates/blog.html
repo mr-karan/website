@@ -7,13 +7,14 @@
 
 {% for year, posts in section.pages | group_by(attribute="year") %}
 <ul class="posts flat">
+    <h2 class="archive-year">{{ year }}</h2>
     {% for post in posts %}
     <li class="post">
         <div class="post-header">
             <div class="meta">
                 <div class="date">
-                    <span class="day">{{ post.date | date(format='%d') }}</span>
-                    <span class="rest">{{ post.date | date(format='%B %Y') }}</span>
+                    <span class="day">{{ post.day }}</span>
+                    <span class="rest">{{ post.date | date(format='%B') }}</span>
                 </div>
             </div>
             <div class="matter">

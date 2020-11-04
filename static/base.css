@@ -1,0 +1,43 @@
+/*Resets*/
+@import "normalize.css";
+
+/*Site Wide Components*/
+@import "variables.css";
+@import "typography.css";
+@import "header.css";
+@import "footer.css";
+
+/* Page Specific Components*/
+@import "blog.css";
+
+body {
+  font-family: var(--font-sans-serif);
+  word-wrap: break-word;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  max-width: 50em;
+  font-size: 16px;
+  margin: 0 auto;
+  padding: 1rem;
+  line-height: 1.8rem;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+::selection {
+  text-shadow: none;
+  color: #fff;
+  background: var(--primary);
+}
+
+article {
+  flex: 1;
+}
+
+.highlight-handle {
+  background: var(--primary);
+  border-radius: 4px;
+  color: var(--white);
+  padding: 4px 8px;
+}

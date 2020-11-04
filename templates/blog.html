@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+    {{ section.title }}
+</h1>
+
+{% for year, posts in section.pages | group_by(attribute="year") %}
+<ul class="posts flat">
+    {% for post in posts %}
+    <li class="post">
+        <div class="post-header">
+            <div class="meta">
+                <div class="date">
+                    <span class="day">{{ post.date | date(format='%d') }}</span>
+                    <span class="rest">{{ post.date | date(format='%B %Y') }}</span>
+                </div>
+            </div>
+            <div class="matter">
+                <h4 class="title small">
+                    <a href="{{ post.permalink | safe }}">{{ post.title }}</a>
+                </h4>
+                <span class="description">
+                    {{post.description}}
+                </span>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endfor %}
+{% endblock content %}

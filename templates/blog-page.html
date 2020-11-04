@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="post">
+    <div class="post-header">
+        <div class="meta">
+            <div class="date">
+                <span class="day">{{ page.date | date(format='%dY')}}</span>
+                <span class="rest">{{ page.date | date(format='%B %Y')}}</span>
+            </div>
+        </div>
+
+        <div class="matter">
+            <h1 class="title">{{ page.title }}</h1>
+        </div>
+    </div>
+    <article>
+        {{ page.content | safe }}
+    </article>
+</section>
+{% endblock content %}

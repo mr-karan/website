@@ -1,0 +1,40 @@
+.posts {
+  margin: 0;
+  padding: 0;
+}
+
+.post {
+  display: block;
+}
+
+.post-header {
+  display: flex;
+}
+
+.post-header .meta .date {
+  margin-right: 2rem;
+  width: 64px;
+  text-align: center;
+}
+
+.post-header .meta .date .day {
+  font-family: Georgia, bitstream charter, serif;
+  font-weight: 700;
+  line-height: 0.45em;
+  font-size: 3em;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.post-header .meta .date .rest {
+  display: block;
+  font-size: 0.75em;
+}
+
+.post .title.small {
+  margin: 0 0 10px 0;
+}
+
+.post .post-header {
+  margin-bottom: 30px;
+}

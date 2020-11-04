@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karan Sharma - Ramblings on tech, cycling, and finance</title>
+    <meta name="description" content="Ramblings on tech, cycling, and finance." />
+    <meta name="keywords" content="mrkaran, karan, karan sharma" />
+    <meta property="og:title" content="Karan Sharma - Ramblings on tech, cycling, and finance" />
+    <meta property="og:url" content="https://mrkaran.dev" />
+    <meta property="og:description" content="Ramblings on tech, cycling, and finance." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://mrkaran.dev/_assets/og.png" />
+    <link href="/base.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Karan Sharma</h1>
+        <div class="site-description">
+            <p>Ramblings on tech, cycling, and finance</p>
+            <div class="social">
+                <ul>
+                    <li>
+                        <a href="https://github.com/mr-karan" title="Github"><i data-feather="github"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/mrkaran_" title="Twitter"><i data-feather="twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="/index.xml" title="RSS"><i data-feather="rss"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/blog">Blog</a>
+            <a href="/projects">Projects</a>
+            <a href="/snippets">Snippets</a>
+            <a href="/setup">Uses</a>
+        </nav>
+    </header>
+    <article>{% block content %} {% endblock %}</article>
+    <footer>
+        <p>Generated with <a href="https://getzola.org">Zola</a></p>
+    </footer>
+    <script>
+        feather.replace();
+    </script>
+</body>
+
+</html>

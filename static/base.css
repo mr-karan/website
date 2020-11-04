@@ -9,6 +9,7 @@
 
 /* Page Specific Components*/
 @import "blog.css";
+@import "tags.css";
 
 body {
   font-family: var(--font-sans-serif);
@@ -28,7 +29,7 @@ body {
 ::selection {
   text-shadow: none;
   color: #fff;
-  background: var(--primary);
+  background: var(--text-color);
 }
 
 article {
@@ -36,8 +37,36 @@ article {
 }
 
 .highlight-handle {
-  background: var(--primary);
+  background: var(--text-color);
   border-radius: 4px;
   color: var(--white);
   padding: 4px 8px;
+}
+
+pre {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 20px;
+}
+
+@media (max-width: 900px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
 }

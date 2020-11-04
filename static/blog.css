@@ -9,6 +9,7 @@
 
 .post-header {
   display: flex;
+  align-items: center;
 }
 
 .post-header .meta .date {
@@ -37,4 +38,8 @@
 
 .post .post-header {
   margin-bottom: 30px;
+}
+
+.post-header h1.title {
+  margin: -10px 0 0 0;
 }

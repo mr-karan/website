@@ -1,5 +1,7 @@
 header {
   margin-top: 2em;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 header .site-description {
@@ -50,11 +52,14 @@ nav {
 }
 
 nav a {
-  margin-right: 1rem;
+  margin-right: 1.5rem;
 }
 
 @media (max-width: 900px) {
   .social li {
     margin: 0;
+  }
+  nav a {
+    margin-right: 0.5rem;
   }
 }

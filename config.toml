@@ -1,6 +1,6 @@
 # The URL the site will be built for
 base_url = "https://mrkaran.dev"
-
+title = "Karan Sharma"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
 
@@ -11,5 +11,17 @@ highlight_code = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
+taxonomies = [
+    {name = "tags", lang = "en", rss = true},
+]
+
 [extra]
 # Put all your custom variables here
+menu_links = [
+    { url = "$BASE_URL/", name = "Home" },
+    { url = "$BASE_URL/posts/", name = "Blog" },
+    { url = "$BASE_URL/tags/", name = "Tags" },
+    { url = "$BASE_URL/causes/", name = "Causes" },
+    { url = "$BASE_URL/setup/", name = "Setup" },
+    { url = "$BASE_URL/about/", name = "About" },
+]

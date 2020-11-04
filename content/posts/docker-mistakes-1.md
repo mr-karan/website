@@ -4,7 +4,6 @@ date = 2019-04-15T10:57:55+05:30
 type = "post"
 description = "Sharing my Docker Learnings"
 [taxonomies]
-categories = ["Docker"]
 tags = ["docker","devops"]
 +++
 

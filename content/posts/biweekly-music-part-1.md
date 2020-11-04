@@ -6,7 +6,6 @@ type = "post"
 description = "Sharing some Awesome Music - part 1"
 in_search_index = true
 [taxonomies]
-categories = ["Music Recommendations"]
 tags = ["music"]
 +++
 

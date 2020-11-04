@@ -12,7 +12,7 @@
     <meta property="og:description" content="Ramblings on tech, cycling, and finance." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://mrkaran.dev/_assets/og.png" />
-    <link href="/base.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ get_url(path="base.css", trailing_slash=false) | safe }}">
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
 
@@ -36,16 +36,20 @@
             </div>
         </div>
         <nav>
-            <a href="/">Home</a>
-            <a href="/blog">Blog</a>
-            <a href="/projects">Projects</a>
-            <a href="/snippets">Snippets</a>
-            <a href="/setup">Uses</a>
+            {% for menu_link in config.extra.menu_links %}
+            {% set link_url = menu_link.url | replace(from="$BASE_URL", to=config.base_url) %}
+            <a {% if current_url and current_url == link_url %}class="active" {% endif %}
+                href="{{ link_url }}">{{menu_link.name}}
+            </a>
+            {% endfor %}
         </nav>
     </header>
     <article>{% block content %} {% endblock %}</article>
     <footer>
-        <p>Generated with <a href="https://getzola.org">Zola</a></p>
+        <p>
+            © {{ config.title }} {{ now() | date(format="%Y") }}<br>
+            Powered by <a target="_blank" href="https://getzola.org/">Zola</a>
+        </p>
     </footer>
     <script>
         feather.replace();

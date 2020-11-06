@@ -7,6 +7,8 @@ description = "A quick tutorial on how to host a RIPE Atlas Probe and some gener
 in_search_index = true
 [taxonomies]
 tags = ["Networking","HomeServer"]
+[extra]
+og_preview_img="images/ripe-measurement1.png"
 +++
 
 Twitter is an amazing thing! For all the shitposting and meme-ing that's done there, there are some really cool people you get to interact with which wouldn't have been possible IRL. I happened to stumble upon [Swapneel](https://twitter.com/pswapneel) last year in Bangalore at a meetup. He occasionally posts about [RIPE Atlas](https://atlas.ripe.net/) Probes measurements on his Twitter feed and that made me curious and learn more about the Atlas Probe. Call it the Baader-Meinhof effect but just when I was reading his [blog post](https://brainattic.in/blog/2020/03/27/host-a-ripe-atlas-software-probe-in-your-network/) on RIPE Atlas, I found about a Hasgeek [workshop](https://hasgeek.com/rootconf/measuring-the-internet-using-ripe-atlas/) which is being conducted by Swapneel himself and well, that's how I basically got interested in setting up a probe myself.

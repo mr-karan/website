@@ -1,19 +1,27 @@
 # The URL the site will be built for
 base_url = "https://mrkaran.dev"
 title = "Karan Sharma"
+description = "Ramblings on tech, cycling, and finance"
+
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
 
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
+highlight_theme = "boron"
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
+generate_feed = true
+feed_filename = "rss.xml"
+
 taxonomies = [
     {name = "tags", lang = "en", rss = true},
 ]
+
+ emoji_rendering = true
 
 [extra]
 # Put all your custom variables here
@@ -21,7 +29,8 @@ menu_links = [
     { url = "$BASE_URL/", name = "Home" },
     { url = "$BASE_URL/posts/", name = "Blog" },
     { url = "$BASE_URL/tags/", name = "Tags" },
+    { url = "$BASE_URL/projects/", name = "Projects" },
     { url = "$BASE_URL/causes/", name = "Causes" },
     { url = "$BASE_URL/setup/", name = "Setup" },
-    { url = "$BASE_URL/about/", name = "About" },
+    { url = "$BASE_URL/contact/", name = "Contact" },
 ]

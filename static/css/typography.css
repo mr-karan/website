@@ -63,19 +63,11 @@ a {
   text-decoration: none;
 }
 
-@media (hover: hover) {
-  a:hover {
-    text-decoration: underline;
-  }
+a:hover {
+  text-decoration: underline;
 }
 
-small {
-  font-size: 0.888rem;
-}
-
-hr {
-  border: 0;
-  height: 2px;
-  margin: 1rem 0;
-  background: var(--light-gray);
+input:focus,
+textarea:focus {
+  outline: none;
 }

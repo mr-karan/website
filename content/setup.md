@@ -2,6 +2,7 @@
 title = "My Setup"
 images = ["/images/night-setup.jpg"]
 template = "page.html"
+in_search_index = true
 +++
 
 ![image](/images/day-setup.jpg)

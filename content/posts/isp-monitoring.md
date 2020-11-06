@@ -2,11 +2,12 @@
 title = "Monitoring my home network"
 date = 2020-09-18T08:10:55+05:30
 type = "post"
-images = ["/images/ISP-Monitoring-Grafana2.png"]
 description = "Setting up a home network monitoring stack built with Telegraf, Grafana and Raspberry Pi"
 in_search_index = true
 [taxonomies]
 tags = ["Homeserver", "Networking"]
+[extra]
+og_preview_img = "/images/ISP-Monitoring-Grafana2.png"
 +++
 
 I like monitoring _stuff_. That's what I do at work and when my home ISP started giving me random problems and I decided it would be nice to monitor my home network as well. There are a couple of ways to go around this, a very popular and OSS solution is [SmokePing](https://oss.oetiker.ch/smokeping/). SmokePing is written in Perl and is used to visualise network latencies. It's quite a great solution but for my current stack which involves Prometheus and Grafana, it meant I had to deploy a standalone tool separate from my monitoring stack - something which I wanted to avoid.

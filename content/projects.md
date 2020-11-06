@@ -1,5 +1,6 @@
 +++
 title =  "Projects"
+in_search_index = true
 +++
 
 [kubekutr](https://github.com/mr-karan/kubekutr/) Cookie cutter templating tool for scaffolding K8s manifests

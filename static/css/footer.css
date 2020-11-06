@@ -3,4 +3,7 @@ footer {
   font-size: 0.75em;
   border-top: 1px solid var(--text-color);
   padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

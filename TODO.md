@@ -2,24 +2,29 @@
 
 - [x] Basic port of `hugo-ink`.
 - [x] Migrate all blog posts and convert them to `toml` frontmatter.
-- [ ] Fix images.
+- [x] Syntax highlight fixes
+- [x] Fix images.
+- [x] Title bar - Blog title
+- [x] Verify all SEO/meta tags are present.
+- [x] Add macro for meta tags
+- [x] Add support for `image` parameter in individual blog posts. They'll be used for `og:image` in `blog_page` header.
+- [x] Add RSS Feed support.
+- [x] Add search bar.
 - [ ] Add `draft` support.
-- [ ] Verify all SEO/meta tags are present.
-- [ ] Add support for `image` parameter in individual blog posts. They'll be used for `og:image` in `blog_page` header.
-- [ ] Add RSS Feed support.
-- [ ] Add search bar.
+- [ ] Updated/Article Published meta tags.
 
 ## Content
 
 - [ ] Rewrite home page.
-- [ ] Add a causes page.
-- [ ] Redo the `setup` page.
+- [x] Contact `/contact` page.
+- [x] Add a causes page.
+- [x] Redo the `setup` page.
 - [ ] Add a `/now` page.
 - [ ] _Consider_ adding a `/til` page.
 
 ## Design
 
-- [ ] `pygments` or similar code-highlighting support.
+- [x] `pygments` or similar code-highlighting support.
 
 ## Deployment
 

@@ -2,11 +2,12 @@
 title = "Using Tailscale for home server"
 date = 2020-04-23T08:10:55+05:30
 type = "post"
-images = ["/images/home-server-hydra.png"]
 description = "In this post, I'll be talking about how I use Tailscale as a mesh VPN and some updates to my previous home server setup"
 in_search_index = true
 [taxonomies]
 tags = ["Networking","Kubernetes","Homeserver"]
+[extra]
+og_preview_img = "/images/home-server-hydra.png"
 +++
 
 For those of you who are new to my blog, I had written about my [home server setup](https://mrkaran.dev/posts/home-server-setup/) (`hydra`) a few months back. Since then I've tweaked the setup a bit and made some changes to how I organise/deploy applications inside my cluster. I'll be talking about the updates made so far and the reason behind them.

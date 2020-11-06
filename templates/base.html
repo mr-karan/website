@@ -1,19 +1,27 @@
+{% import "macros/head.html" as head -%}
+{% import "macros/opengraph.html" as social -%}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Karan Sharma - Ramblings on tech, cycling, and finance</title>
-    <meta name="description" content="Ramblings on tech, cycling, and finance." />
-    <meta name="keywords" content="mrkaran, karan, karan sharma" />
-    <meta property="og:title" content="Karan Sharma - Ramblings on tech, cycling, and finance" />
-    <meta property="og:url" content="https://mrkaran.dev" />
-    <meta property="og:description" content="Ramblings on tech, cycling, and finance." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://mrkaran.dev/_assets/og.png" />
-    <link rel="stylesheet" href="{{ get_url(path="base.css", trailing_slash=false) | safe }}">
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    {%- block general_meta -%}
+    {{ head::general_meta() }}
+    {%- endblock general_meta -%}
+
+    {%- block og_preview -%}
+    {{ social::og_preview() }}
+    {%- endblock og_preview -%}
+
+    {% block rss %}
+    <link rel="alternate" type="application/rss+xml" title="{{config.title}}"
+        href="{{ get_url(path="rss.xml", trailing_slash=false) | safe}}">
+    {% endblock %}
+
+    <link rel="stylesheet" href="{{ get_url(path="css/base.css", trailing_slash=false) | safe }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
+        integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g=="
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -21,31 +29,40 @@
         <h1>Karan Sharma</h1>
         <div class="site-description">
             <p>Ramblings on tech, cycling, and finance</p>
-            <div class="social">
-                <ul>
-                    <li>
-                        <a href="https://github.com/mr-karan" title="Github"><i data-feather="github"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/mrkaran_" title="Twitter"><i data-feather="twitter"></i></a>
-                    </li>
-                    <li>
-                        <a href="/index.xml" title="RSS"><i data-feather="rss"></i></a>
-                    </li>
-                </ul>
+            <div class="search-container">
+                <input id="search" type="search" placeholder="🔎 Search">
+                <div class="search-results">
+                    <div class="search-results__items"></div>
+                </div>
             </div>
         </div>
         <nav>
-            {% for menu_link in config.extra.menu_links %}
-            {% set link_url = menu_link.url | replace(from="$BASE_URL", to=config.base_url) %}
-            <a {% if current_url and current_url == link_url %}class="active" {% endif %}
-                href="{{ link_url }}">{{menu_link.name}}
-            </a>
-            {% endfor %}
+            <div class="links">
+                {% for menu_link in config.extra.menu_links %}
+                {% set link_url = menu_link.url | replace(from="$BASE_URL", to=config.base_url) %}
+                <a {% if current_url and current_url == link_url %}class="active" {% endif %}
+                    href="{{ link_url | safe}} ">{{menu_link.name}}
+                </a>
+                {% endfor %}
+            </div>
         </nav>
     </header>
     <article>{% block content %} {% endblock %}</article>
     <footer>
+        <div class="social">
+            <ul>
+                <li>
+                    <a href="https://github.com/mr-karan" title="Github"><i data-feather="github"></i></a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/mrkaran_" title="Twitter"><i data-feather="twitter"></i></a>
+                </li>
+                <li>
+                    <a href="{{ get_url(path="rss.xml", trailing_slash=false) | safe}}" title="{{config.title}}"><i
+                            data-feather="rss"></i></a>
+                </li>
+            </ul>
+        </div>
         <p>
             © {{ config.title }} {{ now() | date(format="%Y") }}<br>
             Powered by <a target="_blank" href="https://getzola.org/">Zola</a>
@@ -54,6 +71,9 @@
     <script>
         feather.replace();
     </script>
+    <script type="text/javascript" src="{{ get_url(path="elasticlunr.min.js") |safe }}"></script>
+    <script type="text/javascript" src="{{ get_url(path="search_index.en.js") | safe }}"></script>
+    <script type="text/javascript" src="{{ get_url(path="js/search.js") | safe }}"></script>
 </body>
 
 </html>

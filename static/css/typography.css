@@ -1,3 +1,7 @@
+@import url("/fonts/fira-code.css");
+@import url("/fonts/fira-sans.css");
+@import url("/fonts/merriweather.css");
+
 h1,
 h2,
 h3,
@@ -6,37 +10,31 @@ h5,
 h6 {
   line-height: 1.3em;
   margin: 30px 0 20px 0;
-  font-weight: bold;
+  font-family: var(--font-headings);
 }
 
 h1 {
   font-size: 3.052rem;
-  letter-spacing: -0.15rem;
 }
 
 h2 {
   font-size: 2.441rem;
-  letter-spacing: -0.12rem;
 }
 
 h3 {
   font-size: 1.953rem;
-  letter-spacing: -0.09rem;
 }
 
 h4 {
   font-size: 1.563rem;
-  letter-spacing: -0.06rem;
 }
 
 h5 {
   font-size: 1.25rem;
-  letter-spacing: -0.03rem;
 }
 
 h6 {
   font-size: 1rem;
-  letter-spacing: 0;
 }
 
 blockquote {
@@ -70,6 +68,12 @@ a:hover {
 input:focus,
 textarea:focus {
   outline: none;
+}
+
+pre,
+code {
+  font-family: var(--font-monospace);
+  text-rendering: optimizeLegibility;
 }
 
 @media (max-width: 700px) {

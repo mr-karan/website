@@ -14,7 +14,7 @@
 @import "tags.css";
 
 body {
-  font-family: var(--font-sans-serif);
+  font-family: var(--font-base);
   word-wrap: break-word;
   background-color: var(--white);
   color: var(--text-color);

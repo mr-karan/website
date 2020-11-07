@@ -11,26 +11,32 @@ h6 {
 
 h1 {
   font-size: 3.052rem;
+  letter-spacing: -0.15rem;
 }
 
 h2 {
   font-size: 2.441rem;
+  letter-spacing: -0.12rem;
 }
 
 h3 {
   font-size: 1.953rem;
+  letter-spacing: -0.09rem;
 }
 
 h4 {
   font-size: 1.563rem;
+  letter-spacing: -0.06rem;
 }
 
 h5 {
   font-size: 1.25rem;
+  letter-spacing: -0.03rem;
 }
 
 h6 {
   font-size: 1rem;
+  letter-spacing: 0;
 }
 
 blockquote {
@@ -64,4 +70,15 @@ a:hover {
 input:focus,
 textarea:focus {
   outline: none;
+}
+
+@media (max-width: 700px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    letter-spacing: 1px;
+  }
 }

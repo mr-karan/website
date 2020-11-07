@@ -39,3 +39,9 @@
   display: inline-block;
   margin-bottom: 0.5rem;
 }
+
+.search-icon {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+}

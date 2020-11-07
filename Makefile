@@ -1,10 +1,7 @@
-.PHONY: build serve deploy
+.PHONY: build serve
 
 serve:
 	zola serve
 
 build:
 	zola build
-
-deploy:
-	

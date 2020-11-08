@@ -30,11 +30,11 @@
 
 - [ ] Setup `mrkaran.dev` CNAME to DO Droplet with Cloudflare.
 - [ ] Setup Github Actions/DroneCI to `rsync` the assets to Droplet.
-- [ ] Deploy `shynet` for analytics.
+- [x] Deploy `shynet` for analytics.
 
 ## Post Release
 
-- [ ] Write a blog post on why the migration from `Hugo` to `Zola`.
+- [x] Write a blog post on why the migration from `Hugo` to `Zola`.
 
 ## Future
 

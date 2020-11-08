@@ -15,7 +15,7 @@
 
     {% block rss %}
     <link rel="alternate" type="application/rss+xml" title="{{config.title}}"
-        href="{{ get_url(path="rss.xml", trailing_slash=false) | safe}}">
+        href="{{ get_url(path="index.xml", trailing_slash=false) | safe}}">
     {% endblock %}
 
     <link rel="stylesheet" href="{{ get_url(path="css/base.css", trailing_slash=false) | safe }}">
@@ -59,7 +59,7 @@
                     <a href="https://twitter.com/mrkaran_" title="Twitter"><i data-feather="twitter"></i></a>
                 </li>
                 <li>
-                    <a href="{{ get_url(path="rss.xml", trailing_slash=false) | safe}}" title="{{config.title}}"><i
+                    <a href="{{ get_url(path="index.xml", trailing_slash=false) | safe}}" title="{{config.title}}"><i
                             data-feather="rss"></i></a>
                 </li>
             </ul>

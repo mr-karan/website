@@ -15,7 +15,7 @@ highlight_theme = "boron"
 build_search_index = true
 
 generate_feed = true
-feed_filename = "rss.xml"
+feed_filename = "index.xml"
 
 taxonomies = [
     {name = "tags", lang = "en", rss = true},

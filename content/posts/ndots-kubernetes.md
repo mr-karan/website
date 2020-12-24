@@ -113,3 +113,9 @@ _Note_: I'm particularly not using `dig` in this post. `dig` apparently automati
 #### It's always DNS, isn't it ;)
 
 Fin!
+
+### Update
+
+**2020-12-24**:
+
+In case you want to play around with `ndots` and DNS more, I've worked on a DNS Client which lets you tweak these params on the fly. Feel free to checkout [doggo](https://github.com/mr-karan/doggo) if interested!

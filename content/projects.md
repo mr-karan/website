@@ -3,6 +3,8 @@ title =  "Projects"
 in_search_index = true
 +++
 
+[doggo](https://github.com/mr-karan/doggo/) Command-line DNS Client for Humans.
+
 [kubekutr](https://github.com/mr-karan/kubekutr/) Cookie cutter templating tool for scaffolding K8s manifests
 
 [store-exporter](https://github.com/mr-karan/store-exporter/) Utility to extract metrics from arbitary data stores in Prometheus format

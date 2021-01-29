@@ -31,11 +31,11 @@ In this case, the Docker Executor needs to be "authenticated" to AWS ECR so that
 
 ``` yaml
 docker-build:
-  image: $PRIVATE_ECR_KANIKO_IMAGE
+  image: gcr.io/kaniko-project/executor:debug
   script:
     - |
       /kaniko ...
-      # Inside this step, we use a PRIVATE_IMAGE defined in our `Dockerfile`.
+      # Inside this step, we use a PRIVATE_ECR_IMAGE defined in our `Dockerfile`.
 ```
 
 In this case, [Kaniko](https://github.com/GoogleContainerTools/kaniko/) needs to be "authenticated" to AWS ECR so that it can pull `$PRIVATE_ECR_IMAGE`.

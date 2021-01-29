@@ -27,7 +27,7 @@ test-pull:
 
 In this case, the Docker Executor needs to be "authenticated" to AWS ECR so that it can pull `$PRIVATE_ECR_IMAGE`.
 
-- Pulling a private image _inside_ the job. For eg, if you're using DIND:
+- Pulling a private image _inside_ the job. For eg, if you're using Kaniko:
 
 ``` yaml
 docker-build:

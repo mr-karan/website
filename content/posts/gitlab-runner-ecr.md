@@ -165,7 +165,7 @@ Fill in the basic info and edit `./test/runner-config.toml` with the following o
 
 Honestly, this was a lot of trial and error to figure out how to use private images with Gitlab. Some important links and references that helped me figure this out:
 
-- https://gitlab.com/bmares/gitlab-runner-ecr-auth-example/
-- https://gitlab.com/gitlab-org/gitlab-runner/-/issues/1583#note_84649153
+- [https://gitlab.com/bmares/gitlab-runner-ecr-auth-example/](https://gitlab.com/bmares/gitlab-runner-ecr-auth-example/)
+- [https://gitlab.com/gitlab-org/gitlab-runner/-/issues/1583#note_84649153](https://gitlab.com/gitlab-org/gitlab-runner/-/issues/1583#note_84649153)
 
 Fin!

@@ -14,11 +14,11 @@
     {%- endblock og_preview -%}
 
     {% block rss %}
-    <link rel="alternate" type="application/rss+xml" title="{{config.title}}"
-        href="{{ get_url(path="index.xml", trailing_slash=false) | safe}}">
+    <link rel="alternate" type="application/rss+xml" title="{{config.title}}" href="{{ get_url(path=" index.xml",
+        trailing_slash=false) | safe}}">
     {% endblock %}
 
-    <link rel="stylesheet" href="{{ get_url(path="css/base.css", trailing_slash=false) | safe }}">
+    <link rel="stylesheet" href="{{ get_url(path=" css/base.css", trailing_slash=false) | safe }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
         integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g=="
         crossorigin="anonymous"></script>
@@ -43,7 +43,7 @@
             <div class="links">
                 {% for menu_link in config.extra.menu_links %}
                 {% set link_url = menu_link.url | replace(from="$BASE_URL", to=config.base_url) %}
-                <a {% if current_url and current_url == link_url %}class="active" {% endif %}
+                <a {% if current_url and current_url==link_url %}class="active" {% endif %}
                     href="{{ link_url | safe}} ">{{menu_link.name}}
                 </a>
                 {% endfor %}
@@ -61,7 +61,7 @@
                     <a href="https://twitter.com/mrkaran_" title="Twitter"><i data-feather="twitter"></i></a>
                 </li>
                 <li>
-                    <a href="{{ get_url(path="index.xml", trailing_slash=false) | safe}}" title="{{config.title}}"><i
+                    <a href="{{ get_url(path=" index.xml", trailing_slash=false) | safe}}" title="{{config.title}}"><i
                             data-feather="rss"></i></a>
                 </li>
             </ul>
@@ -71,8 +71,8 @@
             Powered by <a target="_blank" href="https://getzola.org/">Zola</a>
         </p>
     </footer>
-    <noscript><img src="https://shynet.mrkaran.dev/ingress/ee74ecf3-dba2-4e3f-9c12-b46803e7d647/pixel.gif"></noscript>
-    <script src="https://shynet.mrkaran.dev/ingress/ee74ecf3-dba2-4e3f-9c12-b46803e7d647/script.js"></script>
+    <noscript><img src="https://shynet.mrkaran.dev/ingress/9640a46c-eeb1-487c-9b1c-eb34287a31d9/pixel.gif"></noscript>
+    <script src="https://shynet.mrkaran.dev/ingress/9640a46c-eeb1-487c-9b1c-eb34287a31d9/script.js"></script>
     <script>
         feather.replace();
     </script>

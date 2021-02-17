@@ -9,11 +9,7 @@
   --gray: #616060;
   --light-gray: #ccc;
   --lighter-gray: #f6f6f6;
-  --font-base: "Fira Sans", system-ui, -apple-system, segoe ui, roboto, ubuntu,
-    helvetica, cantarell, noto sans, sans-serif;
-  --font-headings: "Merriweather Sans", system-ui, -apple-system, segoe ui,
-    roboto, ubuntu, helvetica, cantarell, noto sans, sans-serif;
-  --font-monospace: "Fira Code", menlo, monaco, lucida console, liberation mono,
-    dejavu sans mono, bitstream vera sans mono, courier new, monospace, serif;
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-monospace: menlo, monaco, lucida console, liberation mono, dejavu sans mono, bitstream vera sans mono, courier new, monospace, serif;
   --boder-radius: 0.2rem;
 }

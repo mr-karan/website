@@ -287,3 +287,9 @@ Nomad is also a simpler piece to keep in your tech stack. Sometimes it's best to
 Nomad offers _less_ than Kubernetes and it's a feature, not a bug.
 
 Fin!
+
+#### Discussions
+
+- [HackerNews](https://news.ycombinator.com/item?id=26142005)
+- [Lobster](https://lobste.rs/s/bybybm/running_nomad_for_home_server)
+- [Twitter](https://twitter.com/mitchellh/status/1361361025568698368)

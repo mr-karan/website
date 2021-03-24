@@ -9,7 +9,7 @@
   --gray: #616060;
   --light-gray: #ccc;
   --lighter-gray: #f6f6f6;
-  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-base: 'Inter', sans-serif;
   --font-monospace: menlo, monaco, lucida console, liberation mono, dejavu sans mono, bitstream vera sans mono, courier new, monospace, serif;
   --boder-radius: 0.2rem;
 }

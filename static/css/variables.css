@@ -1,6 +1,7 @@
 :root {
   --primary: #f8481c;
   --red: red;
+  --heading-color: #411b33;
   --text-color: #411b33;
   --bg-color: rgb(253, 246, 227);
   --black: #212529;
@@ -11,5 +12,6 @@
   --lighter-gray: #f6f6f6;
   --font-base: 'Inter', sans-serif;
   --font-monospace: menlo, monaco, lucida console, liberation mono, dejavu sans mono, bitstream vera sans mono, courier new, monospace, serif;
+  --font-headings: 'Inter', sans-serif;
   --boder-radius: 0.2rem;
 }

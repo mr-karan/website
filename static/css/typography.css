@@ -4,9 +4,11 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: var(--font-headings);
   line-height: 1.3em;
   margin: 30px 0 20px 0;
   font-weight: bold;
+  color: var(--heading-color);
 }
 
 h1 {

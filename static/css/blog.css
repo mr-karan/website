@@ -19,6 +19,7 @@
 }
 
 .post-header .meta .date .day {
+  font-family: "Playfair Display", serif;
   font-weight: 700;
   line-height: 0.45em;
   font-size: 3em;

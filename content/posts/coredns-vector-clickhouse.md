@@ -7,7 +7,7 @@ in_search_index = true
 [taxonomies]
 tags = ["Devops", "Monitoring"]
 [extra]
-og_preview_img = "/images/coredns-vector-ch.png"
+og_preview_img = "/images/coredns-vector-ch.jpg"
 +++
 
 I've been toying around [Clickhouse](https://clickhouse.tech/) and [Vector](https://vector.dev/) at my day job and find both of these tools pretty interesting at what they do. A short summary for those unaware of these tools:
@@ -28,7 +28,7 @@ Anyway, so one random evening, I got the idea of dumping CoreDNS Logs to Clickho
 
 Here's how the pipeline looks:
 
-![image](/images/coredns-vector-ch.png)
+![image](/images/coredns-vector-ch.jpg)
 
 ## Collecting Logs
 

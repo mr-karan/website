@@ -182,6 +182,13 @@ TTL timestamp + INTERVAL 1 WEEK;
 - TTL for the records is set to 1 week. After 1 week all the records will be purged. Since this is my dev machine, I don't really care about a higher TTL.
 - This also means that the partition is never really put to use since I am partitioning by month but logs are being deleted every week. At this scale, it doesn't really make sense to even have it, but I just included it for posterity.
 
+**UPDATE**:
+
+Clickhouse on Twitter [clarified](https://twitter.com/ClickHouseDB/status/1401541954043887616) that `ORDER BY timestamp` will have better performance in this context. Usually if your queries are "last 1h", "last 5m" based, it is better to not store the the sort key as `YYYYMMDD` format.
+
+![image](/images/clickhouse_twitter_post.png.png)
+
+
 Now, we need to instruct Vector to send these logs to Clickhouse:
 
 ```toml

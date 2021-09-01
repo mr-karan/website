@@ -66,7 +66,7 @@ build_search_index = false
 # Configuration of the Markdown rendering
 [markdown]
 # When set to "true", all code blocks are highlighted.
-highlight_code = false
+highlight_code = true
 
 # The theme to use for code highlighting.
 # See below for list of allowed values.

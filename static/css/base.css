@@ -16,7 +16,7 @@
 body {
   font-family: var(--font-base);
   word-wrap: break-word;
-  background-color: var(--white);
+  background-color: #ffe3a6;
   color: var(--text-color);
   max-width: 50em;
   font-size: 16px;

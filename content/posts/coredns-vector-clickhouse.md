@@ -129,7 +129,7 @@ source = '''
 # parse the log event.
 ts = .timestamp
 log,err = parse_regex(.message,r'\[(?P<level>[^]]+)]\s(?P<server_addr>[^:]+):(?P<server_port>\S+)\s+-\s+(?P<id>\S+)\s+"(?P<type>\S+)\s+(?P<class>\S+)\s+(?P<name>\S+)\s+(?P<proto>\S+)\s+(?P<size>\S+)\s+(?P<do>\S+)\s+(?P<bufsize>[^"]+)"\s+(?P<rcode>\S+)\s+(?P<rflags>\S+)\s+(?P<rsize>\S+)\s+(?P<duration>[\d\.]+).*')
-if err !=nil {
+if err !=null {
     # capture the error log. If the error log also fails to get parsed, the log event is dropped.
   log = parse_regex!(.message,r'\[(?P<level>ERROR)]\s+(?P<component>plugin/errors):\s+(?P<code>\S)+\s+(?P<name>\S+)\s+(?P<type>[^:]*):\s+(?P<error_msg>.*)')
 }
@@ -186,7 +186,7 @@ TTL timestamp + INTERVAL 1 WEEK;
 
 Clickhouse on Twitter [clarified](https://twitter.com/ClickHouseDB/status/1401541954043887616) that `ORDER BY timestamp` will have better performance in this context. Usually if your queries are "last 1h", "last 5m" based, it is better to not store the the sort key as `YYYYMMDD` format.
 
-![image](/images/clickhouse_twitter_post.png.png)
+![image](/images/clickhouse_twitter_post.png)
 
 
 Now, we need to instruct Vector to send these logs to Clickhouse:

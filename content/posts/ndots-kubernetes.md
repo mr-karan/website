@@ -12,7 +12,7 @@ One of the primary advantages of deploying workloads in Kubernetes is seamless a
 
 DNS resolution is configured in Kubernetes cluster through [CoreDNS](https://coredns.io/). The kubelet configures each Pod's `/etc/resolv.conf` to use the coredns pod as the `nameserver`. You can see the contents of `/etc/resolv.conf` inside any pod, they'll look something like:
 
-```shell
+```bash
 search hello.svc.cluster.local svc.cluster.local cluster.local
 nameserver 10.152.183.10
 options ndots:5
@@ -30,7 +30,7 @@ This config is used by DNS clients to forward the DNS queries to a DNS server. `
 
 Let's check what happens when we query for `mrkaran.dev` in a pod.
 
-```shell
+```bash
 $ nslookup mrkaran.dev
 Server: 10.152.183.10
 Address: 10.152.183.10#53
@@ -44,7 +44,7 @@ Address: 2400:6180:0:d1::519:6001
 
 For this experiment, I've also turned on CoreDNS logging level to `all` which makes it highly verbose. Let's look at the logs of `coredns` pod:
 
-```shell
+```bash
 [INFO] 10.1.28.1:35998 - 11131 "A IN mrkaran.dev.hello.svc.cluster.local. udp 53 false 512" NXDOMAIN qr,aa,rd 146 0.000263728s
 [INFO] 10.1.28.1:34040 - 36853 "A IN mrkaran.dev.svc.cluster.local. udp 47 false 512" NXDOMAIN qr,aa,rd 140 0.000214201s
 [INFO] 10.1.28.1:33468 - 29482 "A IN mrkaran.dev.cluster.local. udp 43 false 512" NXDOMAIN qr,aa,rd 136 0.000156107s
@@ -66,12 +66,12 @@ Let's play around with `ndots` a bit more and see how it behaves. The idea is si
 
 We can see this by actually doing it:
 
-```shell
+```bash
 $ cat /etc/resolv.conf
 options ndots:1
 ```
 
-```shell
+```bash
 $ nslookup mrkaran
 Server: 10.152.183.10
 Address: 10.152.183.10#53
@@ -81,7 +81,7 @@ Address: 10.152.183.10#53
 
 CoreDNS logs:
 
-```shell
+```bash
 [INFO] 10.1.28.1:52495 - 2606 "A IN mrkaran.hello.svc.cluster.local. udp 49 false 512" NXDOMAIN qr,aa,rd 142 0.000524939s
 [INFO] 10.1.28.1:59287 - 57522 "A IN mrkaran.svc.cluster.local. udp 43 false 512" NXDOMAIN qr,aa,rd 136 0.000368277s
 [INFO] 10.1.28.1:53086 - 4863 "A IN mrkaran.cluster.local. udp 39 false 512" NXDOMAIN qr,aa,rd 132 0.000355344s

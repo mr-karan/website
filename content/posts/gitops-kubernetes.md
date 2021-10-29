@@ -59,7 +59,7 @@ I use `Kustomize` to prepare the manifests. Advantage of `Kustomize` is writing 
 
 Here's a folder structure (from a real GitOps repo) I follow for manifests:
 
-```shell
+```bash
 .
 ├── base
 │   ├── deployments

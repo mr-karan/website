@@ -40,7 +40,7 @@ You can even supply a range of ports to netcat like:
 
 _Quick Tip_: You can also give an alias for port instead of the number. For example:
 
-```shell
+```bash
 $nc -vz -w 3 google.com https
 Connection to google.com 443 port [tcp/https] succeeded!
 

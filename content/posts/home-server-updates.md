@@ -103,7 +103,7 @@ Bottom line, I was all pumped up to talk to a DO node from my RPi node but as it
 
 Next up, were problems with K3s networking from the DO node to RPi node. The DO node was in a `NotReady` state because the agent couldn't reach the server:
 
-```shell
+```bash
 Apr 14 09:00:33 hydra-control k3s[19746]: I0414 09:00:33.306650   19746 log.go:172] http: TLS handshake error from 100.97.222.106:51516: read tcp 100.96.239.6:6443->100.97.222.106:51516: read: connection reset by peer
 ```
 
@@ -122,7 +122,7 @@ So, I've a chicken and egg problem in my setup. Since my `laptop` runs a Tailsca
 
 I run a local DNS server with [CoreDNS](https://coredns.io/) forwarding my queries to Adguard. Now if I can't reach Adguard (since Tailscale agent hasn't initialised), how am I supposed to resolve `log.tailscale.io`? I did what any sane guy would do, write a simple _hacky_ bash script:
 
-```shell
+```bash
 #!/bin/bash
 sudo chattr -i /etc/resolv.conf
 sudo echo 'nameserver 1.1.1.1' > /etc/resolv.conf

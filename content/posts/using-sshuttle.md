@@ -21,7 +21,7 @@ The basic idea is pretty simple, `sshuttle` starts a local `python` server in yo
 All the packets routed to the CIDR block will now go through `sshuttle` daemon, since it configured `iptables` rules for them.
 Also, `sshuttle` starts a local python server on your host machine. You can see it using `netstat`:
 
-```shell
+```bash
 $ sudo netstat -tunapl | grep python
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
 tcp        0      0 127.0.0.1:12300         0.0.0.0:*               LISTEN      27425/python
@@ -29,7 +29,7 @@ tcp        0      0 127.0.0.1:12300         0.0.0.0:*               LISTEN      
 
 There's a `python` server listening on port `12300` in my host machine. To actually verify, this indeed is started by `sshuttle`, you can use `pstree -p | less` and search for `sshuttle`. Here you can see `sshuttle` did indeed start a `python` server and the PID (`27425`) matches with the one we saw in `netstat` command.
 
-```shell
+```bash
     -zsh(13201)---sshuttle(27425)-+-ssh(27446)---ssh(27447)
                                     `-sudo(27427)---python(27445)
 ```

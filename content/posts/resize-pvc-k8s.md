@@ -67,13 +67,13 @@ spec:
 
 We now need to "apply" the updated PVC manifest.
 
-```shell
+```bash
 $ kubectl apply -f pvc.yml
 ```
 
 Let's take a look at the PVC:
 
-```shell
+```bash
 $ kubectl describe pvc/myclaim
 # output redacted for brevity
 ...

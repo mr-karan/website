@@ -161,9 +161,9 @@ menu_links = [
     { url = "$BASE_URL/posts/", name = "Blog" },
     { url = "$BASE_URL/tags/", name = "Tags" },
     { url = "$BASE_URL/projects/", name = "Projects" },
+    { url = "$BASE_URL/talks/", name = "Talks" },
     { url = "https://notes.mrkaran.dev/", name = "Notes" },
-    { url = "$BASE_URL/causes/", name = "Causes" },
-    { url = "https://talks.mrkaran.dev/", name = "Talks" },
     { url = "$BASE_URL/setup/", name = "Setup" },
+    { url = "$BASE_URL/causes/", name = "Causes" },
     { url = "$BASE_URL/contact/", name = "Contact" },
 ]

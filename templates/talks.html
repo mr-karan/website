@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+    {{ section.title }}
+</h1>
+
+{% for year, talks in section.pages | group_by(attribute="year") %}
+<ul class="posts flat">
+    <h2 class="archive-year">{{ year }}</h2>
+    {% for talk in talks %}
+    <li class="post">
+        <div class="post-header">
+            <div class="meta">
+                <div class="date">
+                    <span class="day">{{ talk.day }}</span>
+                    <span class="rest">{{ talk.date | date(format='%B') }}</span>
+                </div>
+            </div>
+            <div class="matter">
+                <h4 class="title small">
+                    <a href="{{ talk.extra['link']}}">{{ talk.title }}</a>
+                </h4>
+                <span class="description">
+                    {{talk.description}}
+                </span>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endfor %}
+{% endblock content %}

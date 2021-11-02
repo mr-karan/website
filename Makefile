@@ -5,3 +5,10 @@ serve:
 
 build:
 	docker run -u "$(id -u):$(id -g)" -v `pwd`:/app --workdir /app balthek/zola:0.14.0 build
+
+push:
+	git pull origin master; \
+	git add --all; \
+	git commit --m "automated push"; \
+	git push origin master
+

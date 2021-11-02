@@ -24,3 +24,4 @@ I don't usually pen down my thoughts like these, but I want to refer to this pub
 
 Fin.
 
+**UPDATE** (2021-11-02): There's a really nice [video](https://www.youtube.com/watch?v=VO6XEQIsCoM&t=638) I came across today on the same subject. I'd highly recommend you to give this a listen if you found the above post relatable.

@@ -36,7 +36,7 @@ for f in friends:
         api.destroy_friendship(f)
 ```
 
-I'd last ran this in 2019 or so. That is dinosaur ages in the world of software. All I wanted to do was run this goddamn script again, 2 years later. Seems to be too much of an ask? Apparently `tweepy` the library used here to interact with Twitter's APIs had a major release with lots of breaking changes. They've internally migrated to start using v2 Twitter API. So, when I naively ran `pip install tweepy`, my code threw:
+I'd last ran this in 2019 or so. That is dinosaur ages in the world of software. All I wanted to do was run this goddamn script again, 2 years later. Seems to be too much of an ask? Apparently `tweepy` the library used here to interact with Twitter's APIs had a [major release](https://github.com/tweepy/tweepy/releases/tag/v4.0.0) with lots of breaking changes. They've internally migrated to start using v2 Twitter API. So, when I naively ran `pip install tweepy`, my code threw:
 
 ```python
 ❯ python main.py    

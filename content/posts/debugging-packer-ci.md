@@ -1,6 +1,6 @@
 +++
 title = "Debugging issues with Packer and Ansible in Docker"
-date = 2021-10-29T00:00:00+05:30
+date = 2021-11-16T00:00:00+05:30
 type = "post"
 description = "A brief summary and the fix for a weird permission issue I faced while running Packer with Ansible"
 in_search_index = true

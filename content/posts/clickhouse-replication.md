@@ -320,6 +320,8 @@ All is well and good so far, but to ensure that our cluster setup is resilient w
 
 ### Stop a replica node
 
+![image](/images/clickhouse-cluster-replica-down.png)
+
 ```
 ❯ docker-compose stop clickhouse-green-2 
 Stopping clickhouse-green-2 ... done
@@ -385,6 +387,8 @@ Perfect! The record `375826335` automatically got replicated once the replica wa
 
 ### Stop a Keeper Node
 
+![image](/images/clickhouse-cluster-keeper-1-down.png)
+
 We'll stop a server instance that is running the `clickhouse-keeper` process. By doing this, we'll also be killing a replica, but that is okay.
 
 ```
@@ -411,6 +415,8 @@ Mode: leader
 
 So, one of the `keeper` nodes has elected itself to be the leader and we have no problems in the setup so far. However, if we stop another `keeper` node, then there will be only `keeper` node remaining in the setup and to avoid a _Split Brain_ issue, it won't be able to elect itself as the leader.
 
+![image](/images/clickhouse-cluster-keeper-2-down.png)
+
 What happens then? Only one way to find out:
 
 ```bash
@@ -433,6 +439,8 @@ This instance is not currently serving requests%
 ```
 
 ### Add a new shard
+
+![image](/images/clickhouse-cluster-orange-shard.png)
 
 Alright, so our tests so far have been quite good and show that the cluster is resilient to failures as long as there exists a `keeper` node running as `leader` mode in the quorum. Now, let's see how to add a new shard. We'll extend our `docker-compose.yml` to add a new `orange` shard:
 

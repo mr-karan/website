@@ -6,7 +6,10 @@ description = "Setting up a multi-shard replicated ClickHouse cluster using Clic
 in_search_index = true
 [taxonomies]
 tags = ["Clickhouse", "Devops"]
+[extra]
+og_preview_img = "/images/clickhouse-cluster.png"
 +++
+
 
 ClickHouse is an extremely performant columnar DB used for fast analytical processing. ClickHouse supports data [replication](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/replication/) using Apache Zookeeper which needs to be deployed externally. While Zookeeper works well after you've tuned it properly, it was still an additional maintenance overhead. The good news is that you don't have to worry about this anymore.
 

@@ -2,7 +2,7 @@
 title = "Using ClickHouse Keeper for Replication"
 date = 2021-12-17T08:10:55+05:30
 type = "post"
-description = "Setting up a multi-shard replicated ClickHouse cluster using ClickHouse Keeper"
+description = "Setting up a multi-shard replicated ClickHouse cluster using ClickHouse Keeper. This setup allows you to setup ClickHouse cluster replication without Zookeeper."
 in_search_index = true
 [taxonomies]
 tags = ["Clickhouse", "Devops"]

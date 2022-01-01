@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>TIL - Today I Learnt</h1>
+<p class="ad-info">A collection of byte sized notes of things that I've learnt over time. Sharing here, mostly for my future self and in case it helps someone!
+    <br/>P.S. <b>This section is a WIP</b>. I am fixing formatting as I imported these notes from my <a href="/posts/how-i-take-notes/">note-taking system.</a>
+</p>
+{% if terms %}
+    {% for term in terms %}
+        <h3 class="til-header"><a href="{{ term.permalink | safe }}">{{ term.name }}</a></h3>
+            <div class="til-section">
+            {% for p in term.pages %}
+                <div class="til-item">
+                    <a href="{{ p.permalink | safe }}">{{ p.title }}</a>
+                    <p class="date">{{p.date |date(format="%b %d, %Y")}}</p>
+                </div>
+            {% endfor %}
+            </div>
+    {% endfor %}
+{% endif %}
+{% endblock content %}

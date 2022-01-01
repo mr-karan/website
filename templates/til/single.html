@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Notes / {{ term.name }}</h1>
+
+{% for page in term.pages %}
+<ul class="posts flat">
+    <li class="post">
+        <div class="post-header">
+            <div class="meta">
+                <div class="date">
+                    <span class="day">{{ page.date | date(format='%d') }}</span>
+                    <span class="rest">{{ page.date | date(format='%B %Y') }}</span>
+                </div>
+            </div>
+            <div class="matter">
+                <h4 class="title">
+                    <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+                </h4>
+                <span class="description">
+                    {{page.description}}
+                </span>
+            </div>
+        </div>
+    </li>
+</ul>
+{% endfor %}
+
+{% endblock content %}

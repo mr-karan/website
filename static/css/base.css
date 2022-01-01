@@ -12,6 +12,7 @@
 /* Page Specific Components*/
 @import "blog.css";
 @import "tags.css";
+@import "til.css";
 
 body {
   font-family: var(--font-base);

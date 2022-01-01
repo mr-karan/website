@@ -1,0 +1,16 @@
+.til-header {
+  border-bottom: 2px solid;
+  margin-bottom: 0;
+}
+.til-item {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: -15px;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .til-item {
+    margin-bottom: 0px;
+  }
+}

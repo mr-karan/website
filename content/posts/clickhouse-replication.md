@@ -216,7 +216,7 @@ CREATE TABLE app.events_local ON CLUSTER '{cluster}' (
     event_id  Int32,
     uuid UUID
 )
-ENGINE = ReplicatedMergeTree('/clickhouse/tables/{cluster}/{shard}/table', '{replica}')
+ENGINE = ReplicatedMergeTree('/clickhouse/tables/{cluster}/{shard}/{table}', '{replica}')
 PARTITION BY toYYYYMM(time)
 ORDER BY (event_id);
 
@@ -520,7 +520,7 @@ CREATE TABLE app.events_local (
     event_id  Int32,
     uuid UUID
 )
-ENGINE = ReplicatedMergeTree('/clickhouse/tables/{cluster}/{shard}/table', '{replica}')
+ENGINE = ReplicatedMergeTree('/clickhouse/tables/{cluster}/{shard}/{table}', '{replica}')
 PARTITION BY toYYYYMM(time)
 ORDER BY (event_id);
 ```
@@ -542,3 +542,7 @@ Hope this tutorial helped you figure out how to use `clickhouse-keeper` to set u
 For the full code/config samples, you can check out the [repo](https://github.com/mr-karan/clickhouse-keeper-example).
 
 Fin!
+
+### Updates
+
+- If you have setup RBAC on your cluster, make sure you add `<user>` and `<password>` fields to the `<remote_server>` configuration.

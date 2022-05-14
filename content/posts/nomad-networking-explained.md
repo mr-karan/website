@@ -7,7 +7,7 @@ in_search_index = true
 [taxonomies]
 tags= ["Devops", "Nomad"]
 [extra]
-og_preview_img = "/images/coredns-vector-ch.jpg"
+og_preview_img = "/images/nomad_networking_user_facing.png"
 +++
 
 [Nomad](https://www.nomadproject.io/) is a general-purpose cluster orchestrator and scheduler. Up until [Nomad 1.3](https://www.hashicorp.com/blog/nomad-1-3-adds-native-service-discovery-and-edge-workload-support) was released, it had no native support for discovering other applications running in the cluster. This is sort of a very elementary requirement when scheduling tasks in a cluster. Nomad relies on Consul to discover other "services" and has first class support for registering and fetching service records which makes things easier. Consul provides the records via various mechanisms such as a REST API, DNS and Consul Templates which render the exact IP/Port of the service in a Go template that can be injected into your application.

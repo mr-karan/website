@@ -445,7 +445,7 @@ EOH
 ```
 
 <p class="ad-info">
-Ensure that you're running Consul and have connected Nomad to it. Please refer to [docs](https://www.nomadproject.io/docs/integrations/consul-integration) for the same.
+Ensure that you're running Consul and have connected Nomad to it. Please refer to <a href="https://www.nomadproject.io/docs/integrations/consul-integration">docs</a> for the same.
 </p>
 
 Since now we are using `consul` for registering services, we have to loop over `service` instead of `nomadService`. The rest of the things remain pretty much the same. I really like how with just 2 lines of code you can switch between Nomad/Consul for discovering services.

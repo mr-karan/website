@@ -15,7 +15,7 @@ og_preview_img = "/images/nomad_networking_user_facing.png"
 I've been using Nomad since quite some time (both at work and for my self hosted instance) however I've often tripped when it comes to Networking. Nomad has a lot of simple concepts and it all "clicks" once you understand and recognise various patterns that can be used to connect the applications. A major learning curve for someone new to Nomad and trying to integrate Consul is that the person now has to first understand how Consul works, deploy a Consul cluster and this creates a lot of friction amongst newcomers to Nomad. Nomad 1.3 solves a part of this issue (i.e. no need to run Consul for basic service discovery) and is a great fit for just getting started with Nomad based networking. However, in this post I'd like to go through all the different networking patterns I've known or used in production and make an attempt at simplifying these concepts for Nomad beginners.
 
 <p class="ad-info">
-I'll be running a single node Nomad on my dev machine. The instructions to do that can be seen <a href="ttps://gist.github.com/mr-karan/b1bb4f65ae31d91985e6a64451b79f6e">here</a>.
+I'll be running a single node Nomad on my dev machine. The instructions to do that can be seen <a href="https://gist.github.com/mr-karan/b1bb4f65ae31d91985e6a64451b79f6e">here</a>.
 </p>
 
 
@@ -324,7 +324,7 @@ This is where things get interesting. The `app` group needs to _discover_ `redis
 
 ### Using Nomad native service discovery
 
-![image](/images/nomad_networking_inter_group_nomad.png)
+![image](/images/nomad_networking_inter_group_native.png)
 
 This is a feature launched in Nomad 1.3. Up until this release, Nomad had to rely on Consul for this. But with native service discovery built in Nomad, things are much simpler. Let's make the following changes to our job file. In each group, we'll add a `service` definition:
 

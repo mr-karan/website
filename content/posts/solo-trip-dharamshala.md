@@ -20,7 +20,7 @@ Started the trip early morning at 5:45 from my place in Faridabad. Although that
 
 Energised me with a good breakfast and some masala chai (my favourite thing while travelling). I floored the pedal (not literally, there are police patrolling vehicles throughout NH-44) and made good progress till Ambala. The fun part of the road trip starts now, with wide roads traversing the state of Punjab. Sprawling large sunflower fields make for a good sight on these roads.
 
-Stopped just before the Nangal-Mehetpur checkpoint (where you need to pay some toll tax to enter Himachal) for fuel + stretching break. 
+Stopped just before the Nangal-Mehetpur checkpoint (where you need to pay some toll tax to enter Himachal) for a fuel + stretching break. 
 
 ![image](/images/travel/3.jpg)
 
@@ -53,7 +53,7 @@ The following day, being a Sunday, meant a lazy brekkie - preferably brunch. I i
 ![image](/images/travel/11.png)
 
 
-I didn't want to drive a lot this day, so I chose to skip Bir and go straight to Billing for brunch. The roads to Billing valley are pretty narrow and crowded, so I decided to park my car in the first open parking lot I found. Two locals approached me and insisted that I pay them 50 bucks for parking without giving me any ticket. I obviously knew it was a scam, but after driving for 2.5 hours and semi hangry, I just gave them the money after resisting for a bit. A few steps further in the valley, I found the "proper" govt parking lot. Meh, shit happens. I devoured a nice cheese omelette with some ice tea at one of the local cafes in Billing. There are plenty of food options, and I've heard there are good pizzerias. Since I was by myself, I sure couldn't eat a whole pizza, so I, unfortunately, had to skip it.
+I didn't want to drive a lot this day, so I chose to skip Bir and go straight to Billing for brunch. The roads to Billing valley are pretty narrow and crowded, so I decided to park my car in the first open parking lot I found. Two locals approached me and insisted that I pay them 50 bucks for parking without giving me any ticket. I obviously knew it was a scam, but after driving for 2.5 hours and semi hangry, I just gave them the money after resisting. A few steps further in the valley, I found the "proper" govt parking lot. Meh, shit happens. I devoured a nice cheese omelette with some ice tea at one of the local cafes in Billing. There are plenty of food options, and I've heard there are good pizzerias. Since I was by myself, I sure couldn't eat a whole pizza, so I, unfortunately, had to skip it.
 
 Billing had a different vibe to it. I wish I could spend more time here for a few days. Definitely gonna come back again in future and explore Bir as well.
 
@@ -97,7 +97,7 @@ I had some delicious Maggi from a stall on my way back, and you'll find many suc
 
 ---
 
-The following week, after exploring almost all of Naddi, Mcleod, and Dharamshala, I found it boring over the weekdays. My original plan was to stay here for a bit longer, but I decided to cut short my trip and this week being my last week. I visited Andretta Valley, and boy oh boy. This was the most beautiful part of the Kangra valley, just a few kms away from Palampur. This small village had all my heart with it's tranquil and relaxing vibe. The roads towards Andretta were newly constructed, and I was cruising at 70-80 in the hills. After driving in Mcleod's busy markets for 2 weeks, I'd almost forgotten that my car's 5th/6th gear also exists. The experience was surreal; I sat here and did nothing, just observing these folks' slow and peaceful lives. There are no tourists here, and I didn't particularly find any shops here either. The more I write, the more I want to go back and experience it again.
+After exploring almost all of Naddi, Mcleod, and Dharamshala the following week, I found it boring over the weekdays. My original plan was to stay here for a bit longer, but I decided to cut short my trip and this week being my last week. I visited Andretta Valley, and boy oh boy. This was the most beautiful part of the Kangra valley, just a few km away from Palampur. This small village had all my heart with its tranquil and relaxing vibe. The roads towards Andretta were newly constructed, and I was cruising at 70-80 in the hills. After driving in Mcleod's busy markets for 2 weeks, I'd almost forgotten that my car's 5th/6th gear also exists. The experience was surreal; I sat here and did nothing, just observing these folks' slow and peaceful lives. There are no tourists here, and I didn't particularly find any shops here either. The more I write, the more I want to go back and experience it again.
 
 ![image](/images/travel/27.jpg)
 ![image](/images/travel/28.jpg)
@@ -117,6 +117,6 @@ Cruised along the NH44, reminiscing all the sweet memories of the trip but a eup
 
 ---
 
-Overall, I had a lot of fun, and yes, some things didn't go right (in terms of adequately planning beforehand). But, I guess the point of solo trips is not that they've to be picture-perfect, but instead, how you deal with situations thrown at you, all by yourself. I skipped visiting a few places I had in mind, I could have planned a better stay where I could meet other fellow travellers, but I don't regret this trip. I got to finally drive my car on the hills solo, which gave me a lot of confidence to make much more challenging trips in the future. Hope the hills beckon me soon!
+Overall, I had a lot of fun, and yes, some things didn't go right (in terms of adequately planning beforehand). But, I guess the point of solo trips is not that they've to be picture-perfect, but instead, how you deal with situations thrown at you, all by yourself. I skipped visiting a few places I had in mind, I could have planned a better stay where I could meet other fellow travellers, but I don't regret this trip even a bit. I got to finally drive my car on the hills solo, which gave me a lot of confidence to make much more challenging trips in the future. Hope the hills beckon me soon!
 
 Fin

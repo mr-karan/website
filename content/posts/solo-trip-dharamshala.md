@@ -83,7 +83,7 @@ The next day, I decided to do a few touristy things. I went to War Memorial in D
 ![image](/images/travel/21.jpg)
 ![image](/images/travel/22.jpg)
 
-Roamed around for a bit and decided to head to Masroor Rock Cut Temple. I'd heard a lot about this from my Airbnb host, and since it was a drive that meant I could explore other parts of the valley, it interested me. The roads in Kangra valley definitely gonna excite you. The hairpin bends take some time getting used to, but damn, they are fun. Remarkably, I noticed a thing that was pretty new to me. Some drivers there will turn on the indicators, signalling that you can overtake from that side. This was obviously confusing initially, but then it's all about getting used to it.
+Roamed around for a bit and decided to head to Masroor Rock Cut Temple. I'd heard a lot about this from my Airbnb host, and since it was a drive that meant I could explore other parts of the valley, it interested me. The roads in Kangra valley will definitely excite you. The hairpin bends take some time getting used to, but damn, they are fun. Although, something that seems to be the norm in the hills (but was new to me) was that some drivers will turn on the indicators, signalling that you can overtake them from that side. This was obviously confusing initially, but then it's all about getting used to it.
 
 ![image](/images/travel/23.jpg)
 

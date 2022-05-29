@@ -97,12 +97,14 @@ I had some delicious Maggi from a stall on my way back, and you'll find many suc
 
 ---
 
-The following week, after exploring almost all of Naddi, Mcleod, and Dharamshala, I found it boring over the weekdays. My original plan was to stay here for a bit longer, but I decided to cut short my trip and this week being my last week. I visited Andretta Valley, and boy oh boy. This was the most beautiful part of the Kangra valley. This small village had all my heart just a few km away from Palampur. The roads towards Andretta were newly built, and I was cruising at 70-80 in the hills. After driving in Mcleod's busy markets for 2 weeks, I'd almost forgotten that my car's 5th/6th gear also exists. The experience was surreal; I sat here and did nothing, just observing these folks' hills and slowly peaceful lives. There are no tourists here, particularly away from shops. Just farmland and houses. The more I write, the more I want to go back and experience it again.
+The following week, after exploring almost all of Naddi, Mcleod, and Dharamshala, I found it boring over the weekdays. My original plan was to stay here for a bit longer, but I decided to cut short my trip and this week being my last week. I visited Andretta Valley, and boy oh boy. This was the most beautiful part of the Kangra valley, just a few kms away from Palampur. This small village had all my heart with it's tranquil and relaxing vibe. The roads towards Andretta were newly constructed, and I was cruising at 70-80 in the hills. After driving in Mcleod's busy markets for 2 weeks, I'd almost forgotten that my car's 5th/6th gear also exists. The experience was surreal; I sat here and did nothing, just observing these folks' slow and peaceful lives. There are no tourists here, and I didn't particularly find any shops here either. The more I write, the more I want to go back and experience it again.
 
 ![image](/images/travel/27.jpg)
 ![image](/images/travel/28.jpg)
 ![image](/images/travel/29.jpg)
 ![image](/images/travel/30.png)
+
+---
 
 And with that beautiful drive, it was time to pack my bags and bid this lovely place a final goodbye. I couldn't sleep properly at night because I had a weird excitement about going back home, eating home food and sleeping on my familiar bed. I guess 2 weeks of travel does this to you.
 

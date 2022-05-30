@@ -12,7 +12,7 @@ og_preview_img = "/images/travel/10.jpg"
 
 It's been a year since I last made a solo trip to Manali, and I'd been getting restless at home. I'd wanted to make a long-ish trip with my car for quite some time now, and the heat of North India started to take a toll on me. I've made quite a few trips by myself and with friends, and I don't necessarily prefer one over the other. Both have varied experiences, but this time I was definitely itching to go somewhere quiet, where I could get the most driving pleasure. And so I chose, Naddi, a village near Dharamshala. It's about a 20 mins drive from the very touristy McLeodGanj (Upper Dharamshala). I'd found a lovely guesthouse via Airbnb and booked it after talking to the hosts.
 
-Started the trip early morning at 5:45 from my place in Faridabad. Although that isn't relatively early to start, I was able to make decent progress before the city woke up. I've travelled quite a few times on this highway (Panipat - Ambala - Karnal), and I prefer to stop at Haldiram's at CHD Developers Daana Paani for breakfast.
+Started the trip early morning at 5:45 from my place in Faridabad. Although that isn't relatively early to start, I was able to make decent progress before the city woke up. I've travelled quite a few times on this highway (Panipat - Karnal - Ambala), and I prefer to stop at Haldiram's at CHD Developers Daana Paani for breakfast.
 
 ![image](/images/travel/1.png)
 

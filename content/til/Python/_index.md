@@ -1,3 +1,0 @@
-+++
-transparent=true
-+++

@@ -14,7 +14,7 @@ At work, my colleagues and I stumbled upon a hair-pulling networking issue invol
 
 ## The Issue
 
-Solving issues where a specific condition happens _only_ sometimes is terribly difficult to debug because you need to reproduce the bug in a controlled environment. Our problem was that the **first** message to Kafka topic was unusually high time (>5 seconds) while the subsequent messages were fast. The following messages were fast for the next 60s, and then it again took >5s time to write a single message.
+Solving issues where a specific condition happens _only_ sometimes is terribly difficult to debug because you need to reproduce the bug in a controlled environment. Our issue was that writing the **first** message to a Kafka topic took unusually high time (>5 seconds) while the writes of subsequent messages were instant. The following messages were instant for the next 30s, and then the write again took >5s.
 
 The request flow looks something like this:
 

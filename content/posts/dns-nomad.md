@@ -6,6 +6,8 @@ description = "Debugging and solving DNS Issues when running Kafka clients insid
 in_search_index = true
 [taxonomies]
 tags = ["DNS", "Nomad"]
+[extra]
+og_preview_img = "/images/haiku-dns.png"
 +++
 
 At work, my colleagues and I stumbled upon a hair-pulling networking issue involving a specific problem when connecting to a Kafka cluster. We use the [franz-go](https://github.com/twmb/franz-go) library in our Golang applications to interact with an external Kafka cluster. These Go apps are hosted inside a [Nomad](https://www.nomadproject.io/) cluster and running with the [exec](https://www.nomadproject.io/docs/drivers/exec) driver.

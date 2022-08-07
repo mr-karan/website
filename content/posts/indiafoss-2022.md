@@ -10,8 +10,6 @@ tags= ["Conference", "Talk", "People"]
 og_preview_img = "/images/indiafoss_2022.jpeg"
 +++
 
-![image](/images/indiafoss_2022.jpeg)
-
 On June 28, I received a text from [Anand](https://anandology.com/) nudging me to submit a CFP for [IndiaFOSS](https://indiafoss.net/). Until then, I'd not planned to attend IndiaFOSS because travelling to participate in a conference didn't seem enticing. However, the thought of visiting Bangalore (a city where I spent five years before Covid took the joy from our lives) stayed in my mind for the rest of the day. Call it serendipity or just that little external motivation by Anand; I decided to [submit a proposal](https://indiafoss.net/2022/cfp/submissions/self-hosting-applications-with-nomad) on Self Hosting with Nomad. IndiaFOSS would be the first physical conference I would attend after the pandemic. I love attending conferences because you get to meet and interact with many people (I somehow dislike the term "networking with people" because it's heavily connoted with marketing/sales pitches).
 
 IndiaFOSS is a v2 of a small pilot conference [IndiaOS](https://indiaos.in/) that happened in 2020. Around 650 people attended IndiaFOSS, and the execution scale was much bigger this time. IndiaFOSS is a 100% volunteer-driven conference, yet everything was quite professionally managed. My friend [Dhiraj](https://dhirajbalakrishnan.dev/) travelled from Chennai to attend the conference, and I hung out with him for most of the next two days.
@@ -33,5 +31,7 @@ Day 2 had quite a good lineup of talks as well. [Krutika](https://twitter.com/KT
 The best part about IndiaFOSS was that this wasn't a conference meant just for techies. The talks highlighted every domain of FOSS- policy, design, languages, and hardware rather than just keeping it limited to software. I was happy to see a conference not peddled with any "corporate" product talks. This is what all FOSS conferences should look like, I guess?
 
 I look forward to attending (and hopefully volunteering) next year's conference!
+
+![image](/images/indiafoss_2022.jpeg)
 
 Fin

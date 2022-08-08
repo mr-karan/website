@@ -10,7 +10,16 @@ tags= ["Linux"]
 
 `which` is a non standard/non POSIX compliant program. I faced so many issues in getting `which` to work in a chroot environment (Nomad).
 
-So basically, `which` is `/bin/which`, symlinked to `/etc/alternatives/which` which is symlinked to `/usr/bin/which.debianutils`. Now, notice this:
+So basically, `which` is `/bin/which`, symlinked to `/etc/alternatives/which` which is symlinked to `/usr/bin/which.debianutils`.
+
+```sh
+$ ls -laht /usr/bin/which
+lrwxrwxrwx 1 root root 23 Apr 26 22:25 /usr/bin/which -> /etc/alternatives/which
+$ ls -laht /etc/alternatives/which
+lrwxrwxrwx 1 root root 26 Apr 26 22:25 /etc/alternatives/which -> /usr/bin/which.debianutils
+```
+
+Now, notice this:
 
 ```sh
 $ which ls

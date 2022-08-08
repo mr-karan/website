@@ -10,7 +10,7 @@ tags= ["Linux"]
 
 `which` is a non standard/non POSIX compliant program. I faced so many issues in getting `which` to work in a chroot environment (Nomad).
 
-So basically, `which` is `/bin/which`, symlinked to `/etc/alternatives/which` which is symlinked to `/usr/bin/which.debianutils`.
+So basically, `which` is a simple shell script program to find out the dependency by searching the `$PATH` (which is what makes it less deterministic). It's also somehow symlinked 3 levels deep in Debian:
 
 ```sh
 $ ls -laht /usr/bin/which

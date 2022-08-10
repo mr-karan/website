@@ -1,14 +1,14 @@
 +++
-title = "Dont use which"
+title = "Don't use which"
 date = 2022-08-08T00:00:00+05:30
 type = "post"
-description = "Why not to use which and what to use instead"
+description = "Problems with which and its alternatives."
 in_search_index = true
 [taxonomies]
 tags= ["Linux"]
 +++
 
-`which` is a non standard/non POSIX compliant program. I faced so many issues in getting `which` to work in a chroot environment (Nomad).
+`which` is a non-standard/non-POSIX compliant program. I faced many issues getting `which` to work in a chroot environment (Nomad).
 
 So basically, `which` is a simple shell script program to find out the dependency by searching the `$PATH` (which is what makes it less deterministic). It's also somehow symlinked 3 levels deep in Debian:
 
@@ -29,7 +29,7 @@ $ /usr/bin/which.debianutils ls
 /usr/bin/ls
 ```
 
-Both are same programs, however why is the output different? This is because `which` is apparently a shell built in `zsh`, that is why:
+Both are the same programs. However, why is the output different? This is because `which` is apparently a shell built-in `zsh`, that is why:
 
 ```sh
 # zsh
@@ -41,15 +41,15 @@ which which
 /usr/bin/which
 ```
 
-The inconsitency happens because `zsh` treats `which` as a shell built-in when it's apparently not one.
+The inconsistency happens because `zsh` treats `which` as a shell built-in when it's apparently not one.
 
-[This](https://lwn.net/Articles/874049/) article has some more details on why `which` is _bad_ and how Debian team is slowly deprecating it from being a part of debianutils anymore.
+[This](https://lwn.net/Articles/874049/) article has some more details on why `which` is _bad_ and how the Debian team is slowly deprecating it from being a part of debianutils anymore.
 
-Now, when I invoked `which` from inside a Nomad chroot, it complained that I didn't have `/bin/sh` (because I was using a custom chroot mount). I started looking hard for alternatives because this silly utility already wasted too much of my time.
+When I invoked `which` from inside a Nomad chroot, it complained that I didn't have `/bin/sh` (because I was using a custom chroot mount). I started looking hard for alternatives because this silly utility already wasted too much of my time.
 
 ## What to use
 
-Use `command -v`. It's a shell built in, so avoids a dependency on an external binary (unlike `which`).
+Use `command -v`. It's a shell built-in, so it avoids a dependency on an external binary (unlike `which`).
 
 ### Usage example:
 
@@ -62,7 +62,7 @@ fi
 
 ## References
 
-I came across the following posts while digging `which` and it's alternatives.
+I found the following posts while digging `which` and its alternatives.
 
 - [which-not-posix](https://hynek.me/til/which-not-posix/)
 - [why-not-use-which-what-to-use-then](https://unix.stackexchange.com/questions/85249/why-not-use-which-what-to-use-then)

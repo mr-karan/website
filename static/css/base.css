@@ -20,7 +20,7 @@ body {
   background-color: #faf6f1;
   color: var(--text-color);
   max-width: 50em;
-  font-size: 16px;
+  font-size: 1.25rem;
   margin: 0 auto;
   padding: 1rem;
   line-height: 1.8rem;

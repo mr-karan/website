@@ -10,8 +10,8 @@
   --gray: #616060;
   --light-gray: #ccc;
   --lighter-gray: #f6f6f6;
-  --font-base: 'Inter', sans-serif;
+  --font-base: 'Andada Pro', sans-serif;
   --font-monospace: menlo, monaco, lucida console, liberation mono, dejavu sans mono, bitstream vera sans mono, courier new, monospace, serif;
-  --font-headings: 'Inter', sans-serif;
+  --font-headings: 'Andada Pro', sans-serif;
   --boder-radius: 0.2rem;
 }

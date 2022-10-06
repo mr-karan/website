@@ -10,7 +10,7 @@ tags = ["Travel", "Personal"]
 og_preview_img = "/images/travel/rj22/13.jpg"
 +++
 
-It's been a while since I last made a [road trip to the mountains](./solo-trip-dharamshala.md). I'd been planning another one, but I didn't want to endure the weekend traffic in Himachal/Uttarakhand, so I decided to travel elsewhere. Coincidentally I stumbled upon a [video](https://www.youtube.com/watch?v=Kfl3emSjUGU&t=248s) by evo India and got mesmerized by the beauty of the epic Bharatmala Road in Longewala, Rajasthan. It sure looked like a pleasurable driving experience in the middle of the desert, so I planned this trip.
+It's been a while since I last made a road trip to the mountains. I'd been planning another one, but I didn't want to endure the weekend traffic in Himachal/Uttarakhand, so I decided to travel elsewhere. Coincidentally I stumbled upon a [video](https://www.youtube.com/watch?v=Kfl3emSjUGU&t=248s) by evo India and got mesmerized by the beauty of the epic Bharatmala Road in Longewala, Rajasthan. It sure looked like a pleasurable driving experience in the middle of the desert, so I planned this trip.
 
 Here's what the 4-day trip itinerary looked like:
 

@@ -14,7 +14,7 @@ It's been a while since I last made a road trip to the mountains. I'd been plann
 
 Here's what the 4-day trip itinerary looked like:
 
-<iframe src="https://www.google.com/maps/d/embed?mid=1ly6gOKZs82SkainZWelSJtGc1wQzFXM&ehbc=2E312F" width="640" height="480"></iframe>
+<iframe src="https://www.google.com/maps/d/embed?mid=1ly6gOKZs82SkainZWelSJtGc1wQzFXM&ehbc=2E312F" width="100%" height="480"></iframe>
 
 For all long drives, I prefer starting early in the AM. Who likes to be stuck in city traffic after all? Although I wasn't so lucky this time because NH48 had pretty bad traffic even at 8 AM, and I was progressing at a snail's pace stuck in a jam.
 

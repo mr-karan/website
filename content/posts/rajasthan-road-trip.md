@@ -67,7 +67,7 @@ I head to Longewala via the Bharatmala Road. I've complimented enough about the 
 
 Here's a short timelapse that I recorded while driving here:
 
-<iframe width="100%" height="315" src="https://www.youtube.com/embed/au79XLgRcB8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="600" src="https://www.youtube.com/embed/au79XLgRcB8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 I had a light breakfast at a cafe near Longewala. I headed to Jaisalmer to do other touristy things before finally returning to the hostel and packing my bags.
 

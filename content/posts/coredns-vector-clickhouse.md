@@ -5,7 +5,7 @@ type = "post"
 description = "Aggregating and transforming CoreDNS logs using Vector and dumping to Clickhouse for analytics"
 in_search_index = true
 [taxonomies]
-tags = ["Devops", "Monitoring"]
+tags = ["Devops", "Vector", "Clickhouse"]
 [extra]
 og_preview_img = "/images/coredns-vector-ch.jpg"
 +++

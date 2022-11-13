@@ -38,9 +38,9 @@ For the record, I still don't know how to customise different templates for diff
 
 ### Migration
 
-The migration was pretty straightforward -- I had to copy the `content folder`s of my blog (which are just a bunch of `.md` fikes) and replace `YAML` frontmatter to `TOML`. There were a few variable changes that I needed to do manually but since they were a manageable 20-25 posts, I did it by hand. I could potentially automate but then rabbit deep in the rabbit hole of Yak Shaving. The good part was that I was able to retain the same URL structure for my new blog because the URL scheme was based on the file paths.
+The migration was pretty straightforward -- I had to copy the `content folder`s of my blog (which are just a bunch of `.md` files) and replace `YAML` frontmatter to `TOML`. There were a few variable changes that I needed to do manually but since they were a manageable 20-25 posts, I did it by hand. I could potentially automate but then rabbit deep in the rabbit hole of Yak Shaving. The good part was that I was able to retain the same URL structure for my new blog because the URL scheme was based on the file paths.
 
-I spent some time porting [hugo-ink](https://github.com/knadh/hugo-ink) to Zola and did minor CSS tweaks to it. Zola uses the Terra language for templating and it's much more pleasing to eyes than the Go Template syntax. Zola comes with pretty neat features like Search, RSS/Atom Feeds, Syntax Highlighting and SASS->CSS Processors.
+I spent some time porting [hugo-ink](https://github.com/knadh/hugo-ink) to Zola and did minor CSS tweaks to it. Zola uses the Tera language for templating and it's much more pleasing to eyes than the Go Template syntax. Zola comes with pretty neat features like Search, RSS/Atom Feeds, Syntax Highlighting and SASS->CSS Processors.
 
 What took me time however was to figure out how to get `opengraph` tags in each page. Hugo provides nifty [template](https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/opengraph.html) for this use case but Zola is pretty barebones like that. People who care a lot about SEO need to spend some extra efforts here.
 

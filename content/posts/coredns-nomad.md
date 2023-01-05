@@ -123,7 +123,7 @@ nomad:1053 {
     health
     log
     nomad {
-	  	address http://127.0.0.1:4646
+		address http://127.0.0.1:4646
         ttl 10
     }
     prometheus :9153

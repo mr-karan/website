@@ -46,7 +46,43 @@ The `ServeDNS` function is used to handle the DNS request by the plugin. It take
 
 Since the `nomad` plugin expects a query in format of `service.namespace.nomad`, it validates the query and extracts the service name and namespace from it. If the query is invalid, it returns `dns.RcodeServerFailure` status code. If the query is valid, it queries the Nomad API for the service and returns the response.
 
+```go
+func (n Nomad) ServeDNS(ctx context.Context, w dns.ResponseWriter, r *dns.Msg) (int, error) {
+	state := request.Request{W: w, Req: r}
+	qname := state.Name()
+	qtype := state.QType()
+
+	// Split the query name with a `.` as the delimiter and extract namespace and service name.
+	// If the query is not for a Nomad service, return.
+	qnameSplit := dns.SplitDomainName(qname)
+	if len(qnameSplit) < 3 || qnameSplit[2] != "nomad" {
+		return plugin.NextOrFailure(n.Name(), n.Next, ctx, w, r)
+	}
+	namespace := qnameSplit[1]
+	serviceName := qnameSplit[0]
+
+...
+
+```
 The plugin handles A,AAAA and SRV record requests currently. Since A/AAAA records can only contain an IP address, SRV records can be used to advertise the port number.
+
+```go
+		// Check the query type to format the appriopriate response.
+		switch qtype {
+		case dns.TypeA:
+			m.Answer = append(m.Answer, &dns.A{
+				Hdr: header,
+				A:   addr,
+			})
+		case dns.TypeAAAA:
+			m.Answer = append(m.Answer, &dns.AAAA{
+				Hdr:  header,
+				AAAA: addr,
+			})
+
+...
+
+```
 
 ### Caching
 

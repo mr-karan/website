@@ -1,5 +1,5 @@
 +++
-title = "Building a CoreDNS pluging"
+title = "Building a CoreDNS plugin"
 date = 2023-01-05T00:00:00+05:30
 type = "post"
 description = "Short notes on writing a CoreDNS plugin for Nomad native service discovery"

@@ -15,4 +15,15 @@
   </div>
   <article>{{ page.content | safe }}</article>
 </section>
+
+<section>
+{% if page.taxonomies is containing ("tags") %}
+<ul class="tags">
+  {% for tag in page.taxonomies["tags"] %}
+    <li><a href='{{ config.base_url | safe }}/tags/{{ tag | slugify }}'>{{ tag }}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+</section>
 {% endblock content %}

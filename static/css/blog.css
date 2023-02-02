@@ -63,3 +63,24 @@
 .archive-year:after {
   margin: 0 0 0 20px;
 }
+
+
+.tags {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.tags li {
+  display: inline-block;
+}
+
+.tags li a {
+  display: block;
+  margin: 0.25rem;
+  padding: 0.25rem 1rem;
+  font-size: 0.9em;
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  border-radius: var(--border-radius);
+}

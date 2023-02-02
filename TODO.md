@@ -10,7 +10,7 @@
 - [x] Add support for `image` parameter in individual blog posts. They'll be used for `og:image` in `blog_page` header.
 - [x] Add RSS Feed support.
 - [x] Add search bar.
-- [ ] Add `draft` support.
+- [x] Add `draft` support.
 - [ ] Updated/Article Published meta tags.
 
 ## Content

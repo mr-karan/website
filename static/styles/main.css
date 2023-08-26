@@ -43,8 +43,7 @@ body {
 h1, h2, h3, h4, h5, h6, strong, b {
     color: var(--color-headline);
     font-weight: 700;
-    font-family: 'Source Sans 3', sans-serif;
-    /* font-size: 1.875rem; */
+    font-size: 1.875rem;
     line-height: 2.25rem;
 }
 
@@ -417,8 +416,17 @@ body[data-theme="dark"] a {
     color: var(--color-link-dark);
 }
 
+body[data-theme="dark"] .tags > a {
+    color: var(--color-tag-text);
+}
+
 body[data-theme="dark"] code {
+    color: var(--color-text-dark);
     background-color: var(--color-code-bg-dark);
+}
+
+body[data-theme="dark"] code[class^="language-"] {
+    background-color: inherit;
 }
 
 body[data-theme="dark"] blockquote {

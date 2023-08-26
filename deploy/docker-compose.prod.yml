@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  caddy:
+    image: ghcr.io/mr-karan/caddy:latest
+    container_name: caddy
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./public:/var/www/public
+      - caddy_data:/data
+      - caddy_config:/config
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:

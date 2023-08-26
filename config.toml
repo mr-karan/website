@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://mrkaran.dev"
+base_url = "https://mrkaran.dev/"
 title = "Karan Sharma"
 description = "Ramblings on programming, tech and life."
 generate_feed = false
@@ -7,6 +7,7 @@ feed_filename = "atom.xml" # default template
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
+minify_html = true
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false

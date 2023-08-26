@@ -325,14 +325,14 @@ All is well and good so far, but to ensure that our cluster setup is resilient w
 
 ![image](/images/clickhouse-cluster-replica-down.png)
 
-```
+```sh
 ❯ docker-compose stop clickhouse-green-2 
 Stopping clickhouse-green-2 ... done
 ```
 
 Now, let's query our records:
 
-```
+```sql
 SELECT count(*)
 FROM app.events_main
 
@@ -364,7 +364,7 @@ LIMIT 1
 
 Let's start the replica again:
 
-```
+```sh
 ❯ docker-compose start clickhouse-green-2
 Starting clickhouse-green-2 ... done
 ```
@@ -394,7 +394,7 @@ Perfect! The record `375826335` automatically got replicated once the replica wa
 
 We'll stop a server instance that is running the `clickhouse-keeper` process. By doing this, we'll also be killing a replica, but that is okay.
 
-```
+```sh
 ❯ docker-compose stop clickhouse-blue-2
 Stopping clickhouse-blue-2 ... done
 ```
@@ -409,7 +409,7 @@ Ok
 
 We can check the server information of the other 2 `keeper` nodes:
 
-```
+```sh
 $ echo stat | nc 127.0.0.1 9181 | grep Mode
 Mode: follower
 $ echo stat | nc 127.0.0.1 9183 | grep Mode
@@ -436,7 +436,7 @@ Code: 242. DB::Exception: Received from localhost:9000. DB::Exception: Table is 
 
 Ah! So, we can still query for the data (which will be incomplete since _blue_ shard is completely down), but we cannot insert any new data at all. We can even verify this by querying for the health of the `keeper` node:
 
-```
+```sh
 $ echo mntr | nc localhost 9183            
 This instance is not currently serving requests%                                                                                                                              
 ```
@@ -502,7 +502,7 @@ There is no table `app`.`events_local` on server: 172.20.0.2:9000
 ```
 Houston, we have a problem. 
 
-```
+```txt
 > There is no table `app`.`events_local` on server: 172.20.0.2:9000
 ```
 

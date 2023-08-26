@@ -1,0 +1,66 @@
+[[project]]
+name = "barreldb"
+description = "A disk based KV store (based on Bitcask implementation)"
+links = [
+  { name = "Blog", url = "https://mrkaran.dev/posts/barreldb/" },
+  { name = "GitHub", url="https://github.com/mr-karan/barreldb" },
+]
+
+[[project]]
+name = "doggo"
+description = "🐶 Command-line DNS Client for Humans. Written in Golang"
+links = [
+  { name = "Homepage", url = "https://doggo.mrkaran.dev" },
+  { name = "GitHub", url="https://github.com/mr-karan/doggo" },
+]
+
+[[project]]
+name = "monkeybeat"
+description = "Generate a random stock portfolio and find out if it beats the markets!"
+links = [
+  { name = "Homepage", url = "https://monkeybeat.market/" },
+  { name = "GitHub", url="https://github.com/mr-karan/monkeybeat" },
+]
+
+[[project]]
+name = "cloak"
+description = "Securely share sensitive text with others"
+links = [
+  { name = "Homepage", url = "https://cloak.mrkaran.dev/" },
+  { name = "GitHub", url="https://github.com/mr-karan/cloak" },
+]
+
+[[project]]
+name = "nomctx"
+description = "Faster way to switch between clusters and namespaces in nomad"
+links = [
+  { name = "GitHub", url="https://github.com/mr-karan/nomctx" },
+]
+
+[[project]]
+name = "nomad-events-sink"
+description = "An events collection agent which processes Nomad Events and dumps to external sink providers like HTTP"
+links = [
+  { name = "GitHub", url="https://github.com/mr-karan/nomad-events-sink" },
+]
+
+[[project]]
+name = "swiggy-analytics"
+description = "🍔 Analyse your swiggy orders"
+links = [
+  { name = "GitHub", url="https://github.com/mr-karan/swiggy-analytics" },
+]
+
+[[project]]
+name = "calert"
+description = "🔔 Send alert notifications to Google Chat via Prometheus Alertmanager"
+links = [
+  { name = "GitHub", url="https://github.com/mr-karan/calert" },
+]
+
+[[project]]
+name = "store-exporter"
+description = "Utility to extract metrics from arbitrary data stores in Prometheus format"
+links = [
+  { name = "GitHub", url="https://github.com/mr-karan/store-exporter" },
+]

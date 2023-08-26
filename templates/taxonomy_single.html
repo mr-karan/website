@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block main %}
+  <main>
+    {%- if taxonomy.term %}
+      <h3 style="margin-bottom:0">Filtering for "{{ term.name }}"</h3>
+      <small>
+        <a href="{{ get_url(path="@/blog/_index.md") }}">Remove filter</a>
+      </small>
+    {%- endif %}
+    <ul class="blog-posts">
+      {% for page in term.pages %}
+        <li>
+          <span>
+            <i>
+              <time datetime='{{ page.date | date(format='%+') }}' pubdate>
+                {{ page.date | date(format=config.extra.date_format) }}
+              </time>
+            </i>
+          </span>
+          <a href="{{ page.permalink }}">{{ page.title }}</a>
+        </li>
+      {% else %}
+        <li>
+          No posts yet
+        </li>
+      {% endfor %}
+    </ul>
+  </main>
+{% endblock %}

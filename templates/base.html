@@ -1,90 +1,90 @@
-{% import "macros/head.html" as head -%}
-{% import "macros/opengraph.html" as social -%}
-
 <!DOCTYPE html>
-<html lang="en" prefix="og: https://ogp.me/ns#">
-
+<html lang="{{ lang | default(value="en-US" ) }}">
 <head>
-    {%- block general_meta -%}
-    {{ head::general_meta() }}
-    {%- endblock general_meta -%}
-
-    {%- block og_preview -%}
-    {{ social::og_preview() }}
-    {%- endblock og_preview -%}
-
-    {% block rss %}
-    <link rel="alternate" type="application/rss+xml" title="{{config.title}}" href="{{ get_url(path="atom.xml",
-        trailing_slash=false) | safe}}">
-    {% endblock %}
-
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if config.extra.favicon %}
+    <link rel="shortcut icon" href="{{ config.extra.favicon }}">
+    {%- endif -%}
+    <title>{%- block title %}{{ config.title }}{%- endblock %}</title>
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    {% include "og.html" %}
+    {%- if config.generate_feed %}
+    {% block rss -%}
+    <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="{{ config.title }}" href="{{ get_url(path=config.feed_filename) | safe }}">
+    {%- endblock -%}
+    {%- endif %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">  -->
-    <link href="https://fonts.googleapis.com/css2?family=Andada+Pro&display=swap&family=Playfair+Display" rel="stylesheet"> 
-
-    <link rel="stylesheet" href="{{ get_url(path="css/base.css", trailing_slash=false) | safe }}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
-        integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g=="
-        crossorigin="anonymous"></script>
-    <link rel="me" href="https://hachyderm.io/@mrkaran">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;700&family=Source+Sans+3:wght@700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ get_url(path="styles/main.css", trailing_slash=false) | safe }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.1/feather.min.js" integrity="sha512-4lykFR6C2W55I60sYddEGjieC2fU79R7GUtaqr3DzmNbo0vSaO1MfUjMoTFYYuedjfEix6uV9jVTtRCSBU/Xiw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-
 <body>
-    <header>
-        <a class="site-name" href="/">
-            <h1>Karan Sharma</h1>
-        </a>
-        <div class="site-description">
-            <p>Ramblings on tech, cycling, and finance</p>
-            <!-- <div class="search-container">
-                <span class="search-icon"><i data-feather="search"></i></span>
-                <input id="search" type="search" placeholder="Search">
-                <div class="search-results">
-                    <div class="search-results__items"></div>
-                </div>
-            </div> -->
+<header>
+    <a href="{{ config.base_url | safe }}" class="title">
+        <h2 class="name">{{ config.title }}</h2>
+    </a>
+    <nav>
+        <div class="nav-items">
+            <a href="{{ config.base_url | safe }}">Home</a>
+            {%- if config.extra.main_menu %}
+            {%- for item in config.extra.main_menu %}
+            {%- if item.url is matching("https?://") %}
+            <a href="{{ item.url | safe }}">{{ item.name | safe }}</a>
+            {%- else %}
+            <a href="{{ get_url(path=item.url ) | safe }}">{{ item.name | safe }}</a>
+            {%- endif %}
+            {%- endfor %}
+            {%- endif -%}
         </div>
-        <nav>
-            <div class="links">
-                {% for menu_link in config.extra.menu_links %}
-                {% set link_url = menu_link.url | replace(from="$BASE_URL", to=config.base_url) %}
-                <a {% if current_url and current_url==link_url %}class="active" {% endif %}
-                    href="{{ link_url | safe}} ">{{menu_link.name}}
-                </a>
-                {% endfor %}
-            </div>
-        </nav>
-    </header>
-    <article>{% block content %} {% endblock %}</article>
-    <footer>
-        <div class="social">
-            <ul>
-                <li>
-                    <a href="https://github.com/mr-karan" title="Github"><i data-feather="github"></i></a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/mrkaran_" title="Twitter"><i data-feather="twitter"></i></a>
-                </li>
-                <li>
-                    <a href="{{ get_url(path="atom.xml", trailing_slash=false) | safe}}" title="{{config.title}}"><i
-                            data-feather="rss"></i></a>
-                </li>
-            </ul>
-        </div>
-        <p>
-            © {{ config.title }} {{ now() | date(format="%Y") }}<br>
-            Powered by <a target="_blank" href="https://getzola.org/">Zola</a>
-        </p>
-    </footer>
-    <script defer data-domain="mrkaran.dev" src="https://pls.mrkaran.dev/pls.js"></script>
-    <script>
-        feather.replace();
-    </script>
-    <!-- <script type="text/javascript" src="{{ get_url(path="elasticlunr.min.js") |safe }}"></script>
-    <script type="text/javascript" src="{{ get_url(path="search_index.en.js") | safe }}"></script>
-    <script type="text/javascript" src="{{ get_url(path="js/search.js") | safe }}"></script> -->
-</body>
+        <button class="theme-toggle" title="Toggle Dark Mode">
+            <i data-feather="moon"></i>
+        </button>
+    </nav>
+</header>
+{% block main %}{%- endblock -%}
+<footer>
+    © 2023 Karan Sharma<br>
+    <div class="social-links">
+        <a href="https://github.com/mr-karan" target="_blank" rel="noopener noreferrer" title="GitHub" class="social-icon"><i data-feather="github"></i></a>
+        <a href="/posts/atom.xml" target="_blank" rel="noopener noreferrer" title="RSS Feed" class="social-icon"><i data-feather="rss"></i></a>
+    </div>
+</footer>
+<script>
+    feather.replace();
+    const themeToggle = document.querySelector('.theme-toggle');
+    const currentTheme = localStorage.getItem('theme');
 
+    // Set the initial theme based on user preference or localStorage
+    if (currentTheme) {
+        document.body.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+            themeToggle.innerHTML = '<i data-feather="sun"></i>';
+            feather.replace();
+        }
+    }
+
+    themeToggle.addEventListener('click', function() {
+        let theme = 'light';
+        
+        // Add the transition class
+        document.body.classList.add('theme-transition');
+
+        if (document.body.getAttribute('data-theme') !== 'dark') {
+            theme = 'dark';
+            themeToggle.innerHTML = '<i data-feather="sun"></i>';
+        } else {
+            themeToggle.innerHTML = '<i data-feather="moon"></i>';
+        }
+        feather.replace();
+        document.body.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+
+        // Remove the transition class after 0.5s
+        setTimeout(() => {
+            document.body.classList.remove('theme-transition');
+        }, 500);
+    });
+</script>
 </html>

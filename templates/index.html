@@ -1,28 +1,7 @@
 {% extends "base.html" %}
 
-{% block content %}
-
-<h2>Hello</h2>
-
-<section>
-    <p>
-        I am Karan and I usually go by the handle <mark class="highlight-handle">@mrkaran</mark> on the
-        interwebz. I work at <a href="https://zerodha.com">Zerodha</a> where I
-        focus mainly on Devops practices, containers, and backend systems.
-    </p>
-    <p>
-        I like to <a href="/projects/">tinker</a> stuff around monitoring and observability systems, DNS
-        and the underlying networking stack. I also happen to listen to a lot of
-        <a href="https://www.last.fm/user/thetechfreak">music</a> and maintain a Spotify <a
-            href="https://open.spotify.com/playlist/5dvbrw93FgUhsZdbnpF3JM">
-            playlist</a> of some good indie artists
-        I've
-        discovered.
-    </p>
-    <blockquote>
-        <p>The more you know, the more you realize you know nothing.</p>
-        — <cite>Aristotle</cite>
-    </blockquote>
-</section>
-
-{% endblock content %}
+{% block main %}
+  <main>
+    {{ section.content | safe }}
+  </main>
+{% endblock %}

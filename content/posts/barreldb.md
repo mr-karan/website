@@ -184,7 +184,7 @@ You can check the [repo](https://github.com/mr-karan/barreldb/#benchmarks) for t
 
 First, let's send 100000 requests to the server using 50 parallel clients. This command creates a unique key for each `SET` operation.
 
-```
+```sh
 redis-benchmark -p 6379 -c 50 -t set -n 100000 -r 100000000
 
 Summary:
@@ -196,7 +196,7 @@ Summary:
 
 So, 140k requests per second is not bad at all for a disk-based KV. But the exciting thing to note here is that the performance is predictable even if you increase the load by increasing clients:
 
-```
+```sh
 redis-benchmark -p 6379 -c 200 -t set -n 100000 -r 100000000
 
 Summary:
@@ -204,12 +204,11 @@ Summary:
   latency summary (msec):
           avg       min       p50       p95       p99       max
         0.718     0.224     0.711     0.927     1.183     5.775
-
 ```
 
 If we increase the number of requests (by 5x) as well, the throughput looks almost the same:
 
-```
+```sh
 redis-benchmark -p 6379 -c 200 -t set -n 500000 -r 100000000
 
 Summary:

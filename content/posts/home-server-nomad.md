@@ -46,7 +46,7 @@ Around a month back, [Kailash](https://nadh.in/) had asked about feedback on [No
 
 After following the brief tutorials from the [official website](https://learn.hashicorp.com/nomad) I felt confident to try it for actual workloads. In my previous setup, I was hosting quite a few applications (Pihole, Gitea, Grafana etc) and thought it'll be a nice way to learn how Nomad works by deploying the same services in the Nomad cluster. And I came in with zero expectations, I already had a nice setup which was reliable and running for me. My experience with a local Nomad cluster was joyful, I was able to quickly go from 0->1 in less than 30 minutes. This BTW is a strong sign of how easy Nomad is to get started with as compared to K8s. The sheer amount of different concepts you've to register in your mind before you can even deploy a single container in a K8s cluster is bizarre. Nomad takes the easy way out here and simplified the concepts for developers into just three things:
 
-```
+```txt
 job
   \_ group
         \_ task
@@ -195,7 +195,7 @@ network {
 
 Nomad doesn't have any templating functionalities, so all the config must be sourced from Consul and secrets should be sourced from Vault. However in the time constraint I had, I wanted to understand Nomad and Consul better and use Vault at a [later stage](https://github.com/mr-karan/hydra/blob/master/docs/SETUP.md#vault). I needed a way to interpolate the env variables. This is where Terraform comes into picture:
 
-```
+```hcl
 resource "nomad_job" "app" {
   jobspec = templatefile("${path.module}/conf/shynet.nomad", {
     shynet_django_secret_key   = var.shynet_django_secret_key,
@@ -220,7 +220,7 @@ env {
 
 I use `restic` to take periodic backups of my server and upload to Backblaze B2. Since Nomad supports running tasks as a different isolated environment (`chroot`) using `exec` driver and even without isolation using `raw_exec` driver, I wanted to give that a try. I've to resort using `raw_exec` driver here because `/data` file path on my host was not available to the chroot'ed environment.
 
-```
+```hcl
 job "restic" {
   datacenters = ["hydra"]
   type        = "batch"

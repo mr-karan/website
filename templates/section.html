@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} | {{ super() }}{% endblock %}
+
+{% block main %}
+  <main>
+    {%- if taxonomy.term %}
+      <h3 style="margin-bottom:0">Filtering for "{{ section.title }}"</h3>
+      <small>
+        <a href="{{ get_url(path="@/blog/_index.md") }}">Remove filter</a>
+      </small>
+    {%- else %}
+    <div class="section-header">
+      <h1>{{ section.title }}</h1>
+      <p>{{ section.description | markdown | safe }}</p>
+    </div>
+    {%- endif %}
+    <ul class="blog-posts">
+      {% for page in section.pages %}
+        <li>
+          <span>
+            <i>
+              <time datetime='{{ page.date | date(format='%+') }}' pubdate>
+                {{ page.date | date(format=config.extra.date_format) }}
+              </time>
+            </i>
+          </span>
+          <a href="{{ page.permalink }}">{{ page.title }}</a>
+        </li>
+        {% else %}
+        <li>
+          No posts yet
+        </li>
+      {% endfor %}
+    </ul>
+    <small>
+      <div class="section-tags">
+        {% if section.title == "Travel" %}
+        {% set tags = get_taxonomy(kind="travel_tags") %}
+        {% else %}
+          {% set tags = get_taxonomy(kind="tags") %}
+        {% endif %}
+        {% for post in tags.items %}
+        <span>
+          <a href="{{ post.permalink }}">#{{ post.name }}</a>&nbsp;
+        </span>
+        {% endfor %}
+      </div>
+    </small>
+  </main>
+{% endblock %}

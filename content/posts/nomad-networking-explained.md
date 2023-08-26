@@ -34,7 +34,7 @@ This command exposes a dynamic port on your host. To see what exactly is the por
 
 To verify, I can use `redis-cli` to connect to this host:
 
-```
+```sh
 $ redis-cli -p 49153                
 127.0.0.1:49153> ping
 PONG
@@ -98,7 +98,7 @@ NOTE: It's important to have `ports` in your `task.config` section. Nomad passes
 
 This can be easily verified with `docker inspect`:
 
-```
+```sh
 # without `ports`
 $ docker inspect fc32a4ffd148 -f "{{json .NetworkSettings.Ports }}" | jq '.'
 {
@@ -289,7 +289,7 @@ When you submit this job, you get 2 allocation IDs (each group creates one `allo
 
 In the previous example, we saw how Nomad exposes runtime variables that contained information about all tasks in other groups. But now since the groups are separate, the `app` container has no idea about `redis` (or vice-versa):
 
-```
+```sh
 env | grep NOMAD
 NOMAD_REGION=global
 NOMAD_CPU_LIMIT=4700
@@ -425,7 +425,7 @@ We added the `template` stanza which will interpolate the env variables in the c
 
 Just by tweaking `provider` in our `service` block, we can use the Consul agent for service discovery.
 
-```
+```hcl
     service {
       name     = "app"
       provider = "consul"

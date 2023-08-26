@@ -24,7 +24,7 @@ To make CoreDNS aware about this plugin, you need to add it to the `plugin.cfg` 
 
 To add an external plugin this is the format used:
 
-```
+```sh
 nomad:github.com/mr-karan/coredns-nomad
 ```
 

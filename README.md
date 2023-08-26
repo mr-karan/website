@@ -2,9 +2,11 @@
 
 Visit at [mrkaran.dev](https://mrkaran.dev)
 
+---
+
 ## Stack
 
 - Framework: [Zola](https://www.getzola.org/)
-- Theme: Ported [hugo-ink](https://github.com/knadh/hugo-ink) with some custom stylings for `zola`.
+- Theme: Adapted [zola-bearblog](https://codeberg.org/alanpearce/zola-bearblog) with some custom styles.
 - Deployment: GitHub Actions
 - Analytics: Plausible Analytics

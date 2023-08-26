@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} | {{ super() }}{% endblock %}
+
+{% block main %}
+    <h1>My Projects</h1>
+    <p>Below are some of my featured projects. For a comprehensive list, please visit <a href="https://github.com/mr-karan" target="_blank" rel="noopener noreferrer">my GitHub profile</a>.</p>    
+    <div class="projects-section">
+      <ul class="projects-list">
+        {% set data = load_data(path="content/projects/data.toml", format="toml") %}
+        {% for proj in data.project %}
+        <li class="proj">
+          <p class="name">{{ proj.name }}</p>
+          <div class="desc">{{ proj.description | trim | markdown | safe }}</div>
+          <div class="links">
+            {% for link in proj.links -%}
+            <a href="{{ link.url }}" target="_blank" rel='noreferrer noopener'>{{ link.name }}</a>
+            {% endfor %}
+          </div>
+        </li>
+        {% endfor %}
+        </ul>    
+    </div>
+{% endblock %}

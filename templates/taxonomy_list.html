@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block main %}
+  <main>
+    <small>
+      <div>
+        {% set tags = get_taxonomy(kind="tags") %}
+        {% for post in tags.items %}
+          <a href="{{ post.permalink }}">#{{ post.name }}</a>&nbsp;
+        {% endfor %}
+      </div>
+    </small>
+  </main>
+{% endblock %}

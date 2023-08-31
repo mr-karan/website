@@ -1,0 +1,37 @@
+#!/bin/bash
+
+set -e
+
+# Ensure a slug is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <slug>"
+    exit 1
+fi
+
+# Variables
+SLUG="$1"
+FILE_PATH="content/tils/${SLUG}.md"
+CURRENT_DATE=$(date +"%Y-%m-%d")
+TITLE=$(echo $SLUG | tr '-' ' ' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2));}1')
+
+# Check if file already exists
+if [ -f "$FILE_PATH" ]; then
+    echo "Error: File ${FILE_PATH} already exists!"
+    exit 2
+fi
+
+# Write frontmatter to the file
+cat <<EOL > $FILE_PATH
++++
+title = "$TITLE"
+date = $CURRENT_DATE
+type = "til"
+description = "Description about $TITLE"
+in_search_index = true
+[taxonomies]
+tags = ["Specify Tags"]
++++
+
+EOL
+
+echo "File created at $FILE_PATH"

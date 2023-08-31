@@ -23,4 +23,10 @@ build:
 deploy: check-env build
 	rsync -avz --delete $(SRC_DIR)/ $(TARGET_HOST):$(TARGET_DIR)
 
-.PHONY: build deploy check-env
+# Git commit and push
+push:
+	git add .
+	git commit -m "automated push"
+	git push
+
+.PHONY: build deploy check-env push

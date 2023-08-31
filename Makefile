@@ -25,8 +25,8 @@ deploy: check-env build
 
 # Git commit and push
 push:
-	git add .
+	git add --all
 	git commit -m "automated push"
-	git push
+	git push origin main
 
 .PHONY: build deploy check-env push

@@ -25,6 +25,7 @@
   <main>
     {{ page.content | safe }}
   </main>
+  <div class="giscus"></div>
   <p class="tags">
     {%- if page.taxonomies %}
       {%- for name, taxon in page.taxonomies %}

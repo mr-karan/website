@@ -1,6 +1,7 @@
 +++
 title = "Making sad servers happy"
 date = 2023-11-06
+draft = true
 type = "post"
 description = "chronicle of tackling the unique challenges on sadservers.com, a platform that transforms Linux server troubleshooting into an engaging learning experience, akin to solving puzzles. I record my solutions and share them in video format to help and inspire future SREs and DevOps enthusiasts."
 in_search_index = true

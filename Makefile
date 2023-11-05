@@ -15,6 +15,10 @@ ifndef SERVER_IP
 	$(error SERVER_IP is undefined. Use `make deploy SERVER_IP=your.ip.here` or export it as environment variable.)
 endif
 
+# Serve the site using zola
+preview:
+	$(ZOLA) serve
+
 # Build the site using zola
 build:
 	$(ZOLA) build

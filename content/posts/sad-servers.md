@@ -10,7 +10,7 @@ tags= ["Linux", "Devops"]
 
 ## Introduction to SadServers
 
-Recently, I stumbled upon [sadservers](sadservers.com), a platform described as "Like LeetCode for Linux". The premise is: you are given access to a full remote Linux server with a pre-configured problem. Your mission is to diagnose and fix the issues in a fixed time window.
+Recently, I stumbled upon [sadservers](https://sadservers.com), a platform described as "Like LeetCode for Linux". The premise is: you are given access to a full remote Linux server with a pre-configured problem. Your mission is to diagnose and fix the issues in a fixed time window.
 
 With the goal of documenting my journey through these challenges and sharing the knowledge gained, I decided to not only tackle these puzzles but also to record my solutions in a video format. The format is twofold in its purpose: it allows me to reflect on my problem-solving approach and provides a resource for others who may encounter similar problems, whether in real-world scenarios or in preparation for an SRE/DevOps interview.
 

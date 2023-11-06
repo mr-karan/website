@@ -11,24 +11,24 @@ tags = ["Docker"]
 Docker uses `172.17.0.0/16` as the CIDR for it's own network and all the other bridge network it creates. It maybe sometimes useful to change the default subnet to a custom one, in case it conflitcts with other resources (like AWS VPC) in your infra.
 Not just this, it can also happen if you've multiple `docker-compose` projects in your server and you face an error similar to:
 
-```
-ERROR: could not find an available, non-overlapping IPv4 address pool among the defaults to assign to the network 
+```bash
+ERROR: could not find an available, non-overlapping IPv4 address pool among the defaults to assign to the network
 ```
 
 
-```
+```bash
 $ ip a show docker0
 
-8: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+8: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default
     link/ether 02:42:18:b7:60:80 brd ff:ff:ff:ff:ff:ff
     inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
        valid_lft forever preferred_lft forever
-    inet6 fe80::42:18ff:feb7:6080/64 scope link 
+    inet6 fe80::42:18ff:feb7:6080/64 scope link
        valid_lft forever preferred_lft forever
 ```
 
 ## Docker-compose
-If you're using `docker-compose`, then you can simply update the subnet for the bridge network created in that file by giving custom IPAM options in the network section of the file. 
+If you're using `docker-compose`, then you can simply update the subnet for the bridge network created in that file by giving custom IPAM options in the network section of the file.
 
 ```yml
 
@@ -60,15 +60,15 @@ If you wish to update the base address of `docker0` interface and define these s
 }
 ```
 
-Add the following to `/etc/docker/daemon.json` 
+Add the following to `/etc/docker/daemon.json`
 
-```
+```bash
 sudo systemctl restart docker
 ```
 
 ### Verify the settings
 
-```
+```bash
 ip a show docker0
 ```
 

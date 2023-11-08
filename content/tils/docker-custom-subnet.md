@@ -50,6 +50,8 @@ networks:
 
 If you wish to update the base address of `docker0` interface and define these subnets globally, you can update `daemon.json` settings.
 
+Add the following to `/etc/docker/daemon.json`. Create the file if it doesn't exist.
+
 ```json
 {
   "bip": "10.200.0.1/24",
@@ -60,7 +62,6 @@ If you wish to update the base address of `docker0` interface and define these s
 }
 ```
 
-Add the following to `/etc/docker/daemon.json`
 
 ```bash
 sudo systemctl restart docker

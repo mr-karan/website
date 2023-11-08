@@ -74,7 +74,29 @@ ip a show docker0
 
 You should see `10.200.0.1`
 
+### Explanation
+
+1. `"bip": "10.200.0.1/24"`
+   - `bip` stands for "Bridge IP".
+   - This specifies the IP address and subnet for the Docker daemon's default bridge network. The default bridge network is used for communications between the Docker host and containers that do not specify a network.
+   - `10.200.0.1` is the IP address assigned to the bridge interface on the Docker host.
+   - `/24` indicates that the subnet mask is 255.255.255.0, which means that the IP addresses from `10.200.0.1` to `10.200.0.254` are available for use by containers connected to this bridge.
+
+2. `"default-address-pools": [...]`
+   - This is an array defining pools of network addresses that Docker can use for creating user-defined networks (i.e., networks created using `docker network create`).
+
+   Inside the `default-address-pools` array, we have two objects, each specifying a base subnet and a size for the network pools:
+
+   - `{"base":"10.201.0.0/16","size":24}`
+     - This pool defines a range of IP addresses starting with the base `10.201.0.0/16`.
+     - `/16` means that any address from `10.201.0.0` to `10.201.255.255` can be used to create smaller subnets.
+     - `"size":24` specifies that when Docker creates a user-defined network from this pool, it should use a subnet size of `/24`. Therefore, each user-defined network created from this pool will have a range of IP addresses like `10.201.x.0/24`, where `x` is a variable that increments for each new network, providing 254 usable addresses for each subnet.
+
+   - `{"base":"10.202.0.0/16","size":24}`
+     - Similar to the first pool, but this uses the `10.202.0.0/16` range.
+     - Again, the `"size":24` means that Docker will create user-defined networks with a `/24` subnet from this range, for example `10.202.x.0/24`, where `x` is an incrementing value.
+
 ## Ref
-- https://straz.to/2021-09-08-docker-address-pools/
-- https://github.com/docker/docker.github.io/issues/8663#issuecomment-956438889
-- https://serverfault.com/questions/916941/configuring-docker-to-not-use-the-172-17-0-0-range
+- [https://straz.to/2021-09-08-docker-address-pools/](https://straz.to/2021-09-08-docker-address-pools/)
+- [https://github.com/docker/docker.github.io/issues/8663#issuecomment-956438889](https://github.com/docker/docker.github.io/issues/8663#issuecomment-956438889)
+- [https://serverfault.com/questions/916941/configuring-docker-to-not-use-the-172-17-0-0-range](https://serverfault.com/questions/916941/configuring-docker-to-not-use-the-172-17-0-0-range)

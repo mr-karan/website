@@ -1,6 +1,6 @@
 +++
 title = "One Billion Row Challenge in Go"
-date = 2024-01-08
+date = 2024-01-10
 type = "post"
 description = "Using Go to efficiently process a massive 12GB file containing 1 billion rows."
 in_search_index = true
@@ -14,8 +14,8 @@ Earlier this week, I had stumbled upon [1brc](https://github.com/gunnarmorling/1
 
 The challenge is mainly about Java, but I thought to do the same in my preferred language: Go. This post is about how I did several iterations to my Go program to reduce the time and discuss the main techniques used in each iteration to make it faster.
 
-I was able to create a solution which takes **~36s** to read, parse and calculate stats for 1bn lines on my Apple M2 (10 vCPU, 32GB RAM).
-There are some _insane_ solutions that people have come up with, be sure to check out [GitHub Discussions](https://github.com/gunnarmorling/1brc/discussions) to go through them! 
+I was able to create a solution which takes **~20s** to read, parse and calculate stats for 1bn lines on my Apple M2 (10 vCPU, 32GB RAM).
+There are some [insane](https://github.com/gunnarmorling/1brc/discussions/138) solutions that people have come up with, be sure to check out [GitHub Discussions](https://github.com/gunnarmorling/1brc/discussions) to go through them! 
 
 ## Prerequisites
 

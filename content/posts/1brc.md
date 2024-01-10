@@ -592,6 +592,8 @@ Tweaking the chunk size doesn't significantly impact performance, as processing 
 
 TL;DR: On an average and with multiple runs it takes approx **20s** with the final iteration for 1bn lines.
 
+Checkout the full code on my [GitHub](https://github.com/mr-karan/1brc-go).
+
 ## Potential Improvements
 
 This project was not only fun but also a great opportunity to revisit and refine many Go concepts. There are several ideas to contemplate for further improving this version's timings:

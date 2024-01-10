@@ -1,6 +1,6 @@
 :root {
     /* Base styles */
-    --font-primary: 'IBM Plex Sans',Verdana, sans-serif;
+    --font-primary: 'IBM Plex Sans', Verdana, sans-serif;
     --color-primary-text: #444;
     --color-background: #fff;
     --color-headline: #222;
@@ -31,7 +31,7 @@ body {
     font-size: 16px;
     margin: auto;
     padding: 20px;
-    max-width: 720px;
+    max-width: 800px;
     text-align: left;
     background-color: var(--color-background);
     word-wrap: break-word;
@@ -40,7 +40,14 @@ body {
     color: var(--color-primary-text);
 }
 
-h1, h2, h3, h4, h5, h6, strong, b {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b {
     color: var(--color-headline);
     font-weight: 700;
     line-height: 2.25rem;
@@ -93,7 +100,8 @@ input {
     font-size: 1rem;
 }
 
-main,article {
+main,
+article {
     line-height: 1.6;
 }
 
@@ -147,21 +155,26 @@ footer {
 
 .home-container {
     display: flex;
-    align-items: start; /* Makes sure items start from the top */
+    align-items: start;
+    /* Makes sure items start from the top */
 }
 
 .home-image {
-    flex: 1; /* Takes up 1 portion of the flex container */
-    max-width: 200px; /* Example width, adjust as needed */
+    flex: 1;
+    /* Takes up 1 portion of the flex container */
+    max-width: 200px;
+    /* Example width, adjust as needed */
     margin-left: 20px;
 }
 
 .home-content {
-    flex: 2; /* Takes up 2 portions of the flex container */
+    flex: 2;
+    /* Takes up 2 portions of the flex container */
 }
 
 .img-rounded {
-    border-radius: 50%; /* Rounds the image */
+    border-radius: 50%;
+    /* Rounds the image */
     width: 100%;
 }
 
@@ -170,7 +183,7 @@ footer {
     padding: 1em;
     margin: 2em 0;
     background-color: #f7f7f7;
- /* Light gray background for distinction */
+    /* Light gray background for distinction */
 }
 
 .admonition .admonition-header {
@@ -181,30 +194,30 @@ footer {
 
 .admonition.note {
     background-color: #e7f2fa;
- /* Light blue background */
+    /* Light blue background */
     border-color: #55a9d6;
- /* Blue border */
+    /* Blue border */
 }
 
 .admonition.warning {
     background-color: #fff2e7;
- /* Light red background */
+    /* Light red background */
     border-color: #d65f5f;
- /* Red border */
+    /* Red border */
 }
 
 .admonition.info {
     background-color: #e7f3fa;
- /* Light cyan background */
+    /* Light cyan background */
     border-color: #5fa9d6;
- /* Cyan border */
+    /* Cyan border */
 }
 
 .admonition.tip {
     background-color: #f2fae7;
- /* Light green background */
+    /* Light green background */
     border-color: #5fd64a;
- /* Green border */
+    /* Green border */
 }
 
 /* blog posts */
@@ -230,25 +243,26 @@ ul.blog-posts li a:visited {
     font-size: 1.25rem;
     margin-right: .75rem;
     text-decoration: none;
-    border-bottom-color: rgba(0,0,0,0);
+    border-bottom-color: rgba(0, 0, 0, 0);
     cursor: pointer;
 }
 
-.post-date,.reading-time {
+.post-date,
+.reading-time {
     font-size: 0.85rem;
 }
 
 .meta {
     display: flex;
     justify-content: space-between;
- /* This ensures maximum space between the two divs */
+    /* This ensures maximum space between the two divs */
     align-items: center;
- /* Vertically aligns items if there's any height difference */
+    /* Vertically aligns items if there's any height difference */
     border-bottom: 1px dashed #6b7280;
 }
 
 
-.tags > a {
+.tags>a {
     background-color: var(--color-tag-bg);
     color: var(--color-tag-text);
     padding: 5px 12px;
@@ -261,7 +275,7 @@ ul.blog-posts li a:visited {
     vertical-align: middle;
 }
 
-.tags > a:hover {
+.tags>a:hover {
     opacity: 0.85;
 }
 
@@ -307,9 +321,12 @@ figure:hover {
 }
 
 .youtube-embed iframe {
-    display: block;  /* To make the iframe block-level which allows margin auto to work */
-    margin: 0 auto; /* This will center the iframe horizontally */
-    max-width: 100%; /* Ensures the video doesn't overflow the container */
+    display: block;
+    /* To make the iframe block-level which allows margin auto to work */
+    margin: 0 auto;
+    /* This will center the iframe horizontally */
+    max-width: 100%;
+    /* Ensures the video doesn't overflow the container */
 }
 
 .social-links {
@@ -318,12 +335,12 @@ figure:hover {
 
 .social-icon {
     margin-right: 15px;
-  /* Adjust the value as needed */
+    /* Adjust the value as needed */
 }
 
 .social-icon:last-child {
     margin-right: 0;
-  /* Ensures the last icon doesn't have extra space on the right */
+    /* Ensures the last icon doesn't have extra space on the right */
 }
 
 .projects-section {
@@ -334,11 +351,16 @@ figure:hover {
 }
 
 .projects-list {
-    padding: 0;  /* Remove default padding */
-    margin: 0;  /* Remove default margin */
-    width: 100%;  /* Ensure it takes up full width of its container */
-    max-width: 600px;  /* Limit the maximum width */
-    list-style: none;  /* To remove bullet points */
+    padding: 0;
+    /* Remove default padding */
+    margin: 0;
+    /* Remove default margin */
+    width: 100%;
+    /* Ensure it takes up full width of its container */
+    max-width: 600px;
+    /* Limit the maximum width */
+    list-style: none;
+    /* To remove bullet points */
     box-sizing: border-box;
 }
 
@@ -347,8 +369,10 @@ figure:hover {
     padding: 1rem;
     margin-bottom: 1rem;
     position: relative;
-    background-color: #f9f9f9;  /* Light gray background for a bit of distinction */
-    transition: background-color 0.2s ease; /* Smooth transition for hover effects */
+    background-color: #f9f9f9;
+    /* Light gray background for a bit of distinction */
+    transition: background-color 0.2s ease;
+    /* Smooth transition for hover effects */
 }
 
 .proj .name {
@@ -362,14 +386,17 @@ figure:hover {
 }
 
 .proj .links a {
-    color: var(--color-link);  /* Using the existing link color variable */
+    color: var(--color-link);
+    /* Using the existing link color variable */
     text-decoration: none;
     margin-left: 0.5rem;
-    transition: color 0.3s ease;  /* Smoothens the color transition on hover */
+    transition: color 0.3s ease;
+    /* Smoothens the color transition on hover */
 }
 
 .proj .links a:hover {
-    color: var(--color-link-hover);  /* Using the existing link hover color variable */
+    color: var(--color-link-hover);
+    /* Using the existing link hover color variable */
     text-decoration: underline;
 }
 
@@ -380,7 +407,8 @@ figure:hover {
 }
 
 .proj:hover {
-    background-color: #f5f5f5; /* Slightly lighter background on hover */
+    background-color: #f5f5f5;
+    /* Slightly lighter background on hover */
 }
 
 .section-header {
@@ -435,7 +463,7 @@ body[data-theme="dark"] a {
     color: var(--color-link-dark);
 }
 
-body[data-theme="dark"] .tags > a {
+body[data-theme="dark"] .tags>a {
     color: var(--color-tag-text);
 }
 
@@ -528,7 +556,8 @@ body[data-theme="dark"] .proj .links a:hover {
         font-size: 2rem;
     }
 
-    figure, img {
+    figure,
+    img {
         margin: 10px auto;
     }
 
@@ -537,7 +566,7 @@ body[data-theme="dark"] .proj .links a:hover {
         font-size: 0.95rem;
     }
 
-    .tags > a {
+    .tags>a {
         padding: 4px 10px;
         font-size: 0.8rem;
     }
@@ -551,6 +580,7 @@ body[data-theme="dark"] .proj .links a:hover {
         flex: none;
         margin-bottom: 0.5rem;
     }
+
     .home-container {
         flex-direction: column;
         align-items: center;
@@ -559,14 +589,18 @@ body[data-theme="dark"] .proj .links a:hover {
 
     .home-image {
         margin-left: 0;
-        margin-bottom: 20px; /* Add some space below the image */
-        max-width: 100%; /* Allows the image to be fully responsive */
+        margin-bottom: 20px;
+        /* Add some space below the image */
+        max-width: 100%;
+        /* Allows the image to be fully responsive */
     }
 
     .home-image img {
-        max-width: 150px; /* or any other appropriate size */
+        max-width: 150px;
+        /* or any other appropriate size */
         display: block;
-        margin: 0 auto; /* Centers the image */
+        margin: 0 auto;
+        /* Centers the image */
     }
 }
 
@@ -574,7 +608,7 @@ body[data-theme="dark"] .proj .links a:hover {
     .nav-items a {
         margin-right: 6px;
         font-size: 0.85rem;
-       }
+    }
 
     .theme-toggle {
         margin-left: 5px;

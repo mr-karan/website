@@ -585,8 +585,8 @@ I experimented with different chunk sizes, and here are the results from each ru
 | ---------- | ------- |
 | 512.00 KB  | 23.756s |
 | 1.00 MB    | 21.798s |
-| 32.00 MB   | 19.501s |
 | 16.00 MB   | 20.693s |
+| 32.00 MB   | 19.501s |
 
 Tweaking the chunk size doesn't significantly impact performance, as processing larger chunks takes longer.
 

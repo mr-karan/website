@@ -12,7 +12,16 @@ og_preview_img = "/images/gullak-cover.png"
 
 A couple of weeks ago, I decided to start logging and tracking my expenses. The goal was not to record every minor purchase but to gain a general insight into where my money was going. In this post, I'll dive deep into the behind-the-scenes of building [Gullak](https://github.com/mr-karan/gullak)—an expense tracker app with a dash of _AI_ (yes).
 
-![Gullak screen recording](/images/gullak.gif)
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/29wLnPMbsE8?si=O_GStAkPGZ09oywE" 
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+          title="YouTube video player" frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen></iframe>
+</div>
+
+![Gullak](/images/gullak-cover.png)
 
 ## Why
 
@@ -109,7 +118,6 @@ After a day or two of experimenting, I decided to build a small frontend for now
 ## Building Frontend
 
 ![image](/images/gullak-home.png)
-![image](/images/gullak-cover.png)
 
 As a backend developer, my core expertise is NOT JavaScript, and I strongly dislike the JS ecosystem. Obviously there's no dearth of choices when it comes to frameworks, however for this project I wanted to stay away from the hype and choose a stack that is simple to use and productive (for me) out of the box. Having used Vue.js in production in the past, I feel it ticks those boxes for me as it comes bundled with a router, store, and all the niceties, and it has **excellent** documentation. After reading a refresher on the new Vue3 composition API syntax, I hit the ground running.
 

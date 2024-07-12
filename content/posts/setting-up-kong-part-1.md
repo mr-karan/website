@@ -12,7 +12,7 @@ tags = ["devops","ansible","kong"]
 
 [Kong](https://konghq.com/) is an API Gateway, which basically reverse proxies every incoming request to the upstream URL. It is pretty useful if you have a lot of internal services which need to talk to each other (through HTTP) but you don't want to keep managing the authentication layer, rate limiting, hosts whitelisting and other such things in every service. Kong acts as a central entrypoint to all other services' API endpoints and all the common fluff is heavylifted by Kong's API layer.
 
-Kong follows a [plugin](https://docs.konghq.com/hub/) approach, which makes it extensible and you can even [make your own plugins](https://docs.konghq.com/1.0.x/plugin-development/). Using plugins, it is possible to modify the request,
+Kong follows a [plugin](https://docs.konghq.com/hub/) approach, which makes it extensible and you can even [make your own plugins](https://docs.konghq.com/gateway/latest/plugin-development/). Using plugins, it is possible to modify the request,
 add authentication layer at the Kong layer, forward user meta information headers to the upstream.
 
 Amongst other API Gateway solutions, Kong is pretty straightforward to get started with and has a nice community support as well. All of the actions to configure your API endpoints and manage them can be done through a RESTful Admin API.

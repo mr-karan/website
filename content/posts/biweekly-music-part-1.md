@@ -9,7 +9,7 @@ in_search_index = true
 tags = ["Music"]
 +++
 
-I listen to a _lot_ of music artists while working or otherwise. I plan to share some of the gems I discover each week. Thanks to Spotify and Youtube suggestions, I keep discovering a lot of indie artists and underrated titles. I hope you give them a listen and spread some good music in your circle.
+I do not to a _lot_ of music artists while working or otherwise. I plan to share some of the gems I discover each week. Thanks to Spotify and Youtube suggestions, I keep discovering a lot of indie artists and underrated titles. I hope you give them a listen and spread some good music in your circle.
 
 ### Tere Jeya Hor Disda
 

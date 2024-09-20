@@ -2,8 +2,8 @@
 base_url = "https://mrkaran.dev/"
 title = "Karan Sharma"
 description = "Ramblings on programming, tech and life."
-generate_feed = false
-feed_filename = "atom.xml" # default template
+generate_feeds = false
+feed_filenames = ["atom.xml"] # default template
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false

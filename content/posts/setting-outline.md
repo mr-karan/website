@@ -10,7 +10,7 @@ tags = ["Self Hosting", "Devops"]
 
 I recently discovered [Outline](https://www.getoutline.com/) a collaborative knowledge base. I wanted to self-host it on my server, but the mandatory auth provider requirement was off-putting. My server is on a private encrypted network (Tailscale) that only my approved devices in the tailnet can access, so I don't really need authentication for my personal single-use apps. I found a few guides using Authelia/Keycloak, but these are heavy-duty applications that would consume a lot of resources (DBs, caches, proxies, and whatnot) just to have an OIDC provider for Outline.
 
-There had to be a simpler way, right? Enter Dex. As recommended by my friend and colleague [Chinmay](https://maych.in/), it turned out to be quite easy.
+There had to be a simpler way, right? Enter [Dex](https://github.com/dexidp/dex). As recommended by my friend and colleague [Chinmay](https://maych.in/), it turned out to be quite easy.
 
 Here's the full `docker-compose.yml` setup you need to get Outline up and running on your local instance!
 

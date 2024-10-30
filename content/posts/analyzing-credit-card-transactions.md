@@ -8,8 +8,7 @@ title = "Analyzing credit card transactions with GPT and Python"
 type = "post"
 
 [taxonomies]
-  tags = ["gpt", "python"]
-
+tags = ["gpt", "python", "ai"]
 +++
 
 

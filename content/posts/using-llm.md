@@ -6,6 +6,8 @@ description = "How I use Aider CLI and LLMs to streamline my coding workflow"
 in_search_index = true
 [taxonomies]
 tags= ["Programming", "ai"]
+[extra]
+og_preview_img = "/images/aider-4.png"
 +++
 
 Just yesterday, GitHub [announced](https://github.blog/news-insights/product-news/bringing-developer-choice-to-copilot/) integrating Claude 3.5 Sonnet with Copilot. Interesting times ahead. In my experience, Claude has been remarkably better than the GPT-4 family of models for programming tasks. I've tried a bunch of tools like Cursor, Continue.dev but finally settled with [Aider](https://aider.chat/) for most of my tasks. In this post, I want to write about my workflow of using Aider when working on small coding tasks.

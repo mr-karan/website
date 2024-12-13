@@ -57,6 +57,12 @@ Aider's approach to AI pair programming feels natural and productive. Here are s
 
 ![image](/images/aider-2.png)
 
+I prefer to invoke `aider` with a few extra flags:
+
+```
+aider --no-auto-commits --cache-prompts --cache-keepalive-pings 12 --no-suggest-shell-commands
+```
+
 Make sure to go through the [Tips](https://aider.chat/docs/usage/tips.html) page to effectively try out Aider on your existing projects.
 
 Fin!

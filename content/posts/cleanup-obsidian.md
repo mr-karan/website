@@ -14,7 +14,7 @@ My Obsidian vault has gotten quite messy over time. I've been dumping notes with
 
 I'd been playing around with Claude's API lately, and thought – hey, why not use an LLM to analyze my notes and add proper frontmatter? After all, that's what these AI models are good at – understanding context and categorizing stuff.
 
-I wrote a small Python script using the [`llm`](https://llm.datasette.io/en/stable/) library (which is pretty neat btw) to do just this. Here's what it looks like:
+I wrote a small Python script using the [llm](https://llm.datasette.io/en/stable/) library (which is pretty neat btw) to do just this. Here's what it looks like:
 
 ```python
 import llm

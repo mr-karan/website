@@ -6,6 +6,8 @@ description = "Using LLM to organize my messy Obsidian vault"
 in_search_index = true
 [taxonomies]
 tags = ["LLM"]
+[extra]
+og_preview_img = "/images/obsd-cleanup.png"
 +++
 
 My Obsidian vault has gotten quite messy over time. I've been dumping notes without proper frontmatter, tags were all over the place, and some notes didn't even have proper titles! I needed a way to clean this up without spending hours manually organizing everything.
@@ -143,6 +145,8 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+![image](/images/obsd-cleanup.png)
 
 The script is pretty straightforward – it reads each markdown file, extracts any existing frontmatter (because I don't want to lose that!), and then asks Claude to analyze the content and generate appropriate frontmatter. It adds stuff like title, category, tags, status, priority.
 

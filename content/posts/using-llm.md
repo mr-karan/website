@@ -59,7 +59,7 @@ Aider's approach to AI pair programming feels natural and productive. Here are s
 
 I prefer to invoke `aider` with a few extra flags:
 
-```
+```bash
 aider --no-auto-commits --cache-prompts --cache-keepalive-pings 12 --no-suggest-shell-commands
 ```
 

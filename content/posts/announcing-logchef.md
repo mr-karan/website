@@ -49,7 +49,7 @@ Logchef is designed as a specialized query and visualization layer sitting on to
 
 ## Setting Up the Public Demo (`demo.logchef.app`)
 
-![Logchef Screenshot](/images/logchef_blog_2.png/)
+![Logchef Screenshot](/images/logchef_blog_2.png)
 
 I wanted a public [demo instance](https://demo.logchef.app) so people could try Logchef easily. Setting this up involved a few specific tweaks compared to a standard deployment, all managed within the Docker Compose setup:
 

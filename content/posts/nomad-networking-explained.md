@@ -461,6 +461,9 @@ redis.service.consul.   A       IN      0s  172.20.10.3 127.0.0.1:8600
 ```
 
 - Define health checks. Since it's a new feature, health checks on Nomad service aren't there but there's a [GitHub issue](https://github.com/hashicorp/nomad/issues/12576) open for the same.
+
+> **Update (2024)**: Native health checks are now available in Nomad since version 1.4 (released October 2022). This means you can define health checks directly in your Nomad service definitions without requiring Consul. You can read more about this in the [Nomad documentation](https://developer.hashicorp.com/nomad/docs/job-specification/service#check).
+
 - Accessible by applications outside Nomad. In case `consul` is used by other applications outside of the Nomad cluster, they can still get their address (using DNS or REST APIs)
 
 However, Nomad native service discovery is perfect for local setups and even smaller use-cases in production because it eliminates the need of running Consul in your stack which is a big thing!

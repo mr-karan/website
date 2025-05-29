@@ -8,25 +8,25 @@ title = "Home"
 
   <div class="home-content">
 
-I'm Karan — but you might stumble across `@mrkaran` in some corners of the internet. I work at [Zerodha](https://zerodha.com/) where I focus mainly on backend engineering along with handling infrastructure and observability.
+I'm Anas — an engineer at [Brevo](https://www.brevo.com/) where I craft solutions in backend engineering and distributed systems. I'm passionate about building robust systems and love diving deep into the intricacies of system design.
 
-I like to [tinker](https://github.com/mr-karan) with stuff around monitoring, networking and distributed systems.
+I enjoy tinkering with projects that challenge me in backend engineering, distributed systems, and everything in between. You'll often find me experimenting with new technologies and contributing to the tech ecosystem.
 
-When I'm not in the tech zone, I'm probably playing badminton, on a road trip, or experimenting in the kitchen. I've got a soft spot for indie music too, and I've curated some of my favorites on [Spotify playlist](https://open.spotify.com/playlist/5dvbrw93FgUhsZdbnpF3JM).
+When I'm not coding, I'm committed to my fitness journey at the gym, exploring my culinary skills in the kitchen, or embarking on spontaneous travel adventures. These impromptu trips help me maintain a fresh perspective on both life and code.
 
   </div>
 
   <div class="home-image">
-    <img src="/images/website/profile.png" alt="Profile Image" class="img-rounded" />
+    <img src="/images/website/profile-new.png" alt="Profile Image" class="img-rounded" />
   </div>
 
 </div>
 
-## ⭐ Featured Posts
+<!-- ## ⭐ Featured Posts
 
 A curated collection of my top articles from over the years:
 
 * [Understanding Networking in Nomad](@/posts/nomad-networking-explained.md)
 * [Using ClickHouse Keeper for Replication](@/posts/clickhouse-replication.md)
 * [Running Nomad for home server](@/posts/home-server-nomad.md)
-* [DNS Lookups in Kubernetes](@/posts/ndots-kubernetes.md)
+* [DNS Lookups in Kubernetes](@/posts/ndots-kubernetes.md) -->

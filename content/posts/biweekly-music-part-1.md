@@ -1,6 +1,6 @@
 +++
-title = "Bi-Weekly Music Post Part 1"
-date = 2018-05-28T20:30:55+05:30
+title = "My first Music Post Part 1"
+date =  2025-05-29T20:30:55+05:30
 updated = 2018-05-28T20:30:55+05:30
 type = "post"
 description = "Sharing some Awesome Music - part 1"

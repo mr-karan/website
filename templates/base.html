@@ -3,17 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if config.extra.favicon %}
-    <link rel="shortcut icon" href="{{ config.extra.favicon }}">
-    {%- endif -%}
-    <title>{%- block title %}{{ config.title }}{%- endblock %}</title>
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    {% include "og.html" %}
-    {%- if config.generate_feed %}
-    {% block rss -%}
-    <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="{{ config.title }}" href="{{ get_url(path=config.feed_filename) | safe }}">
-    {%- endblock -%}
-    {%- endif %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -46,10 +35,9 @@
 </header>
 {% block main %}{%- endblock -%}
 <footer>
-    © 2023 Karan Sharma<br>
+    © 2025 Anas Khan<br>
     <div class="social-links">
-        <a href="https://github.com/mr-karan" target="_blank" rel="noopener noreferrer" title="GitHub" class="social-icon"><i data-feather="github"></i></a>
-        <a href="/posts/atom.xml" target="_blank" rel="noopener noreferrer" title="RSS Feed" class="social-icon"><i data-feather="rss"></i></a>
+        <a href="https://github.com/anascann" target="_blank" rel="noopener noreferrer" title="GitHub" class="social-icon"><i data-feather="github"></i></a>
     </div>
 </footer>
 <script>

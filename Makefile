@@ -3,8 +3,8 @@
 # Variables
 ZOLA := zola
 SRC_DIR := public
-TARGET_HOST := karan@$(SERVER_IP)
-TARGET_DIR := /home/karan/mrkaran-dev/public
+# TARGET_HOST := karan@$(SERVER_IP)
+# TARGET_DIR := /home/karan/mrkaran-dev/public
 
 # Default target
 all: build

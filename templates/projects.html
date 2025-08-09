@@ -5,20 +5,204 @@
 {% block main %}
     <h1>My Projects</h1>
     <p>Below are some of my featured projects. For a comprehensive list, please visit <a href="https://github.com/mr-karan" target="_blank" rel="noopener noreferrer">my GitHub profile</a>.</p>    
+    
+    {% set data = load_data(path="content/projects/data.toml", format="toml") %}
+    
+    {% set highlighted_names = ["logchef", "doggo", "swiggy-analytics", "barreldb", "monkeybeat", "nomad-events-sink", "calert"] %}
+    
     <div class="projects-section">
-      <ul class="projects-list">
-        {% set data = load_data(path="content/projects/data.toml", format="toml") %}
+      <h2>Featured Projects</h2>
+      <div class="projects-grid featured">
         {% for proj in data.project %}
-        <li class="proj">
-          <p class="name">{{ proj.name }}</p>
-          <div class="desc">{{ proj.description | trim | markdown | safe }}</div>
-          <div class="links">
-            {% for link in proj.links -%}
-            <a href="{{ link.url }}" target="_blank" rel='noreferrer noopener'>{{ link.name }}</a>
-            {% endfor %}
+          {% if proj.name in highlighted_names %}
+          <div class="project-card featured-card">
+            <h3 class="project-name">{{ proj.name }}</h3>
+            <p class="project-desc">{{ proj.description }}</p>
+            <div class="project-meta">
+              {% if proj.stars %}
+                <span class="project-stars">⭐ {{ proj.stars }}</span>
+              {% endif %}
+              {% if proj.language %}
+                <span class="project-lang">{{ proj.language }}</span>
+              {% endif %}
+              {% if proj.pushed %}
+                <span class="project-pushed">Last push: {{ proj.pushed }}</span>
+              {% endif %}
+            </div>
+            <div class="project-links">
+              {% for link in proj.links -%}
+              <a href="{{ link.url }}" target="_blank" rel='noreferrer noopener' class="project-link">{{ link.name }}</a>
+              {% endfor %}
+            </div>
           </div>
-        </li>
+          {% endif %}
         {% endfor %}
-        </ul>    
+      </div>
+
+      <h2>All Projects</h2>
+      <div class="projects-grid">
+        {% for proj in data.project %}
+          {% if proj.name not in highlighted_names %}
+          <div class="project-card">
+            <h3 class="project-name">{{ proj.name }}</h3>
+            <p class="project-desc">{{ proj.description }}</p>
+            <div class="project-meta">
+              {% if proj.stars and proj.stars > 10 %}
+                <span class="project-stars">⭐ {{ proj.stars }}</span>
+              {% endif %}
+              {% if proj.language %}
+                <span class="project-lang">{{ proj.language }}</span>
+              {% endif %}
+              {% if proj.pushed %}
+                <span class="project-pushed">Last push: {{ proj.pushed }}</span>
+              {% endif %}
+            </div>
+            <div class="project-links">
+              {% for link in proj.links -%}
+              <a href="{{ link.url }}" target="_blank" rel='noreferrer noopener' class="project-link">{{ link.name }}</a>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
+
+    <style>
+      .projects-section {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .projects-section h2 {
+        margin: 3rem 0 1.5rem;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--color-text);
+        border-bottom: 2px solid var(--color-text);
+        padding-bottom: 0.5rem;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .project-card {
+        border: 1px solid var(--color-border, #ddd);
+        border-radius: 6px;
+        padding: 1.5rem;
+        background: var(--color-bg, #fff);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .project-card:hover {
+        border-color: var(--color-link);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .featured-card {
+        border: 2px solid var(--color-link);
+        position: relative;
+      }
+
+      .featured-card::before {
+        content: "Featured";
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        background: var(--color-link);
+        color: white;
+        padding: 4px 12px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        border-radius: 0 4px 0 6px;
+      }
+
+      .project-name {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 0 0 0.75rem;
+        color: var(--color-text);
+      }
+
+      .project-desc {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+        color: var(--color-text-secondary, #666);
+      }
+
+      .project-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.25rem;
+        font-size: 0.85rem;
+      }
+
+      .project-meta span {
+        display: inline-flex;
+        align-items: center;
+        color: var(--color-text-secondary, #666);
+      }
+
+      .project-stars {
+        font-weight: 500;
+        color: var(--color-text);
+      }
+
+      .project-lang {
+        padding: 3px 8px;
+        background: var(--color-bg-secondary, #f5f5f5);
+        border: 1px solid var(--color-border, #ddd);
+        border-radius: 3px;
+        font-size: 0.8rem;
+        font-family: monospace;
+      }
+
+      .project-pushed {
+        font-size: 0.8rem;
+        opacity: 0.8;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .project-link {
+        padding: 6px 12px;
+        border: 1px solid var(--color-link);
+        border-radius: 4px;
+        text-decoration: none;
+        color: var(--color-link);
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+      }
+
+      .project-link:hover {
+        background: var(--color-link);
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .projects-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        
+        .project-card {
+          padding: 1.25rem;
+        }
+        
+        .projects-section h2 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
 {% endblock %}

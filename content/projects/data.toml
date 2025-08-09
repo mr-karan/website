@@ -1,66 +1,935 @@
+# GitHub Projects
+# Generated on 2025-08-09 19:49:56
+# Total projects: 89
+
 [[project]]
-name = "barreldb"
-description = "A disk based KV store (based on Bitcask implementation)"
+name = "logchef"
+description = "Lightweight, single-binary log analytics interface for ClickHouse, focused on high-performance querying and visualization"
+created = "Sep 2024"
+pushed = "Aug 2025"
+stars = 451
+language = "Vue"
 links = [
-  { name = "Blog", url = "https://mrkaran.dev/posts/barreldb/" },
-  { name = "GitHub", url="https://github.com/mr-karan/barreldb" },
+  { name = "Homepage", url = "https://logchef.app/" },
+  { name = "GitHub", url = "https://github.com/mr-karan/logchef" },
+]
+
+[[project]]
+name = "website"
+description = "Personal site, made using Zola"
+created = "Dec 2017"
+pushed = "Aug 2025"
+stars = 33
+language = "HTML"
+links = [
+  { name = "Homepage", url = "https://mrkaran.dev" },
+  { name = "GitHub", url = "https://github.com/mr-karan/website" },
+]
+
+[[project]]
+name = "prom2grafana"
+description = "Convert Prometheus metrics to Grafana dashboards and alert rules using AI"
+created = "Aug 2025"
+pushed = "Aug 2025"
+language = "HTML"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/prom2grafana" },
+]
+
+[[project]]
+name = "arbok"
+description = "Secure HTTP tunnels to localhost using WireGuard - Share your local dev server instantly"
+created = "Jul 2022"
+pushed = "Aug 2025"
+stars = 73
+language = "Go"
+links = [
+  { name = "Homepage", url = "https://arbok.mrkaran.dev" },
+  { name = "GitHub", url = "https://github.com/mr-karan/arbok" },
 ]
 
 [[project]]
 name = "doggo"
-description = "🐶 Command-line DNS Client for Humans. Written in Golang"
+description = ":dog: Command-line DNS Client for Humans. Written in Golang"
+created = "Dec 2020"
+pushed = "Aug 2025"
+stars = 3761
+language = "Go"
 links = [
-  { name = "Homepage", url = "https://doggo.mrkaran.dev" },
-  { name = "GitHub", url="https://github.com/mr-karan/doggo" },
+  { name = "Homepage", url = "https://doggo.mrkaran.dev/" },
+  { name = "GitHub", url = "https://github.com/mr-karan/doggo" },
 ]
 
 [[project]]
-name = "monkeybeat"
-description = "Generate a random stock portfolio and find out if it beats the markets!"
+name = "toru"
+description = "Toru is a Go module proxy with caching and rewrite capabilities"
+created = "Jul 2024"
+pushed = "Jul 2025"
+stars = 24
+language = "Go"
 links = [
-  { name = "Homepage", url = "https://monkeybeat.market/" },
-  { name = "GitHub", url="https://github.com/mr-karan/monkeybeat" },
+  { name = "GitHub", url = "https://github.com/mr-karan/toru" },
 ]
 
 [[project]]
-name = "cloak"
-description = "Securely share sensitive text with others"
+name = "logchef-mcp"
+description = "MCP server for Logchef"
+created = "Jun 2025"
+pushed = "Jun 2025"
+language = "Go"
 links = [
-  { name = "Homepage", url = "https://cloak.mrkaran.dev/" },
-  { name = "GitHub", url="https://github.com/mr-karan/cloak" },
-]
-
-[[project]]
-name = "nomctx"
-description = "Faster way to switch between clusters and namespaces in nomad"
-links = [
-  { name = "GitHub", url="https://github.com/mr-karan/nomctx" },
-]
-
-[[project]]
-name = "nomad-events-sink"
-description = "An events collection agent which processes Nomad Events and dumps to external sink providers like HTTP"
-links = [
-  { name = "GitHub", url="https://github.com/mr-karan/nomad-events-sink" },
-]
-
-[[project]]
-name = "swiggy-analytics"
-description = "🍔 Analyse your swiggy orders"
-links = [
-  { name = "GitHub", url="https://github.com/mr-karan/swiggy-analytics" },
+  { name = "GitHub", url = "https://github.com/mr-karan/logchef-mcp" },
 ]
 
 [[project]]
 name = "calert"
 description = "🔔 Send alert notifications to Google Chat via Prometheus Alertmanager"
+created = "Dec 2018"
+pushed = "May 2025"
+stars = 179
+language = "Go"
 links = [
-  { name = "GitHub", url="https://github.com/mr-karan/calert" },
+  { name = "GitHub", url = "https://github.com/mr-karan/calert" },
+]
+
+[[project]]
+name = "balance"
+description = "Minimal Golang library for implemeting weighted round robin load balancing."
+created = "Jan 2023"
+pushed = "Mar 2025"
+stars = 25
+language = "Go"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/balance" },
+]
+
+[[project]]
+name = "lil"
+description = "URL Shortener with flexible analytics support, in-memory caching, and an admin UI."
+created = "Nov 2024"
+pushed = "Dec 2024"
+stars = 33
+language = "Go"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/lil" },
+]
+
+[[project]]
+name = "silencer"
+description = "A Mattermost bot that enables creating Alertmanager silences using slash commands. Simplify alert management and improve incident response workflows."
+created = "Nov 2024"
+pushed = "Nov 2024"
+language = "Python"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/silencer" },
+]
+
+[[project]]
+name = "nomctx"
+description = "Faster way to switch between clusters and namespaces in nomad "
+created = "Apr 2022"
+pushed = "Oct 2024"
+stars = 54
+language = "Go"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/nomctx" },
+]
+
+[[project]]
+name = "caddy-plugins-docker"
+description = "Docker image for Caddy with custom plugins baked into the image."
+created = "Aug 2020"
+pushed = "Sep 2024"
+language = "Dockerfile"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/caddy-plugins-docker" },
+]
+
+[[project]]
+name = "ovenlydelights-shop"
+description = "Static site to place orders for a homemade bakery shop"
+created = "Jul 2024"
+pushed = "Jul 2024"
+language = "HTML"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/ovenlydelights-shop" },
+]
+
+[[project]]
+name = "gullak"
+description = "A no-frills expense tracker app enabling quick logging of expenses in natural language, using LLMs for parsing and categorization."
+created = "Apr 2024"
+pushed = "Jun 2024"
+stars = 109
+language = "Vue"
+links = [
+  { name = "Homepage", url = "https://mrkaran.dev/posts/gullak/" },
+  { name = "GitHub", url = "https://github.com/mr-karan/gullak" },
+]
+
+[[project]]
+name = "nomad-cluster-backup"
+description = "Script to back up your Nomad cluster state to S3"
+created = "Jun 2024"
+pushed = "Jun 2024"
+language = "Shell"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/nomad-cluster-backup" },
+]
+
+[[project]]
+name = "nomad-vector-logger"
+description = "A daemon which continuously watches jobs running in a Nomad cluster and templates out a Vector configuration file which can be used to collect application logs enriched with Nomad metadata."
+created = "Jun 2022"
+pushed = "Jun 2024"
+stars = 57
+language = "Go"
+links = [
+  { name = "Homepage", url = "https://mrkaran.dev/posts/nomad-logging/" },
+  { name = "GitHub", url = "https://github.com/mr-karan/nomad-vector-logger" },
+]
+
+[[project]]
+name = "clx"
+description = "Generate CLI commands using AI for common ops"
+created = "Apr 2024"
+pushed = "May 2024"
+stars = 19
+language = "Go"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/clx" },
+]
+
+[[project]]
+name = "awesome-investing"
+description = " 💸💸 Curated list of investment & finance related resources "
+created = "Aug 2017"
+pushed = "Jan 2024"
+stars = 2071
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/awesome-investing" },
+]
+
+[[project]]
+name = "1brc-go"
+description = "1️⃣🐝🏎️ The One Billion Row Challenge -- A fun exploration of how quickly 1B rows from a text file can be aggregated with Golang"
+created = "Jan 2024"
+pushed = "Jan 2024"
+stars = 18
+language = "Go"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/1brc-go" },
+]
+
+[[project]]
+name = "swiggy-analytics"
+description = "Analyse your swiggy orders 🍔"
+created = "Jan 2019"
+pushed = "Jan 2024"
+stars = 281
+language = "Python"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/swiggy-analytics" },
+]
+
+[[project]]
+name = "alertmatter"
+description = "Alertmanager - Mattermost Webhook Receiver"
+created = "Dec 2023"
+pushed = "Dec 2023"
+language = "Go"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/alertmatter" },
+]
+
+[[project]]
+name = "barreldb"
+description = "A disk based KV store (based on Bitcask implementation)"
+created = "Nov 2022"
+pushed = "Dec 2023"
+stars = 196
+language = "Go"
+links = [
+  { name = "Homepage", url = "https://mrkaran.dev/posts/barreldb/" },
+  { name = "GitHub", url = "https://github.com/mr-karan/barreldb" },
+]
+
+[[project]]
+name = "cgroup-stats"
+description = "Tiny Go library designed for retrieving CPU and Memory quota information from Linux control groups (cgroups)."
+created = "Oct 2023"
+pushed = "Oct 2023"
+language = "Go"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/cgroup-stats" },
+]
+
+[[project]]
+name = "nomad-external-dns"
+description = "Set external DNS records for Nomad services"
+created = "Jul 2022"
+pushed = "Sep 2023"
+stars = 40
+language = "Go"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/nomad-external-dns" },
+]
+
+[[project]]
+name = "vscode-nomfmt"
+description = "Visual Studio Code extension for on-the-fly formatting of Nomad job specs in HCL using `nomad fmt`."
+created = "Sep 2023"
+pushed = "Sep 2023"
+language = "TypeScript"
+links = [
+  { name = "Homepage", url = "https://marketplace.visualstudio.com/items?itemName=mrkaran.nomfmt" },
+  { name = "GitHub", url = "https://github.com/mr-karan/vscode-nomfmt" },
+]
+
+[[project]]
+name = "fate"
+description = "Browse FontAawesome icons from your shell"
+created = "Jan 2016"
+pushed = "Jul 2023"
+stars = 29
+language = "Python"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/fate" },
+]
+
+[[project]]
+name = "nomad-events-sink"
+description = "An events collection agent which processes Nomad Events and dumps to external sink providers like HTTP"
+created = "Nov 2021"
+pushed = "Jun 2023"
+stars = 53
+language = "Go"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/nomad-events-sink" },
+]
+
+[[project]]
+name = "webkin"
+description = "💻 CLI tool to send webpages to kindle. 📔"
+created = "Jan 2017"
+pushed = "May 2023"
+stars = 55
+language = "Python"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/webkin" },
+]
+
+[[project]]
+name = "k8s-pruner"
+description = "Cleanup unused configmaps in a Kubernetes namespace"
+created = "Nov 2019"
+pushed = "Mar 2023"
+language = "Shell"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/k8s-pruner" },
+]
+
+[[project]]
+name = "kiteHistory"
+description = "🤑 Kite History API wrapper"
+created = "Jun 2017"
+pushed = "Feb 2023"
+stars = 14
+language = "Python"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/kiteHistory" },
+]
+
+[[project]]
+name = "notes"
+description = "Collection of my byte sized notes on programming and other random topics. "
+created = "Dec 2020"
+pushed = "Feb 2023"
+stars = 39
+language = "Makefile"
+links = [
+  { name = "Homepage", url = "https://notes.mrkaran.dev/" },
+  { name = "GitHub", url = "https://github.com/mr-karan/notes" },
+]
+
+[[project]]
+name = "haraka-docker"
+description = "Docker image for Haraka SMTP server"
+created = "Jul 2022"
+pushed = "Jan 2023"
+language = "Dockerfile"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/haraka-docker" },
+]
+
+[[project]]
+name = "haraka-plugin-outbound-logger"
+description = "Haraka SMTP plugin for logging outbound traffic. Useful for storing audit information of delivered/bounced emails."
+created = "Jan 2023"
+pushed = "Jan 2023"
+stars = 16
+language = "JavaScript"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/haraka-plugin-outbound-logger" },
+]
+
+[[project]]
+name = "calwarrior"
+description = "Calendar web view for Takwarrior"
+created = "Jan 2020"
+pushed = "Dec 2022"
+language = "Vue"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/calwarrior" },
+]
+
+[[project]]
+name = "monkeybeat"
+description = "Generate a random stock portfolio and find out if it beats the markets!"
+created = "Nov 2022"
+pushed = "Nov 2022"
+stars = 67
+language = "Go"
+links = [
+  { name = "Homepage", url = "https://monkeybeat.market" },
+  { name = "GitHub", url = "https://github.com/mr-karan/monkeybeat" },
+]
+
+[[project]]
+name = "cloak"
+description = "Securely share sensitive text with others"
+created = "Oct 2022"
+pushed = "Nov 2022"
+stars = 36
+language = "Go"
+links = [
+  { name = "Homepage", url = "https://cloak.mrkaran.dev/" },
+  { name = "GitHub", url = "https://github.com/mr-karan/cloak" },
+]
+
+[[project]]
+name = "clickhouse-keeper-example"
+description = "Setup ClickHouse cluster with replication using `clickhouse-keeper`"
+created = "Dec 2021"
+pushed = "Oct 2022"
+stars = 34
+language = "Makefile"
+links = [
+  { name = "Homepage", url = "https://mrkaran.dev/posts/clickhouse-replication/" },
+  { name = "GitHub", url = "https://github.com/mr-karan/clickhouse-keeper-example" },
+]
+
+[[project]]
+name = "mfp-calorie-extract"
+description = "Copy macronutrients information from MFP and paste them in Google Sheets for calorie tracking"
+created = "Sep 2022"
+pushed = "Sep 2022"
+language = "JavaScript"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/mfp-calorie-extract" },
+]
+
+[[project]]
+name = "nomad-monitoring"
+description = "Collection of jobspecs and Grafana dashboards for end to end monitoring of Nomad clusters"
+created = "Sep 2022"
+pushed = "Sep 2022"
+stars = 61
+language = "HCL"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/nomad-monitoring" },
+]
+
+[[project]]
+name = "homelab"
+description = "Infra-as-code for my personal home server setup"
+created = "Sep 2019"
+pushed = "Aug 2022"
+stars = 272
+language = "HTML"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/homelab" },
+]
+
+[[project]]
+name = "kite-yoda"
+description = "Ignorance is bliss."
+created = "Jun 2022"
+pushed = "Jun 2022"
+stars = 12
+language = "JavaScript"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/kite-yoda" },
+]
+
+[[project]]
+name = "nomadev"
+description = "Docker based development workflow with Nomad and Consul"
+created = "Oct 2021"
+pushed = "May 2022"
+stars = 12
+language = "Dockerfile"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/nomadev" },
+]
+
+[[project]]
+name = "localhashi"
+description = "Vagrant based setup for local Nomad/Consul clusters. Helpful for experimenting with Nomad job specs in an environment similar to production."
+created = "Apr 2022"
+pushed = "May 2022"
+stars = 11
+language = "Jinja"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/localhashi" },
+]
+
+[[project]]
+name = "ebs-snapshot-exporter"
+description = "Export AWS EBS Snapshots data as Prometheus metrics"
+created = "Jul 2019"
+pushed = "Mar 2022"
+language = "Go"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/ebs-snapshot-exporter" },
+]
+
+[[project]]
+name = "eks-gitops"
+description = "Set of utilities to do deployments in an EKS cluster"
+created = "Jun 2019"
+pushed = "Jan 2022"
+language = "Dockerfile"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/eks-gitops" },
+]
+
+[[project]]
+name = "aws-dc-exporter"
+description = "Prometheus metrics exporter for AWS Direct Connect"
+created = "Dec 2019"
+pushed = "Jan 2022"
+language = "Go"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/aws-dc-exporter" },
+]
+
+[[project]]
+name = "flexit"
+description = "Responsive grid based on CSS Flexbox"
+created = "Jul 2018"
+pushed = "Nov 2021"
+stars = 45
+language = "HTML"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/flexit" },
+]
+
+[[project]]
+name = "notion-weightbot"
+description = "A Telegram bot which tracks bodyweight and stores the records in a Notion Database and CSV"
+created = "May 2021"
+pushed = "May 2021"
+language = "Go"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/notion-weightbot" },
+]
+
+[[project]]
+name = "kong-service-exporter"
+description = "Utility to create a export a service registry Markdown file from Kong's config"
+created = "Mar 2021"
+pushed = "Mar 2021"
+language = "Python"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/kong-service-exporter" },
 ]
 
 [[project]]
 name = "store-exporter"
-description = "Utility to extract metrics from arbitrary data stores in Prometheus format"
+description = "Utility to extract metrics from arbitary data stores in Prometheus format"
+created = "Aug 2019"
+pushed = "Sep 2020"
+stars = 32
+language = "Go"
 links = [
-  { name = "GitHub", url="https://github.com/mr-karan/store-exporter" },
+  { name = "GitHub", url = "https://github.com/mr-karan/store-exporter" },
 ]
+
+[[project]]
+name = "terraform-provider-kite"
+description = "Terraform provider for managing long term portfolio with Zerodha Kite"
+created = "Aug 2020"
+pushed = "Sep 2020"
+stars = 24
+language = "Go"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/terraform-provider-kite" },
+]
+
+[[project]]
+name = "simplehealth"
+description = "Tiny lib for exposing health-check endpoints as Prometheus/JSON format"
+created = "Sep 2019"
+pushed = "Sep 2020"
+stars = 11
+language = "Go"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/simplehealth" },
+]
+
+[[project]]
+name = "musicFav"
+description = "Project part of DBMS course"
+created = "Apr 2015"
+pushed = "Jul 2020"
+language = "CSS"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/musicFav" },
+]
+
+[[project]]
+name = "k8s-deployment-book"
+description = ":star: Kubernetes - Production Deployments for Developers (Book) :star:"
+created = "Mar 2020"
+pushed = "Apr 2020"
+stars = 13
+language = "HTML"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/k8s-deployment-book" },
+]
+
+[[project]]
+name = "listmonk-infra"
+description = "Source code for deploying listmonk on Kubernetes"
+created = "Mar 2020"
+pushed = "Mar 2020"
+language = "Makefile"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/listmonk-infra" },
+]
+
+[[project]]
+name = "rubberduck"
+description = "Toolbox of useful utilities for debugging inside Containers"
+created = "May 2019"
+pushed = "Feb 2020"
+language = "Go"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/rubberduck" },
+]
+
+[[project]]
+name = "knowledge"
+description = "Personal wiki about everything I know so far"
+created = "Jan 2020"
+pushed = "Jan 2020"
+links = [
+  { name = "Homepage", url = "https://wiki.mrkaran.dev/" },
+  { name = "GitHub", url = "https://github.com/mr-karan/knowledge" },
+]
+
+[[project]]
+name = "snuBreeze-Backend"
+description = "Website for SNU Breeze 2015"
+created = "Jun 2015"
+pushed = "Nov 2019"
+language = "HTML"
+links = [
+  { name = "Homepage", url = "http://snu-breeze.com/" },
+  { name = "GitHub", url = "https://github.com/mr-karan/snuBreeze-Backend" },
+]
+
+[[project]]
+name = "kustomize-bases"
+description = "Stores kustomize bases of all the popular 3rd party tools used in app deployments"
+created = "Sep 2019"
+pushed = "Oct 2019"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/kustomize-bases" },
+]
+
+[[project]]
+name = "kube-reporter"
+description = "Webhook service for CI/CD environments to generate a report of the K8s cluster after deployments"
+created = "Sep 2019"
+pushed = "Sep 2019"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/kube-reporter" },
+]
+
+[[project]]
+name = "k8s-gitops-tutorial"
+description = "An example repo for K8s deployments using GitOps practices"
+created = "Jun 2019"
+pushed = "Jun 2019"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/k8s-gitops-tutorial" },
+]
+
+[[project]]
+name = "kong-ansible"
+description = "Ansible Playbook for setting up Kong node and using Cassandra as datastore"
+created = "Mar 2019"
+pushed = "Mar 2019"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/kong-ansible" },
+]
+
+[[project]]
+name = "ansible-server-logs-monitoring"
+description = "Ansible playbook to install ELK stack for log analysis and Prometheus/AlertManager/Node Exporter/Grafana for Server monitoring. Or as they say, One :ring: to rule them all!"
+created = "Dec 2018"
+pushed = "Jan 2019"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/ansible-server-logs-monitoring" },
+]
+
+[[project]]
+name = "vscode-kite"
+description = "Visual Studio Code extension for KiteConnect API"
+created = "Jan 2018"
+pushed = "Jan 2018"
+stars = 14
+language = "JavaScript"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/vscode-kite" },
+]
+
+[[project]]
+name = "NoiseInspector"
+description = ":loudspeaker: Arduino + Python + ESP8266 Wifi = Noise Level Monitor  "
+created = "Apr 2016"
+pushed = "Sep 2017"
+language = "Arduino"
+links = [
+  { name = "Homepage", url = "https://data.sparkfun.com/streams/snu_library" },
+  { name = "GitHub", url = "https://github.com/mr-karan/NoiseInspector" },
+]
+
+[[project]]
+name = "fritter"
+description = "Know if it's a good time to call your posh NRI fraands"
+created = "Sep 2017"
+pushed = "Sep 2017"
+language = "Go"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/fritter" },
+]
+
+[[project]]
+name = "golearn"
+description = "Source code to various exercises in https://tour.golang.org/ &  https://www.golang-book.com/books/intro and "
+created = "Jul 2017"
+pushed = "Jul 2017"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/golearn" },
+]
+
+[[project]]
+name = "khoj"
+description = "CSE SNU Project Final Year"
+created = "Dec 2016"
+pushed = "Apr 2017"
+language = "Python"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/khoj" },
+]
+
+[[project]]
+name = "Udacity-FullStack-ND004"
+description = "Contains all materials for assignments + projects"
+created = "Sep 2016"
+pushed = "Mar 2017"
+language = "Python"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/Udacity-FullStack-ND004" },
+]
+
+[[project]]
+name = "javascript30"
+description = "Doing 30 Day Vanilla JS Challenge https://JavaScript30.com"
+created = "Dec 2016"
+pushed = "Dec 2016"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/javascript30" },
+]
+
+[[project]]
+name = "BigDataAssignments"
+description = "SNU Course: Big Data Assignments"
+created = "Sep 2016"
+pushed = "Dec 2016"
+language = "HTML"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/BigDataAssignments" },
+]
+
+[[project]]
+name = "resume"
+description = "resume"
+created = "Nov 2016"
+pushed = "Dec 2016"
+language = "CSS"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/resume" },
+]
+
+[[project]]
+name = "supplyai-stage"
+description = "API to consume data.csv and ingest to PostgresQL DB "
+created = "Nov 2016"
+pushed = "Nov 2016"
+language = "Python"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/supplyai-stage" },
+]
+
+[[project]]
+name = "kayako-cust-serv"
+description = "#custserv tweets retweeted atleast once"
+created = "Oct 2016"
+pushed = "Oct 2016"
+language = "HTML"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/kayako-cust-serv" },
+]
+
+[[project]]
+name = "udacity-senior-web-dev-nd"
+description = "Code for projects/quizzes present in Udacity Senior Web Dev Nanodegree "
+created = "Sep 2016"
+pushed = "Sep 2016"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/udacity-senior-web-dev-nd" },
+]
+
+[[project]]
+name = "weather-Twitter-Bot"
+description = "Made a Weather Twitter Bot using Python"
+created = "Mar 2015"
+pushed = "Sep 2016"
+language = "Python"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/weather-Twitter-Bot" },
+]
+
+[[project]]
+name = "snu-elections"
+description = "platform to ask questions from your candidates"
+created = "Jan 2016"
+pushed = "Jan 2016"
+language = "HTML"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/snu-elections" },
+]
+
+[[project]]
+name = "datasciencecoursera"
+description = "Course work of JHU - Data Science on Coursera "
+created = "Jan 2016"
+pushed = "Jan 2016"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/datasciencecoursera" },
+]
+
+[[project]]
+name = "todoApp"
+description = "CSD301 (Software Engineering) project - Powerful todo manager"
+created = "Aug 2015"
+pushed = "Nov 2015"
+language = "Java"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/todoApp" },
+]
+
+[[project]]
+name = "Python-Scripts"
+description = "Writing Python Scripts to do boring monotonous work the fun way :D"
+created = "Jun 2015"
+pushed = "Nov 2015"
+language = "Python"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/Python-Scripts" },
+]
+
+[[project]]
+name = "CSD-335-Assignment-Solns"
+description = "Codes for CSD 335 \"OOPs in Java\" ( Taught at SNU)"
+created = "Aug 2015"
+pushed = "Oct 2015"
+language = "Java"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/CSD-335-Assignment-Solns" },
+]
+
+[[project]]
+name = "telegramBot-YtDownload"
+description = "Telegram Bot which downloads Youtube videos"
+created = "Jul 2015"
+pushed = "Oct 2015"
+language = "Python"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/telegramBot-YtDownload" },
+]
+
+[[project]]
+name = "java-Mooc"
+description = "My exercises solutions in Java from this brilliant MOOC  http://mooc.fi/courses/2013/programming-part-1/"
+created = "Aug 2015"
+pushed = "Sep 2015"
+language = "Java"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/java-Mooc" },
+]
+
+[[project]]
+name = "Algorithm-Implementations--Python"
+description = "Some Implementations of Algorithms in Python"
+created = "Aug 2015"
+pushed = "Sep 2015"
+language = "Python"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/Algorithm-Implementations--Python" },
+]
+
+[[project]]
+name = "HackerRank-Problems"
+description = "My codes for some problems on HackerRank : https://www.hackerrank.com/domains/miscellaneous/python-tutorials"
+created = "Feb 2015"
+pushed = "Sep 2015"
+language = "Python"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/HackerRank-Problems" },
+]
+
+[[project]]
+name = "pinkFloyd-Lyrics"
+description = "Analyzing Pink Floyd lyrics"
+created = "Jun 2015"
+pushed = "Jun 2015"
+language = "HTML"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/pinkFloyd-Lyrics" },
+]
+
+[[project]]
+name = "quoteNotify"
+description = "Made a simple quote notification using Python and TheySaidSo API"
+created = "Mar 2015"
+pushed = "Mar 2015"
+language = "Python"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/quoteNotify" },
+]
+
+[[project]]
+name = "hello-world"
+description = "My first repo at github"
+created = "Jan 2015"
+pushed = "Jan 2015"
+language = "Python"
+links = [
+  { name = "GitHub", url = "https://github.com/mr-karan/hello-world" },
+]
+

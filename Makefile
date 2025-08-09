@@ -33,4 +33,10 @@ push:
 	git commit -m "automated push"
 	git push origin main
 
-.PHONY: build deploy check-env push
+# Update project metadata from GitHub
+projects:
+	@echo "Fetching latest project metadata from GitHub..."
+	@uv run scripts/fetch_all_github_projects.py mr-karan > content/projects/data.toml
+	@echo "Successfully updated content/projects/data.toml"
+
+.PHONY: build deploy check-env push projects

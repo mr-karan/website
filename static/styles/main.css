@@ -627,3 +627,114 @@ body[data-theme="dark"] .proj .links a:hover {
         margin-left: 0.4rem;
     }
 }
+
+/* Lightbox styles */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.lightbox-modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-modal img {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+    animation: zoomIn 0.3s ease-in-out;
+    cursor: default;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.lightbox-close:hover {
+    color: #bbb;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Clickable thumbnail indicator */
+.lightbox-thumbnail {
+    cursor: zoom-in;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-thumbnail:hover {
+    opacity: 0.8;
+}
+
+/* Image grid layout */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.image-grid a {
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Center the last image if it's odd (3rd, 5th, etc.) */
+.image-grid a:nth-child(odd):last-child {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+    .image-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Reset centering on mobile since it's already 1 column */
+    .image-grid a:nth-child(odd):last-child {
+        grid-column: auto;
+        max-width: 100%;
+    }
+}

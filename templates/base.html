@@ -68,7 +68,7 @@
 
     themeToggle.addEventListener('click', function() {
         let theme = 'light';
-        
+
         // Add the transition class
         document.body.classList.add('theme-transition');
 
@@ -86,6 +86,53 @@
         setTimeout(() => {
             document.body.classList.remove('theme-transition');
         }, 500);
+    });
+
+    // Lightbox functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Create lightbox modal element
+        const lightboxModal = document.createElement('div');
+        lightboxModal.className = 'lightbox-modal';
+        lightboxModal.innerHTML = '<span class="lightbox-close">&times;</span><img src="" alt="">';
+        document.body.appendChild(lightboxModal);
+
+        const lightboxImg = lightboxModal.querySelector('img');
+        const closeBtn = lightboxModal.querySelector('.lightbox-close');
+
+        // Find all images wrapped in links with class 'lightbox-thumbnail'
+        const thumbnails = document.querySelectorAll('a.lightbox-thumbnail');
+
+        thumbnails.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const imgSrc = this.getAttribute('href');
+                const imgAlt = this.querySelector('img')?.getAttribute('alt') || '';
+
+                lightboxImg.src = imgSrc;
+                lightboxImg.alt = imgAlt;
+                lightboxModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox when clicking on background or close button
+        lightboxModal.addEventListener('click', function(e) {
+            if (e.target === lightboxModal || e.target === closeBtn) {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+        function closeLightbox() {
+            lightboxModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
     });
 </script>
 </html>

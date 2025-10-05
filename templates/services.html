@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | {{ super() }}{% endblock %}
+
+{% block main %}
+  {%- if not page.extra.menu %}
+    <h1>{{ page.title }}</h1>
+    <div class="meta">
+      {%- if page.date %}
+      <div class="post-date">
+              <i>
+                  <time datetime='{{ page.date | date(format='%+') }}' pubdate>
+                      {{- page.date | date(format=config.extra.date_format) -}}
+                  </time>
+              </i>
+      </div>
+      <div class="reading-time">
+          {% set word_count = page.content | split(pat=" ") | length %}
+          {% set reading_time = (word_count / 250) | round %}
+          <i>{{ reading_time }} minutes ({{ word_count }} words)</i>
+      </div>
+      {%- endif %}
+  </div>  
+    {%- endif %}
+  <main>
+    {{ page.content | safe }}
+  </main>
+  <p class="tags">
+    {%- if page.taxonomies %}
+      {%- for name, taxon in page.taxonomies %}
+        {{ name | capitalize }}:
+        {%- for item in taxon %}
+          <a href="{{ get_taxonomy_url(kind=name, name=item) }}">#{{ item }}</a>
+        {%- endfor %}
+      {%- endfor %}
+    {%- endif %}
+  </p>
+{% endblock %}

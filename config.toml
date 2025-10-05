@@ -36,6 +36,10 @@ name = "Projects"
 url = "@/projects/_index.md"
 
 [[extra.main_menu]]
+name = "Services"
+url = "@/services.md"
+
+[[extra.main_menu]]
 name = "Talks"
 url = "@/talks.md"
 

@@ -9,7 +9,7 @@
     /* Typography */
     --font-display: 'Instrument Serif', Georgia, serif;
     --font-body: 'Geist', system-ui, -apple-system, sans-serif;
-    --font-mono: 'Geist Mono', 'SF Mono', Consolas, monospace;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
 
     /* Light Mode Colors */
     --color-bg: #FAF9F7;
@@ -472,28 +472,46 @@ article h1 {
 
 /* Section Headers */
 .section-header {
-    padding-bottom: var(--space-sm);
-    margin-bottom: var(--space-lg);
-    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--space-xl);
+}
+
+.section-header h1 {
+    margin-bottom: var(--space-sm);
+}
+
+.section-description {
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
 }
 
 /* Anchor Links */
+h2, h3, h4, h5, h6 {
+    position: relative;
+}
+
 .zola-anchor {
-    font-size: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.75em;
+    font-weight: 400;
     color: var(--color-text-muted);
     text-decoration: none;
-    margin-right: var(--space-sm);
+    margin-left: var(--space-sm);
     opacity: 0;
-    transition: opacity var(--transition-fast);
+    transition: opacity var(--transition-fast), color var(--transition-fast);
+    vertical-align: middle;
 }
 
 h2:hover .zola-anchor,
 h3:hover .zola-anchor,
-h4:hover .zola-anchor {
-    opacity: 1;
+h4:hover .zola-anchor,
+h5:hover .zola-anchor,
+h6:hover .zola-anchor {
+    opacity: 0.5;
 }
 
 .zola-anchor:hover {
+    opacity: 1;
     color: var(--color-link);
 }
 
@@ -520,6 +538,7 @@ a.tag {
     border-radius: var(--radius-full);
     text-decoration: none;
     transition: all var(--transition-fast);
+    text-transform: lowercase;
 }
 
 .tags > a:hover,
@@ -528,40 +547,100 @@ a.tag:hover {
     border-color: var(--color-accent-muted);
 }
 
+/* Section Tags (bottom of section pages) */
+.section-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border-subtle);
+}
+
+.section-tags a {
+    text-transform: lowercase;
+}
+
 /* --------------------------------------------------------------------------
    Code & Pre
    -------------------------------------------------------------------------- */
 code {
     font-family: var(--font-mono);
-    font-size: 0.875em;
+    font-size: 0.85em;
+    font-weight: 400;
     background-color: var(--color-code-bg);
     color: var(--color-code-text);
-    padding: 0.2em 0.4em;
+    padding: 0.2em 0.45em;
     border-radius: var(--radius-sm);
+    -webkit-font-smoothing: antialiased;
 }
 
+/* Code block container */
 pre {
-    background-color: var(--color-bg-elevated);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    overflow-x: auto;
-    margin: var(--space-lg) 0;
+    position: relative;
+    background-color: #0B0E14;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: var(--space-xl) 0;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
+/* Code inside pre */
 pre code {
     display: block;
-    padding: var(--space-lg);
+    padding: var(--space-lg) var(--space-xl);
     font-size: 0.875rem;
-    line-height: 1.6;
+    line-height: 1.7;
     white-space: pre;
     background: transparent;
     border-radius: 0;
+    overflow-x: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga" 1, "calt" 1; /* Enable ligatures */
 }
 
+/* Scrollbar styling for code blocks */
+pre code::-webkit-scrollbar {
+    height: 8px;
+}
+
+pre code::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+pre code::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+
+pre code::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Syntax highlighting theme overrides for consistency */
 pre[class^="language-"],
 code[class^="language-"] {
     background-color: inherit;
     color: inherit;
+}
+
+/* Light mode code block adjustments */
+body:not([data-theme="dark"]) pre {
+    background-color: #0B0E14;
+}
+
+/* Line numbers (if enabled) */
+pre .line-number {
+    color: rgba(255, 255, 255, 0.3);
+    user-select: none;
+    padding-right: var(--space-md);
+    text-align: right;
+    min-width: 2.5em;
 }
 
 /* --------------------------------------------------------------------------
@@ -804,11 +883,133 @@ figcaption {
    Projects
    -------------------------------------------------------------------------- */
 .projects-section {
-    display: flex;
-    flex-direction: column;
     width: 100%;
 }
 
+.projects-section h2 {
+    font-size: 1.5rem;
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.projects-section h2:first-child {
+    margin-top: 0;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-lg);
+    background-color: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.project-card:hover {
+    border-color: var(--color-accent-muted);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.project-card.featured {
+    position: relative;
+    border-color: var(--color-accent);
+    border-width: 2px;
+}
+
+.project-card.featured::after {
+    content: "Featured";
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: white;
+    background-color: var(--color-accent);
+    padding: 4px 10px;
+    border-radius: 0 var(--radius-md) 0 var(--radius-md);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-sm);
+}
+
+.project-name {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.125rem;
+    margin: 0;
+    color: var(--color-text);
+}
+
+.project-stars {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+}
+
+.project-stars::before {
+    content: "★ ";
+    color: var(--color-accent);
+}
+
+.project-desc {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-md) 0;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.project-lang {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: var(--color-text-muted);
+    padding: var(--space-xs) var(--space-sm);
+    background-color: var(--color-bg-subtle);
+    border-radius: var(--radius-sm);
+}
+
+.project-links {
+    display: flex;
+    gap: var(--space-sm);
+    margin-left: auto;
+}
+
+.project-links a {
+    font-size: 0.875rem;
+    color: var(--color-link);
+    text-decoration: none;
+}
+
+.project-links a:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+}
+
+/* Legacy project styles (for backwards compatibility) */
 .projects-list {
     padding: 0;
     margin: 0;
@@ -829,7 +1030,6 @@ figcaption {
 .proj:hover {
     border-color: var(--color-accent-muted);
     box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
 }
 
 .proj .name {
@@ -1067,6 +1267,10 @@ main {
     .proj .links {
         position: static;
         margin-top: var(--space-md);
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
 
     .image-grid {

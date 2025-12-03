@@ -76,6 +76,7 @@
 }
 
 /* Dark Mode */
+:root[data-theme="dark"],
 body[data-theme="dark"] {
     --color-bg: #0C0A09;
     --color-bg-elevated: #1C1917;

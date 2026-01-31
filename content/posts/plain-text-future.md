@@ -111,6 +111,6 @@ We are moving past the era where a REST API and a web dashboard are sufficient. 
 - **Direct API Integration** puts the burden of schema management on the user.
 - **CLIs** offer a stable, discoverable, and composable interface that agents can learn and use autonomously.
 
-The "hobby" CLI wrappers built by enthusiasts, such as those for Notion, Jira, or Spotify, are no longer just developer conveniences. They are becoming critical infrastructure. They are the handles by which our digital assistants will grasp our tools.
+The "hobby" CLI wrappers built by enthusiasts, such as those for Notion, Jira, or Spotify, are no longer just developer conveniences. They are becoming critical infrastructure. They provide the stable, text-based interface required for agents to interact with these platforms reliably.
 
 If you want your platform to be AI-ready, don't just build an MCP server. Build a great CLI. Make sure it supports `--json`. Write good man pages. The agents will figure out the rest.

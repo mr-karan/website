@@ -34,7 +34,7 @@ The current approach to agent tooling often involves dumping massive JSON schema
 
 A CLI-driven approach is "lazy loaded."
 
-The agent starts with zero knowledge of the tool's internals. It burns zero tokens on schema definitions. Only when tasked with a specific goal does it invoke `man` or `--help`. It retrieves exactly the information needed to construct the command, executes it, and parses the result. This mimics how senior engineers operate: we don't memorize the man pages; we know how to find the flags we need.
+The agent starts with zero knowledge of the tool's internals. It burns zero tokens on schema definitions. Only when tasked with a specific goal does it invoke `man` or `--help`. It retrieves exactly the information needed to construct the command, executes it, and parses the result. This reflects the professional intuition of a senior engineer. We rarely memorize documentation. Instead, we prioritize the ability to quickly discover and apply the specific flags required for the task at hand.
 
 ## Leveraging the Skills Pattern
 
@@ -103,7 +103,7 @@ This script is self-contained. It defines its own dependencies. It implements `-
 
 ## The SaaS Imperative
 
-For SaaS founders and platform engineers, the implication is clear: **Your CLI is your AI API.**
+The strategic takeaway for SaaS founders and platform engineers is significant. Your CLI is no longer just a developer convenience; it is your primary AI API.
 
 We are moving past the era where a REST API and a web dashboard are sufficient. If your product lacks a terminal interface, you are locking out the growing workforce of AI agents.
 

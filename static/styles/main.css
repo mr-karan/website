@@ -73,11 +73,13 @@
     --radius-md: 8px;
     --radius-lg: 12px;
     --radius-full: 9999px;
+    color-scheme: light;
 }
 
 /* Dark Mode */
 :root[data-theme="dark"],
 body[data-theme="dark"] {
+    color-scheme: dark;
     --color-bg: #0C0A09;
     --color-bg-elevated: #1C1917;
     --color-bg-subtle: #1C1917;
@@ -579,14 +581,17 @@ code {
 /* Code block container */
 pre {
     position: relative;
-    background-color: #0B0E14;
     border-radius: var(--radius-lg);
     overflow: hidden;
     margin: var(--space-xl) 0;
     box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.1),
-        0 2px 4px -1px rgba(0, 0, 0, 0.06),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    color-scheme: light !important;
+}
+
+:root[data-theme="dark"] pre {
+    color-scheme: dark !important;
 }
 
 /* Code inside pre */
@@ -610,17 +615,17 @@ pre code::-webkit-scrollbar {
 }
 
 pre code::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(128, 128, 128, 0.1);
     border-radius: 4px;
 }
 
 pre code::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(128, 128, 128, 0.3);
     border-radius: 4px;
 }
 
 pre code::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(128, 128, 128, 0.5);
 }
 
 /* Syntax highlighting theme overrides for consistency */
@@ -630,14 +635,11 @@ code[class^="language-"] {
     color: inherit;
 }
 
-/* Light mode code block adjustments */
-body:not([data-theme="dark"]) pre {
-    background-color: #0B0E14;
-}
+
 
 /* Line numbers (if enabled) */
 pre .line-number {
-    color: rgba(255, 255, 255, 0.3);
+    opacity: 0.4;
     user-select: none;
     padding-right: var(--space-md);
     text-align: right;
@@ -1301,6 +1303,65 @@ main {
 
     article h1 {
         font-size: 1.75rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Draft Banner
+   -------------------------------------------------------------------------- */
+.draft-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    margin-bottom: var(--space-xl);
+    background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+    border: 2px dashed var(--color-accent);
+    border-radius: var(--radius-md);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+}
+
+body[data-theme="dark"] .draft-banner {
+    background: linear-gradient(135deg, #292524 0%, #44403C 100%);
+    border-color: var(--color-accent);
+}
+
+.draft-icon {
+    font-size: 1.25rem;
+}
+
+.draft-text {
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 0.1em;
+}
+
+.draft-note {
+    color: var(--color-text-secondary);
+    font-weight: 400;
+}
+
+.draft-tag {
+    display: inline-block;
+    margin-left: var(--space-sm);
+    padding: 2px 6px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    background-color: var(--color-tag-bg);
+    border: 1px dashed var(--color-accent);
+    border-radius: var(--radius-sm);
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 480px) {
+    .draft-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-xs);
     }
 }
 

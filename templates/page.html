@@ -3,6 +3,13 @@
 {% block title %}{{ page.title }} | {{ super() }}{% endblock %}
 
 {% block main %}
+  {%- if page.draft %}
+  <div class="draft-banner">
+    <span class="draft-icon">✎</span>
+    <span class="draft-text">DRAFT</span>
+    <span class="draft-note">This post is unpublished and only visible in local preview</span>
+  </div>
+  {%- endif %}
   {%- if not page.extra.menu %}
     <h1>{{ page.title }}</h1>
     <div class="meta">

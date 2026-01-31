@@ -24,7 +24,7 @@
           {{ page.date | date(format=config.extra.date_format) }}
         </time>
       </span>
-      <a href="{{ page.permalink }}">{{ page.title }}</a>
+      <a href="{{ page.permalink }}">{{ page.title }}</a>{% if page.draft %}<span class="draft-tag">DRAFT</span>{% endif %}
     </li>
     {% else %}
     <li>

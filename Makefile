@@ -15,9 +15,9 @@ ifndef SERVER_IP
 	$(error SERVER_IP is undefined. Use `make deploy SERVER_IP=your.ip.here` or export it as environment variable.)
 endif
 
-# Serve the site using zola
+# Serve the site using zola (includes drafts for local preview)
 preview:
-	$(ZOLA) serve
+	$(ZOLA) serve --drafts
 
 # Build the site using zola
 build:
@@ -39,4 +39,4 @@ projects:
 	@uv run scripts/fetch_all_github_projects.py mr-karan > content/projects/data.toml
 	@echo "Successfully updated content/projects/data.toml"
 
-.PHONY: build deploy check-env push projects
+.PHONY: all preview build deploy check-env push projects

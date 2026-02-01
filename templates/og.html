@@ -14,11 +14,13 @@
     {% set og_url = config.base_url ~ page.permalink -%}
     {% set article_published_time = page.date -%}
     {% set article_modified_time = page.date -%}
-    {# Only set the og_image and twitter_card if og_preview_img exists for the page #}
+    {# Use custom og_preview_img if set, otherwise fall back to auto-generated image #}
     {% if page.extra.og_preview_img -%}
-        {% set og_image = page.extra.og_preview_img -%}
-        {% set twitter_card = "summary_large_image" -%}
+        {% set og_image = page.extra.og_preview_img | trim_start_matches(pat="/") -%}
+    {% else -%}
+        {% set og_image = "images/og/" ~ page.slug ~ ".png" -%}
     {% endif -%}
+    {% set twitter_card = "summary_large_image" -%}
 {% endif -%}
 
 <meta name="title" content="{% if page and page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}">

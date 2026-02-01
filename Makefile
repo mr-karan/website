@@ -19,8 +19,12 @@ endif
 preview:
 	$(ZOLA) serve --drafts
 
+# Generate OG images for posts without custom images
+og-images:
+	@uv run scripts/generate_og_images.py
+
 # Build the site using zola
-build:
+build: og-images
 	$(ZOLA) build
 
 # Deploy the site using rsync
@@ -39,4 +43,4 @@ projects:
 	@uv run scripts/fetch_all_github_projects.py mr-karan > content/projects/data.toml
 	@echo "Successfully updated content/projects/data.toml"
 
-.PHONY: all preview build deploy check-env push projects
+.PHONY: all preview build deploy check-env push projects og-images

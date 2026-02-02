@@ -234,3 +234,7 @@ For every "I could do this in a weekend" comment, yes, this project is straightf
 Initially, I didn't set out to build a comprehensive budgeting app, just an expense logger, as that was my primary need. However, if usage increases and the tool proves helpful in reducing unnecessary spending, I'm open to adding more features. Some possibilities include a subscription tracker, integration with budgeting tools like YNAB or Actual through their APIs, and monthly reports sent via email. The best part is that you own complete data, as the data is stored locally on your device so you can also export it anytime and build other integrations on top of it.
 
 Feel free to open a GitHub issue or [reach out](/contact/) if you have any suggestions or feedback. I'm excited to see where this project goes!
+
+## Update (Feb 2026)
+
+I've rewritten Gullak to use plain-text ledger files. Read more about why in the follow-up post: [Why Plain-Text Ledger is Powerful for Gullak](/posts/gullak-ledger/).

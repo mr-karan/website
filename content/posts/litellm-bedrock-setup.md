@@ -1,6 +1,6 @@
 +++
 title = "Setting Up LiteLLM with AWS Bedrock"
-date = 2026-02-11
+date = 2026-02-16
 type = "post"
 description = "Practical guide to using AWS Bedrock as an LLM provider via LiteLLM, covering authentication gotchas, parameter conflicts, and per-project cost tracking with Application Inference Profiles."
 in_search_index = true

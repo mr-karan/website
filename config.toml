@@ -20,13 +20,13 @@ taxonomies = [
 [markdown]
 render_emoji = true
 smart_punctuation = true
-# Place anchor links after heading text
 insert_anchor_links = "right"
 
 [markdown.highlighting]
 enabled = true
 light_theme = "github-light"
 dark_theme = "github-dark-dimmed"
+
 [extra]
 date_format="%d %b, %Y"
 

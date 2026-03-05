@@ -6,6 +6,8 @@ description = "Setting up ttyd + tmux for browser-based shell access to my homel
 in_search_index = true
 [taxonomies]
 tags= ["Homelab", "Devops"]
+[extra]
+og_preview_img = "/images/web-terminal-homelab.png"
 +++
 
 I often need quick shell access to my homelab server from my phone or tablet. SSH apps on mobile are clunky, and sometimes I just want to check on something without pulling out a laptop. The solution: a web-based terminal at `terminal.mrkaran.dev`.
@@ -77,5 +79,7 @@ WebSocket support is essential here since xterm.js communicates entirely over We
 This is behind Tailscale, so only devices on my tailnet can reach it. No additional authentication layer needed. If you're exposing this to the public internet, you'd want at minimum basic auth (`ttyd -c user:pass`) or a forward auth proxy.
 
 ## The Result
+
+![Web terminal in the browser](/images/web-terminal-homelab.png)
 
 A full terminal in the browser with persistent tmux sessions. Works great on mobile for quick checks, and on a tablet it's practically indistinguishable from a native terminal. The total setup is about 25 lines of YAML and took under 5 minutes to deploy.

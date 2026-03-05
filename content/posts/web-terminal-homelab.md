@@ -1,42 +1,48 @@
 +++
-title = "A Web Terminal for My Homelab"
+title = "A Web Terminal for My Homelab with ttyd + tmux"
 date = 2026-03-05
 type = "post"
-description = "Setting up ttyd + tmux for browser-based shell access to my homelab server"
+description = "How I run terminal.mrkaran.dev with ttyd + tmux and tune it for agentic workflows"
 in_search_index = true
 [taxonomies]
-tags= ["Homelab", "Devops"]
+tags= ["Homelab", "Devops", "tmux", "ttyd"]
 [extra]
 og_preview_img = "/images/web-terminal-homelab.png"
 +++
 
-I often need quick shell access to my homelab server from my phone or tablet. SSH apps on mobile are clunky, and sometimes I just want to check on something without pulling out a laptop. The solution: a web-based terminal at `terminal.mrkaran.dev`.
+I wanted a browser terminal at `terminal.mrkaran.dev` that works from laptop, tablet, and phone without special client setup.
 
-## The Stack
+The stack that works cleanly for this is [ttyd](https://github.com/tsl0922/ttyd) + tmux.
 
-[ttyd](https://github.com/tsl0922/ttyd) is a simple tool that shares a terminal over the web. It wraps any command into a browser-accessible terminal using WebSockets and xterm.js. Pair it with tmux, and you get persistent sessions that survive browser disconnects.
+## Architecture
 
-The key trick is using `nsenter` to break out of the container and into the host's namespaces. This gives you a real host shell, not a container shell, while still being deployable as a Docker stack.
+```text
+Browser -> Caddy -> ttyd -> nsenter -> su - karan -> tmux(main)
+```
 
-## Docker Compose
+Two decisions matter most:
+
+1. `ttyd` handles terminal-over-websocket behavior well.
+2. `-m 1` enforces a single active client, which avoids cross-tab resize contention.
+
+## Docker Compose (current)
 
 ```yaml
 services:
-  ttyd:
+  webterm:
     image: tsl0922/ttyd
-    container_name: ttyd
+    container_name: webterm
     restart: unless-stopped
     command: >
       ttyd
         -W
-        -p 7681
-        -t fontSize=15
-        -t 'theme={"background":"#1a1b26","foreground":"#c0caf5"}'
+        -p 8080
+        -m 1
         nsenter
         -t 1
         -m -u -i -p
         --
-        /bin/bash -l -c
+        su - karan -c
         "tmux new-session -A -s main"
     privileged: true
     pid: "host"
@@ -44,42 +50,74 @@ services:
       - public_proxy
 ```
 
-Breaking this down:
+Why each flag matters:
 
-- `-W` enables writable mode (ttyd is read-only by default).
-- `nsenter -t 1 -m -u -i -p` enters the host's mount, UTS, IPC, and PID namespaces via PID 1. The net namespace is intentionally skipped so the container stays on the Docker network, reachable by the reverse proxy.
-- `tmux new-session -A -s main` creates or reattaches to a persistent tmux session called "main". Close the browser tab, open it again later, and you're right back where you left off.
-- `pid: "host"` is required for `nsenter` to see the host's PID 1.
-- `privileged: true` grants the permissions needed for namespace manipulation.
+- `-W`: writable shell
+- `-p 8080`: matches my existing Caddy upstream (`webterm:8080`)
+- `-m 1`: one active client only (no resize fight club)
+- `nsenter ...`: real host shell from inside the container
+- `su - karan`: correct login environment and tmux config loading
+- `tmux new-session -A -s main`: persistent attach/re-attach
 
-## Caddy Reverse Proxy
+## Caddy
 
-The terminal sits behind Caddy with TLS via Cloudflare DNS challenge, same as every other service:
+`terminal.mrkaran.dev` reverse proxies to `webterm:8080` with TLS via Cloudflare DNS challenge.
+Because ttyd uses WebSockets heavily, reverse proxy support for upgrades is essential.
 
-```
-terminal.mrkaran.dev {
-    reverse_proxy ttyd:7681
+## tmux profile for agentic workflows
 
-    tls {
-        dns cloudflare {env.CLOUDFLARE_API_TOKEN}
-    }
+I tuned tmux for long-running agent sessions, not just manual shell use.
 
-    @websockets {
-        header Connection *Upgrade*
-        header Upgrade websocket
-    }
-    reverse_proxy @websockets ttyd:7681
-}
-```
+### Long-run defaults
 
-WebSocket support is essential here since xterm.js communicates entirely over WebSockets.
+- `history-limit 200000`
+- `remain-on-exit on`
+- `window-size latest`
+- `mode-keys vi` / `status-keys vi`
 
-## Security
+### Better operational visibility
 
-This is behind Tailscale, so only devices on my tailnet can reach it. No additional authentication layer needed. If you're exposing this to the public internet, you'd want at minimum basic auth (`ttyd -c user:pass`) or a forward auth proxy.
+- status line shows host + session + path + time
+- pane border shows pane number + current command
+- active pane is clearly highlighted
 
-## The Result
+### Keybinds I actually use
+
+Prefix: `Ctrl-b`
+
+- `S`: create/attach named session
+- `N`: create named window
+- `R`: rename window
+- `s`: session/window picker
+- `y`: toggle `synchronize-panes`
+- `h/j/k/l`: pane movement
+- `H/J/K/L`: pane resize
+
+### Copy/paste that is not annoying
+
+This was a big pain point, so I added both workflows:
+
+1. **Browser-native copy**
+   - `Ctrl-b m` to turn tmux mouse **off**
+   - drag-select + browser copy shortcut
+   - `Ctrl-b m` to turn tmux mouse back **on**
+
+2. **tmux copy mode**
+   - `Ctrl-b [` enters copy mode and shows `COPY MODE ON`
+   - `v` select, `y` copy (shows `Copied selection`)
+   - `q` or `Esc` exits (shows `COPY MODE OFF`)
+
+On mobile, ttyd’s top-left menu (special keys) makes prefix navigation workable.
+
+## Security model
+
+This is tailnet-only behind Tailscale. No public exposure.
+
+Still, the container has `privileged: true` and `pid: host`, which is a strong trust boundary.
+If you expose anything like this publicly, add auth in front and treat it as high-risk infrastructure.
+
+## Result
 
 ![Web terminal in the browser](/images/web-terminal-homelab.png)
 
-A full terminal in the browser with persistent tmux sessions. Works great on mobile for quick checks, and on a tablet it's practically indistinguishable from a native terminal. The total setup is about 25 lines of YAML and took under 5 minutes to deploy.
+The terminal is now boring in the best way: stable, predictable, and fast to reach from any device.

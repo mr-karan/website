@@ -1,59 +1,58 @@
 # The URL the site will be built for
 base_url = "https://mrkaran.dev/"
 title = "Karan Sharma"
-description = "Ramblings on programming, tech and life."
+description = "Writing on infrastructure, Go, self-hosting and homelabs."
+# Feeds are generated per-section (posts, tils, travel) — see each section's
+# _index.md. No site-wide feed; /posts/atom.xml and /tils/atom.xml are the
+# URLs readers are subscribed to.
 generate_feeds = false
-feed_filenames = ["atom.xml"] # default template
+feed_filenames = ["atom.xml"]
 
-# Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
 minify_html = false
 
-# Whether to build a search index to be used later on by a JavaScript library
-build_search_index = false
+# Search: small fuse-style JSON index (title + description only), consumed by
+# static/js/search.js on /search. Full content is deliberately excluded to
+# keep the index a few KB.
+build_search_index = true
 
 taxonomies = [
   {name = "travel_tags", feed = true},
   {name = "tags", feed = true},
 ]
 
+[search]
+index_format = "fuse_json"
+include_title = true
+include_description = true
+include_content = false
+
 [markdown]
 render_emoji = true
 smart_punctuation = true
 insert_anchor_links = "right"
 
+# Class-based highlighting (z-* classes): Zola generates one CSS file per
+# theme into static/, and the theme toggle swaps them so code colors follow
+# the manual light/dark switch (inline styles can't).
 [markdown.highlighting]
 enabled = true
+style = "class"
 light_theme = "github-light"
 dark_theme = "github-dark-dimmed"
 
 [extra]
-date_format="%d %b, %Y"
+date_format = "%d %b, %Y"
+favicon = "/favicon.svg"
 
 [[extra.main_menu]]
-name = "Posts"
-url = "@/posts/_index.md"
+name = "Writing"
+url = "@/writing.md"
 
 [[extra.main_menu]]
 name = "Projects"
 url = "@/projects/_index.md"
 
 [[extra.main_menu]]
-name = "Services"
-url = "@/services.md"
-
-[[extra.main_menu]]
-name = "Talks"
-url = "@/talks.md"
-
-[[extra.main_menu]]
-name = "TIL"
-url = "@/tils/_index.md"
-
-[[extra.main_menu]]
-name = "Travel"
-url = "@/travel/_index.md"
-
-[[extra.main_menu]]
-name = "Contact"
-url = "@/contact.md"
+name = "About"
+url = "@/about.md"

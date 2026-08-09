@@ -3,43 +3,97 @@
 {% block title %}{{ page.title }} | {{ super() }}{% endblock %}
 
 {% block main %}
-  {%- if page.draft %}
-  <div class="draft-banner">
-    <span class="draft-icon">✎</span>
-    <span class="draft-text">DRAFT</span>
-    <span class="draft-note">This post is unpublished and only visible in local preview</span>
+{%- if page.draft %}
+<div class="draft-banner">draft — unpublished, visible in local preview only</div>
+{%- endif %}
+
+<article class="post">
+  <h1>{{ page.title }}</h1>
+  {%- if page.date %}
+  <div class="post-meta">
+    <time datetime="{{ page.date | date(format='%+') }}">{{ page.date | date(format=config.extra.date_format) }}</time>
+    <span>{{ page.reading_time }} min read</span>
   </div>
   {%- endif %}
-  {%- if not page.extra.menu %}
-    <h1>{{ page.title }}</h1>
-    <div class="meta">
-      {%- if page.date %}
-      <div class="post-date">
-              <i>
-                  <time datetime='{{ page.date | date(format='%+') }}' pubdate>
-                      {{- page.date | date(format=config.extra.date_format) -}}
-                  </time>
-              </i>
-      </div>
-      <div class="reading-time">
-          {% set word_count = page.content | split(pat=" ") | length %}
-          {% set reading_time = (word_count / 250) | round %}
-          <i>{{ reading_time }} minutes ({{ word_count }} words)</i>
-      </div>
-      {%- endif %}
-  </div>  
-    {%- endif %}
-  <main>
-    {{ page.content | safe }}
-  </main>
-  <p class="tags">
-    {%- if page.taxonomies %}
-      {%- for name, taxon in page.taxonomies %}
-        {{ name | capitalize }}:
-        {%- for item in taxon %}
-          <a href="{{ get_taxonomy_url(kind=name, name=item) }}">#{{ item }}</a>
-        {%- endfor %}
+
+  {%- if page.toc | length > 2 %}
+  <details class="toc">
+    <summary>Contents</summary>
+    <ol>
+      {%- for h in page.toc %}
+      <li><a href="{{ h.permalink | safe }}">{{ h.title }}</a></li>
       {%- endfor %}
-    {%- endif %}
-  </p>
+    </ol>
+  </details>
+  {%- endif %}
+
+  {{ page.content | safe }}
+</article>
+
+{%- if page.date %}
+<div class="post-footer">
+  {%- if page.taxonomies %}
+  <div class="tag-row">
+    {%- for name, taxon in page.taxonomies %}
+    {%- for item in taxon %}
+    <a href="{{ get_taxonomy_url(kind=name, name=item) | safe }}">{{ item }}</a>
+    {%- endfor %}
+    {%- endfor %}
+  </div>
+  {%- endif %}
+
+  {#- Series: opt-in via [extra] series = "name"; parts listed chronologically #}
+  {%- if page.extra.series %}
+  {%- set sec = get_section(path="posts/_index.md") %}
+  {%- set_global parts = [] %}
+  {%- for p in sec.pages | reverse %}
+  {%- if p.extra.series is defined and p.extra.series == page.extra.series %}
+  {%- set_global parts = parts | concat(with=p) %}
+  {%- endif %}
+  {%- endfor %}
+  {%- if parts | length > 1 %}
+  <div class="series">
+    <span class="label">Series · {{ page.extra.series }}</span>
+    <ol>
+      {%- for p in parts %}
+      <li>{% if p.permalink == page.permalink %}<span class="current">{{ p.title }} (this post)</span>{% else %}<a href="{{ p.permalink | safe }}">{{ p.title }}</a>{% endif %}</li>
+      {%- endfor %}
+    </ol>
+  </div>
+  {%- endif %}
+  {%- endif %}
+
+  {#- Related: up to 3 other pages sharing this page's tags #}
+  {%- if page.taxonomies.tags is defined %}
+  {%- set all_tags = get_taxonomy(kind="tags") %}
+  {%- set_global rel = [] %}
+  {%- set_global seen = [page.permalink] %}
+  {%- for term in all_tags.items %}
+  {%- if term.name in page.taxonomies.tags %}
+  {%- for p in term.pages %}
+  {%- if p.permalink not in seen and rel | length < 3 %}
+  {%- set_global rel = rel | concat(with=p) %}
+  {%- set_global seen = seen | concat(with=p.permalink) %}
+  {%- endif %}
+  {%- endfor %}
+  {%- endif %}
+  {%- endfor %}
+  {%- if rel | length > 0 %}
+  <div class="related">
+    <span class="label">Related</span>
+    <ul class="entries">
+      {%- for p in rel %}
+      <li>
+        <span class="entry-title"><a href="{{ p.permalink | safe }}">{{ p.title }}</a></span>
+        <time datetime="{{ p.date | date(format='%+') }}">{{ p.date | date(format="%Y") }}</time>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+  {%- endif %}
+  {%- endif %}
+
+  <a class="back-link" href="/writing">← all writing</a>
+</div>
+{%- endif %}
 {% endblock %}

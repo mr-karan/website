@@ -5,6 +5,8 @@ updated = 2018-05-28T20:30:55+05:30
 type = "post"
 description = "Sharing some Awesome Music - part 1"
 in_search_index = true
+[extra]
+series = "Bi-Weekly Music"
 [taxonomies]
 tags = ["Music"]
 +++

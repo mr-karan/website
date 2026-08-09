@@ -25,15 +25,15 @@ CONFIG = {
     "width": 1200,
     "height": 630,
     "padding": 72,
-    # Warm, modern color palette matching the blog
-    "bg_color": "#1C1917",  # Dark stone
-    "title_color": "#FAFAF9",  # Off-white
-    "desc_color": "#A8A29E",  # Muted stone
-    "accent_color": "#FB923C",  # Warm orange accent
-    "author_color": "#78716C",  # Subtle gray
+    # "Ink & Mono" palette matching the blog
+    "bg_color": "#121412",  # Ink (dark green-black)
+    "title_color": "#E4E5DF",  # Paper
+    "desc_color": "#878D85",  # Muted green-grey
+    "accent_color": "#6FC6A0",  # Phosphor green
+    "author_color": "#6E7470",  # Subtle grey
 }
 
-CACHE_VERSION = 3
+CACHE_VERSION = 4
 
 
 class OGImageGenerator:

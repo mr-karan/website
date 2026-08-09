@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | {{ super() }}{% endblock %}
+
+{% block main %}
+<h1>Search</h1>
+<p class="section-description">Searches titles and descriptions of everything on this site.</p>
+<input id="search-input" class="search-input" type="search" placeholder="type to search…" autocomplete="off" autofocus>
+<p id="search-status" class="search-status" aria-live="polite"></p>
+<ul id="search-results" class="search-results"></ul>
+<script defer src="{{ get_url(path="js/search.js", trailing_slash=false) | safe }}"></script>
+{% endblock %}

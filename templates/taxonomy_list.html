@@ -1,14 +1,12 @@
 {% extends "base.html" %}
 
+{% block title %}Tags | {{ super() }}{% endblock %}
+
 {% block main %}
-  <main>
-    <small>
-      <div>
-        {% set tags = get_taxonomy(kind="tags") %}
-        {% for post in tags.items %}
-          <a href="{{ post.permalink }}">#{{ post.name }}</a>&nbsp;
-        {% endfor %}
-      </div>
-    </small>
-  </main>
+<h1>Tags</h1>
+<div class="tag-index">
+  {%- for term in terms %}
+  <a href="{{ term.permalink | safe }}">{{ term.name }} <span class="count">{{ term.pages | length }}</span></a>
+  {%- endfor %}
+</div>
 {% endblock %}

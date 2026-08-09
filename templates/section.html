@@ -3,43 +3,34 @@
 {% block title %}{{ section.title }} | {{ super() }}{% endblock %}
 
 {% block main %}
-{%- if taxonomy.term %}
-  <h3 style="margin-bottom:0">Filtering for "{{ section.title }}"</h3>
-  <small>
-    <a href="{{ get_url(path="@/blog/_index.md") }}">Remove filter</a>
-  </small>
-{%- else %}
-<div class="section-header">
-  <h1>{{ section.title }}</h1>
-  {% if section.description %}
-  <p class="section-description">{{ section.description | markdown | safe }}</p>
-  {% endif %}
-</div>
+<h1>{{ section.title }}</h1>
+{%- if section.path == "/posts/" or section.path == "/tils/" %}
+<nav class="list-tabs">
+  <a href="/writing">all</a>
+  <a href="/posts" {% if section.path == "/posts/" %}aria-current="page"{% endif %}>posts</a>
+  <a href="/tils" {% if section.path == "/tils/" %}aria-current="page"{% endif %}>notes</a>
+  <a href="/travel">travel</a>
+</nav>
+{%- elif section.description %}
+<p class="section-description">{{ section.description | markdown(inline=true) | safe }}</p>
 {%- endif %}
-<ul class="blog-posts">
-  {% for page in section.pages %}
-    <li>
-      <span>
-        <time datetime='{{ page.date | date(format='%+') }}' pubdate>
-          {{ page.date | date(format=config.extra.date_format) }}
-        </time>
-      </span>
-      <a href="{{ page.permalink }}">{{ page.title }}</a>{% if page.draft %}<span class="draft-tag">DRAFT</span>{% endif %}
-    </li>
-    {% else %}
-    <li>
-      No posts yet
-    </li>
-  {% endfor %}
+
+{% set_global cur_year = "" %}
+<ul class="entries">
+  {%- for p in section.pages %}
+  {%- set y = p.date | date(format="%Y") %}
+  {%- if y != cur_year %}
+  </ul>
+  <div class="year-heading">{{ y }}</div>
+  <ul class="entries">
+  {%- set_global cur_year = y %}
+  {%- endif %}
+  <li>
+    <span class="entry-title"><a href="{{ p.permalink | safe }}">{{ p.title }}</a></span>{% if p.draft %}<span class="entry-kind">draft</span>{% endif %}
+    <time datetime="{{ p.date | date(format='%+') }}">{{ p.date | date(format="%d %b") }}</time>
+  </li>
+  {%- else %}
+  <li>No posts yet</li>
+  {%- endfor %}
 </ul>
-<div class="section-tags">
-  {% if section.title == "Travel" %}
-  {% set tags = get_taxonomy(kind="travel_tags") %}
-  {% else %}
-    {% set tags = get_taxonomy(kind="tags") %}
-  {% endif %}
-  {% for post in tags.items %}
-  <a href="{{ post.permalink }}" class="tag">#{{ post.name }}</a>
-  {% endfor %}
-</div>
 {% endblock %}

@@ -8,12 +8,15 @@
 {% set article_modified_time = "" -%}
 
 {% if page -%}
-    {% set og_type = "article" -%}
+    {# page.permalink is already absolute — don't prefix base_url again #}
+    {% if page.date -%}
+        {% set og_type = "article" -%}
+        {% set article_published_time = page.date -%}
+        {% set article_modified_time = page.date -%}
+    {% endif -%}
     {% set og_title = page.title -%}
     {% set og_description = page.description -%}
-    {% set og_url = config.base_url ~ page.permalink -%}
-    {% set article_published_time = page.date -%}
-    {% set article_modified_time = page.date -%}
+    {% set og_url = page.permalink -%}
     {# Use custom og_preview_img if set, otherwise fall back to auto-generated image #}
     {% if page.extra.og_preview_img -%}
         {% set og_image = page.extra.og_preview_img | trim_start_matches(pat="/") -%}

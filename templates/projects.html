@@ -3,67 +3,43 @@
 {% block title %}{{ section.title }} | {{ super() }}{% endblock %}
 
 {% block main %}
-<div class="section-header">
-  <h1>Projects</h1>
-  <p class="section-description">A collection of open source tools and experiments. For everything else, visit <a href="https://github.com/mr-karan" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
-</div>
+<h1>Projects</h1>
+<p class="section-description">Open source tools and experiments. Everything else is on <a href="https://github.com/mr-karan" rel="noopener noreferrer">GitHub</a>.</p>
 
 {% set data = load_data(path="content/projects/data.toml", format="toml") %}
-{% set highlighted_names = ["logchef", "doggo", "swiggy-analytics", "barreldb", "monkeybeat", "nomad-events-sink", "calert"] %}
+{# Featured list lives in this section's front matter so `make projects`
+   can regenerate data.toml without losing it #}
+{% set featured = section.extra.featured | default(value=[]) %}
 
-<section class="projects-section">
-  <h2>Featured</h2>
-  <div class="projects-grid">
-    {% for proj in data.project %}
-      {% if proj.name in highlighted_names %}
-      <article class="project-card featured">
-        <div class="project-header">
-          <h3 class="project-name">{{ proj.name }}</h3>
-          {% if proj.stars %}
-          <span class="project-stars">{{ proj.stars }}</span>
-          {% endif %}
-        </div>
-        <p class="project-desc">{{ proj.description }}</p>
-        <div class="project-footer">
-          {% if proj.language %}
-          <span class="project-lang">{{ proj.language }}</span>
-          {% endif %}
-          <div class="project-links">
-            {% for link in proj.links -%}
-            <a href="{{ link.url }}" target="_blank" rel='noreferrer noopener'>{{ link.name }}</a>
-            {% endfor %}
-          </div>
-        </div>
-      </article>
-      {% endif %}
-    {% endfor %}
-  </div>
+<section class="home-section">
+  <span class="label">Featured</span>
+  <ul class="project-list">
+    {%- for proj in data.project %}
+    {%- if proj.name in featured %}
+    <li>
+      <div class="project-line">
+        <span class="project-name">{% if proj.links %}<a href="{{ proj.links.0.url }}" rel="noopener noreferrer">{{ proj.name }}</a>{% else %}{{ proj.name }}{% endif %}</span>
+        {%- if proj.language %}<span class="project-lang">{{ proj.language | lower }}</span>{% endif %}
+        {%- if proj.stars %}<span class="project-stars">★ {{ proj.stars }}</span>{% endif %}
+      </div>
+      <p class="project-desc">{{ proj.description }}</p>
+    </li>
+    {%- endif %}
+    {%- endfor %}
+  </ul>
+</section>
 
-  <h2>All Projects</h2>
-  <div class="projects-grid compact">
-    {% for proj in data.project %}
-      {% if proj.name not in highlighted_names %}
-      <article class="project-card">
-        <div class="project-header">
-          <h3 class="project-name">{{ proj.name }}</h3>
-          {% if proj.stars and proj.stars > 10 %}
-          <span class="project-stars">{{ proj.stars }}</span>
-          {% endif %}
-        </div>
-        <p class="project-desc">{{ proj.description }}</p>
-        <div class="project-footer">
-          {% if proj.language %}
-          <span class="project-lang">{{ proj.language }}</span>
-          {% endif %}
-          <div class="project-links">
-            {% for link in proj.links -%}
-            <a href="{{ link.url }}" target="_blank" rel='noreferrer noopener'>{{ link.name }}</a>
-            {% endfor %}
-          </div>
-        </div>
-      </article>
-      {% endif %}
-    {% endfor %}
-  </div>
+<section class="home-section">
+  <span class="label">Everything else</span>
+  <ul class="project-list compact">
+    {%- for proj in data.project %}
+    {%- if proj.name not in featured %}
+    <li>
+      <span class="project-name">{% if proj.links %}<a href="{{ proj.links.0.url }}" rel="noopener noreferrer">{{ proj.name }}</a>{% else %}{{ proj.name }}{% endif %}</span>
+      <span class="project-desc">— {{ proj.description }}</span>
+    </li>
+    {%- endif %}
+    {%- endfor %}
+  </ul>
 </section>
 {% endblock %}

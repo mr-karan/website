@@ -1,152 +1,63 @@
 <!DOCTYPE html>
-<html lang="{{ lang | default(value="en-US" ) }}">
+<html lang="{{ lang | default(value="en-US") }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if config.extra.favicon %}
-    <link rel="shortcut icon" href="{{ config.extra.favicon }}">
-    {%- endif -%}
+    {%- if config.extra.favicon %}
+    <link rel="icon" type="image/svg+xml" href="{{ config.extra.favicon }}">
+    {%- endif %}
     <title>{%- block title %}{{ config.title }}{%- endblock %}</title>
     <meta name="referrer" content="no-referrer-when-downgrade">
     {% include "og.html" %}
-    {%- if config.generate_feeds %}
-    {% block rss -%}
-    <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="{{ config.title }}" href="{{ get_url(path=config.feed_filename) | safe }}">
-    {%- endblock -%}
-    {%- endif %}
+    <link rel="alternate" type="application/atom+xml" title="Posts" href="/posts/atom.xml">
+    <link rel="alternate" type="application/atom+xml" title="TILs" href="/tils/atom.xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    {#- giallo-*.css are the syntax-highlighting stylesheets zola generates
+        into static/ from markdown.highlighting light/dark themes #}
+    <link id="syn-light" rel="stylesheet" href="{{ get_url(path="giallo-light.css", trailing_slash=false) | safe }}" media="(prefers-color-scheme: light)">
+    <link id="syn-dark" rel="stylesheet" href="{{ get_url(path="giallo-dark.css", trailing_slash=false) | safe }}" media="(prefers-color-scheme: dark)">
     <link rel="stylesheet" href="{{ get_url(path="styles/main.css", trailing_slash=false) | safe }}">
     <script>
-        (function() {
-            var theme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', theme);
-            document.documentElement.style.colorScheme = theme;
+        // Anti-FOUC: apply a stored theme before first paint. With no stored
+        // preference the site follows the system (no data-theme attribute).
+        (function () {
+            var t = localStorage.getItem('theme');
+            if (t === 'light' || t === 'dark') {
+                document.documentElement.setAttribute('data-theme', t);
+                var l = document.getElementById('syn-light'), d = document.getElementById('syn-dark');
+                if (l && d) { l.media = t === 'dark' ? 'not all' : 'all'; d.media = t === 'dark' ? 'all' : 'not all'; }
+            }
         })();
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.1/feather.min.js" integrity="sha512-4lykFR6C2W55I60sYddEGjieC2fU79R7GUtaqr3DzmNbo0vSaO1MfUjMoTFYYuedjfEix6uV9jVTtRCSBU/Xiw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="{{ get_url(path="js/site.js", trailing_slash=false) | safe }}"></script>
     <script defer src="https://um.mrkaran.dev/script.js" data-website-id="f1a4a9bf-9b00-4b84-8304-47c80b7ba684"></script>
 </head>
 <body>
-<header>
-    <a href="{{ config.base_url | safe }}" class="title">
-        <h2 class="name">{{ config.title }}</h2>
-    </a>
-    <nav>
-        <div class="nav-items">
-            <a href="{{ config.base_url | safe }}">Home</a>
-            {%- if config.extra.main_menu %}
-            {%- for item in config.extra.main_menu %}
-            {%- if item.url is matching("https?://") %}
-            <a href="{{ item.url | safe }}">{{ item.name | safe }}</a>
-            {%- else %}
-            <a href="{{ get_url(path=item.url ) | safe }}">{{ item.name | safe }}</a>
-            {%- endif %}
-            {%- endfor %}
-            {%- endif -%}
-        </div>
-        <button class="theme-toggle" title="Toggle Dark Mode">
-            <i data-feather="moon"></i>
+<header class="site-header">
+    <a href="/" class="site-name">{{ config.title }}</a>
+    <nav class="site-nav">
+        {%- for item in config.extra.main_menu %}
+        <a href="{{ get_url(path=item.url) | safe }}">{{ item.name }}</a>
+        {%- endfor %}
+        <button class="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
         </button>
     </nav>
 </header>
 <main>
-{% block main %}{%- endblock -%}
+{% block main %}{% endblock %}
 </main>
-<footer>
-    © {{ now() | date(format="%Y") }} Karan Sharma<br>
-    <div class="social-links">
-        <a href="https://github.com/mr-karan" target="_blank" rel="noopener noreferrer" title="GitHub" class="social-icon"><i data-feather="github"></i></a>
-        <a href="/posts/atom.xml" target="_blank" rel="noopener noreferrer" title="RSS Feed" class="social-icon"><i data-feather="rss"></i></a>
-    </div>
+<footer class="site-footer">
+    <span>© {{ now() | date(format="%Y") }} Karan Sharma</span>
+    <span class="footer-links">
+        <a href="/tags">tags</a>
+        <a href="/search">search</a>
+        <a href="/posts/atom.xml">rss</a>
+        <a href="https://github.com/mr-karan" rel="noopener noreferrer">github</a>
+    </span>
 </footer>
-<script>
-    feather.replace();
-    const themeToggle = document.querySelector('.theme-toggle');
-    const currentTheme = localStorage.getItem('theme');
-
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        document.body.setAttribute('data-theme', currentTheme);
-        document.documentElement.style.colorScheme = currentTheme;
-        if (currentTheme === 'dark') {
-            themeToggle.innerHTML = '<i data-feather="sun"></i>';
-            feather.replace();
-        }
-    }
-
-    themeToggle.addEventListener('click', function() {
-        let theme = 'light';
-
-        // Add the transition class
-        document.body.classList.add('theme-transition');
-
-        if (document.body.getAttribute('data-theme') !== 'dark') {
-            theme = 'dark';
-            themeToggle.innerHTML = '<i data-feather="sun"></i>';
-        } else {
-            themeToggle.innerHTML = '<i data-feather="moon"></i>';
-        }
-        feather.replace();
-        document.documentElement.setAttribute('data-theme', theme);
-        document.body.setAttribute('data-theme', theme);
-        document.documentElement.style.colorScheme = theme;
-        localStorage.setItem('theme', theme);
-
-        // Remove the transition class after 0.5s
-        setTimeout(() => {
-            document.body.classList.remove('theme-transition');
-        }, 500);
-    });
-
-    // Lightbox functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        // Create lightbox modal element
-        const lightboxModal = document.createElement('div');
-        lightboxModal.className = 'lightbox-modal';
-        lightboxModal.innerHTML = '<span class="lightbox-close">&times;</span><img src="" alt="">';
-        document.body.appendChild(lightboxModal);
-
-        const lightboxImg = lightboxModal.querySelector('img');
-        const closeBtn = lightboxModal.querySelector('.lightbox-close');
-
-        // Find all images wrapped in links with class 'lightbox-thumbnail'
-        const thumbnails = document.querySelectorAll('a.lightbox-thumbnail');
-
-        thumbnails.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const imgSrc = this.getAttribute('href');
-                const imgAlt = this.querySelector('img')?.getAttribute('alt') || '';
-
-                lightboxImg.src = imgSrc;
-                lightboxImg.alt = imgAlt;
-                lightboxModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        // Close lightbox when clicking on background or close button
-        lightboxModal.addEventListener('click', function(e) {
-            if (e.target === lightboxModal || e.target === closeBtn) {
-                closeLightbox();
-            }
-        });
-
-        // Close lightbox with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
-                closeLightbox();
-            }
-        });
-
-        function closeLightbox() {
-            lightboxModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
-</script>
+</body>
 </html>

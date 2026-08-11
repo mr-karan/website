@@ -1,0 +1,6 @@
+{% component img_caption(path: string, caption: string = "") -%}
+<figure>
+    <img src="{{ path }}" alt="{{ caption }}">
+    <figcaption>{{ caption }}</figcaption>
+</figure>
+{%- endcomponent img_caption %}

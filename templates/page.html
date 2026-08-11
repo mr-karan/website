@@ -16,7 +16,7 @@
       {%- if page.date %}
       <div class="post-date">
               <i>
-                  <time datetime='{{ page.date | date(format='%+') }}' pubdate>
+                  <time datetime='{{ page.date | date(format='%Y-%m-%dT%H:%M:%S%:z') }}' pubdate>
                       {{- page.date | date(format=config.extra.date_format) -}}
                   </time>
               </i>
@@ -37,7 +37,7 @@
       {%- for name, taxon in page.taxonomies %}
         {{ name | capitalize }}:
         {%- for item in taxon %}
-          <a href="{{ get_taxonomy_url(kind=name, name=item) }}">#{{ item }}</a>
+          <a href="{{ get_taxonomy_url(kind=name | slugify, name=item) }}">#{{ item }}</a>
         {%- endfor %}
       {%- endfor %}
     {%- endif %}

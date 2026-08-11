@@ -8,12 +8,12 @@
     {%- endif -%}
     <title>{%- block title %}{{ config.title }}{%- endblock %}</title>
     <meta name="referrer" content="no-referrer-when-downgrade">
-    {% include "og.html" %}
-    {%- if config.generate_feeds %}
-    {% block rss -%}
-    <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="{{ config.title }}" href="{{ get_url(path=config.feed_filename) | safe }}">
-    {%- endblock -%}
+    {%- if current_url is defined %}
+    <link rel="canonical" href="{{ current_url | safe }}">
     {%- endif %}
+    {% include "og.html" %}
+    <link rel="alternate" type="application/atom+xml" title="Posts" href="/posts/atom.xml">
+    <link rel="alternate" type="application/atom+xml" title="TILs" href="/tils/atom.xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@
             <a href="{{ config.base_url | safe }}">Home</a>
             {%- if config.extra.main_menu %}
             {%- for item in config.extra.main_menu %}
-            {%- if item.url is matching("https?://") %}
+            {%- if item.url is matching(pat="https?://") %}
             <a href="{{ item.url | safe }}">{{ item.name | safe }}</a>
             {%- else %}
             <a href="{{ get_url(path=item.url ) | safe }}">{{ item.name | safe }}</a>

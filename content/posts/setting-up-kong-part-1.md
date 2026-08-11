@@ -4,6 +4,8 @@ date = 2019-03-23T10:57:55+05:30
 type = "post"
 description = "Ansible Playbook for Deploying Kong Cluster - part 1"
 in_search_index = true
+[extra]
+series = "Setting up Kong"
 [taxonomies]
 tags = ["devops","ansible","kong"]
 +++

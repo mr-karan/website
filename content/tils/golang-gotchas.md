@@ -21,7 +21,7 @@ wr.WriteHeader(http.StatusOK)
 wr.Write([]byte("hello world"))
 ```
 
-{% admonition(kind="Note") %}
+{% <admonition kind="Note"> %}
 - Headers should be written first. If any extra header is set after calling `WriteHeader` it's a no-op.
 - Body should be after `WriteHeader`. Else it's a no-op.
-{% end %}
+{% </admonition> %}

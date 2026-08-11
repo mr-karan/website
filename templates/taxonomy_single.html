@@ -13,7 +13,7 @@
         <li>
           <span>
             <i>
-              <time datetime='{{ page.date | date(format='%+') }}' pubdate>
+              <time datetime='{{ page.date | date(format='%Y-%m-%dT%H:%M:%S%:z') }}' pubdate>
                 {{ page.date | date(format=config.extra.date_format) }}
               </time>
             </i>

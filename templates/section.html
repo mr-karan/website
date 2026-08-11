@@ -3,7 +3,7 @@
 {% block title %}{{ section.title }} | {{ super() }}{% endblock %}
 
 {% block main %}
-{%- if taxonomy.term %}
+{%- if taxonomy is defined and taxonomy.term %}
   <h3 style="margin-bottom:0">Filtering for "{{ section.title }}"</h3>
   <small>
     <a href="{{ get_url(path="@/blog/_index.md") }}">Remove filter</a>
@@ -20,7 +20,7 @@
   {% for page in section.pages %}
     <li>
       <span>
-        <time datetime='{{ page.date | date(format='%+') }}' pubdate>
+        <time datetime='{{ page.date | date(format='%Y-%m-%dT%H:%M:%S%:z') }}' pubdate>
           {{ page.date | date(format=config.extra.date_format) }}
         </time>
       </span>
@@ -34,7 +34,7 @@
 </ul>
 <div class="section-tags">
   {% if section.title == "Travel" %}
-  {% set tags = get_taxonomy(kind="travel_tags") %}
+  {% set tags = get_taxonomy(kind="travel-tags") %}
   {% else %}
     {% set tags = get_taxonomy(kind="tags") %}
   {% endif %}

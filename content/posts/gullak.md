@@ -237,4 +237,4 @@ Feel free to open a GitHub issue or [reach out](/contact/) if you have any sugge
 
 ## Update (Feb 2026)
 
-I've rewritten Gullak to use plain-text ledger files. Read more about why in the follow-up post: [Why Plain-Text Ledger is Powerful for Gullak](/posts/gullak-ledger/).
+I've completely rewritten Gullak — new stack (Python/FastAPI), WhatsApp integration, and plain-text ledger files. Read the full story: [Rewriting Gullak: From SQLite to Plain-Text Accounting](/posts/gullak-ledger/).

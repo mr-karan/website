@@ -1,7 +1,7 @@
 # The URL the site will be built for
 base_url = "https://mrkaran.dev/"
 title = "Karan Sharma"
-description = "Ramblings on programming, tech and life."
+description = "Writing on infrastructure, Go, self-hosting and homelabs."
 generate_feeds = false
 feed_filenames = ["atom.xml"] # default template
 
@@ -17,13 +17,36 @@ taxonomies = [
   {name = "tags", feed = true},
 ]
 
+# Zola 0.23 templates markdown content by default. These posts contain
+# Nomad/Go/Prometheus template syntax ({{ ... }}) inside code blocks, which
+# would otherwise be parsed as Tera. New posts with literal {{ }} in code
+# fences must be added here (the build fails loudly if you forget).
+skip_content_templating = [
+  "**/pi-sre-mode.md",
+  "**/gitlab-runner-ecr.md",
+  "**/debugging-packer-ci.md",
+  "**/playo-badminton.md",
+  "**/home-server-updates.md",
+  "**/setting-up-kong-part-1.md",
+  "**/logchef-v1.md",
+  "**/home-server-nomad.md",
+  "**/bridge-network-in-nomad.md",
+  "**/home-server-setup.md",
+  "**/nomad-networking-explained.md",
+  "**/ansible-vault.md",
+  "**/clickhouse-securing-server-with-rbac.md",
+  "**/aws-cli.md",
+  "**/nomad-template-snippets.md",
+  "**/k8s-cli.md",
+  "**/ansible-snippets.md",
+]
+
 [markdown]
 render_emoji = true
 smart_punctuation = true
 insert_anchor_links = "right"
 
 [markdown.highlighting]
-enabled = true
 light_theme = "github-light"
 dark_theme = "github-dark-dimmed"
 

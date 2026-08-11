@@ -24,9 +24,9 @@ As a result, many code bases have their wrappers around the log package. Additio
 
 This article is about how to get started with [slog](https://pkg.go.dev/golang.org/x/exp/slog) for logging in Go applications.
 
-{% admonition(kind="Note") %}
+{% <admonition kind="Note"> %}
 Since slog is currently in the proposal state and hasn't yet merged in the official library, the API could change in future.
-{% end %}
+{% </admonition> %}
 
 ## Architecture of slog
 

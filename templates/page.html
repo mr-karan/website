@@ -11,7 +11,7 @@
   <h1>{{ page.title }}</h1>
   {%- if page.date %}
   <div class="post-meta">
-    <time datetime="{{ page.date | date(format='%+') }}">{{ page.date | date(format=config.extra.date_format) }}</time>
+    <time datetime="{{ page.date | date(format='%Y-%m-%d') }}">{{ page.date | date(format=config.extra.date_format) }}</time>
     <span>{{ page.reading_time }} min read</span>
   </div>
   {%- endif %}
@@ -36,7 +36,7 @@
   <div class="tag-row">
     {%- for name, taxon in page.taxonomies %}
     {%- for item in taxon %}
-    <a href="{{ get_taxonomy_url(kind=name, name=item) | safe }}">{{ item }}</a>
+    <a href="{{ get_taxonomy_url(kind=name | slugify, term=item) | safe }}">{{ item }}</a>
     {%- endfor %}
     {%- endfor %}
   </div>
@@ -48,7 +48,7 @@
   {%- set_global parts = [] %}
   {%- for p in sec.pages | reverse %}
   {%- if p.extra.series is defined and p.extra.series == page.extra.series %}
-  {%- set_global parts = parts | concat(with=p) %}
+  {%- set_global parts = [...parts, p] %}
   {%- endif %}
   {%- endfor %}
   {%- if parts | length > 1 %}
@@ -72,8 +72,8 @@
   {%- if term.name in page.taxonomies.tags %}
   {%- for p in term.pages %}
   {%- if p.permalink not in seen and rel | length < 3 %}
-  {%- set_global rel = rel | concat(with=p) %}
-  {%- set_global seen = seen | concat(with=p.permalink) %}
+  {%- set_global rel = [...rel, p] %}
+  {%- set_global seen = [...seen, p.permalink] %}
   {%- endif %}
   {%- endfor %}
   {%- endif %}
@@ -85,7 +85,7 @@
       {%- for p in rel %}
       <li>
         <span class="entry-title"><a href="{{ p.permalink | safe }}">{{ p.title }}</a></span>
-        <time datetime="{{ p.date | date(format='%+') }}">{{ p.date | date(format="%Y") }}</time>
+        <time datetime="{{ p.date | date(format='%Y-%m-%d') }}">{{ p.date | date(format="%Y") }}</time>
       </li>
       {%- endfor %}
     </ul>

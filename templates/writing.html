@@ -13,7 +13,7 @@
 
 {% set posts = get_section(path="posts/_index.md") %}
 {% set tils = get_section(path="tils/_index.md") %}
-{% set all_pages = posts.pages | concat(with=tils.pages) | sort(attribute="date") | reverse %}
+{% set all_pages = [...posts.pages, ...tils.pages] | sort(attribute="date") | reverse %}
 
 {% set_global cur_year = "" %}
 <ul class="entries">
@@ -27,8 +27,8 @@
   {%- endif %}
   <li>
     <span class="entry-title"><a href="{{ p.permalink | safe }}">{{ p.title }}</a></span>
-    {%- if p.path is starting_with("/tils/") %}<span class="entry-kind">til</span>{% endif %}
-    <time datetime="{{ p.date | date(format='%+') }}">{{ p.date | date(format="%d %b") }}</time>
+    {%- if p.path is starting_with(pat="/tils/") %}<span class="entry-kind">til</span>{% endif %}
+    <time datetime="{{ p.date | date(format='%Y-%m-%d') }}">{{ p.date | date(format="%d %b") }}</time>
   </li>
   {%- endfor %}
 </ul>

@@ -417,6 +417,14 @@ pre code {
 pre table { margin: 0; border-collapse: collapse; }
 pre table td { padding: 0; border: none; }
 
+/* zola 0.23 wraps each highlighted line in .giallo-l; without a min-height,
+   blank lines inside code blocks collapse */
+.giallo-l {
+  display: inline-block;
+  min-height: 1lh;
+  width: 100%;
+}
+
 .copy-code {
   position: absolute;
   top: 0.5rem;

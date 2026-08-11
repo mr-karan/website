@@ -12,8 +12,8 @@
   {%- for p in term.pages %}
   <li>
     <span class="entry-title"><a href="{{ p.permalink | safe }}">{{ p.title }}</a></span>
-    {%- if p.path is starting_with("/tils/") %}<span class="entry-kind">til</span>{% endif %}
-    <time datetime="{{ p.date | date(format='%+') }}">{{ p.date | date(format=config.extra.date_format) }}</time>
+    {%- if p.path is starting_with(pat="/tils/") %}<span class="entry-kind">til</span>{% endif %}
+    <time datetime="{{ p.date | date(format='%Y-%m-%d') }}">{{ p.date | date(format=config.extra.date_format) }}</time>
   </li>
   {%- else %}
   <li>No posts yet</li>

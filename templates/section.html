@@ -27,7 +27,7 @@
   {%- endif %}
   <li>
     <span class="entry-title"><a href="{{ p.permalink | safe }}">{{ p.title }}</a></span>{% if p.draft %}<span class="entry-kind">draft</span>{% endif %}
-    <time datetime="{{ p.date | date(format='%+') }}">{{ p.date | date(format="%d %b") }}</time>
+    <time datetime="{{ p.date | date(format='%Y-%m-%d') }}">{{ p.date | date(format="%d %b") }}</time>
   </li>
   {%- else %}
   <li>No posts yet</li>

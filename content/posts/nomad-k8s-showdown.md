@@ -61,8 +61,8 @@ I hope my arguments provide a more comprehensive perspective and address the ear
 
 ## Update
 
-{% admonition(kind="Info") %}
+{% <admonition kind="Info"> %}
 Darren has responded to this blog post. You can read the response on [Twitter](https://twitter.com/ibuildthecloud/status/1682992374979629057).
-{% end %}
+{% </admonition> %}
 
 Fin!

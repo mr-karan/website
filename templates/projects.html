@@ -18,7 +18,7 @@
     {%- if proj.name in featured %}
     <li>
       <div class="project-line">
-        <span class="project-name">{% if proj.links %}<a href="{{ proj.links.0.url }}" rel="noopener noreferrer">{{ proj.name }}</a>{% else %}{{ proj.name }}{% endif %}</span>
+        <span class="project-name">{% if proj.links %}<a href="{{ proj.links[0].url }}" rel="noopener noreferrer">{{ proj.name }}</a>{% else %}{{ proj.name }}{% endif %}</span>
         {%- if proj.language %}<span class="project-lang">{{ proj.language | lower }}</span>{% endif %}
         {%- if proj.stars %}<span class="project-stars">★ {{ proj.stars }}</span>{% endif %}
       </div>
@@ -35,7 +35,7 @@
     {%- for proj in data.project %}
     {%- if proj.name not in featured %}
     <li>
-      <span class="project-name">{% if proj.links %}<a href="{{ proj.links.0.url }}" rel="noopener noreferrer">{{ proj.name }}</a>{% else %}{{ proj.name }}{% endif %}</span>
+      <span class="project-name">{% if proj.links %}<a href="{{ proj.links[0].url }}" rel="noopener noreferrer">{{ proj.name }}</a>{% else %}{{ proj.name }}{% endif %}</span>
       <span class="project-desc">— {{ proj.description }}</span>
     </li>
     {%- endif %}

@@ -8,6 +8,9 @@
     {%- endif %}
     <title>{%- block title %}{{ config.title }}{%- endblock %}</title>
     <meta name="referrer" content="no-referrer-when-downgrade">
+    {%- if current_url is defined %}
+    <link rel="canonical" href="{{ current_url | safe }}">
+    {%- endif %}
     {% include "og.html" %}
     <link rel="alternate" type="application/atom+xml" title="Posts" href="/posts/atom.xml">
     <link rel="alternate" type="application/atom+xml" title="TILs" href="/tils/atom.xml">

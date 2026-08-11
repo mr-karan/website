@@ -9,13 +9,13 @@
   <span class="label">Recent</span>
   {% set posts = get_section(path="posts/_index.md") %}
   {% set tils = get_section(path="tils/_index.md") %}
-  {% set all_pages = posts.pages | concat(with=tils.pages) | sort(attribute="date") | reverse %}
+  {% set all_pages = [...posts.pages, ...tils.pages] | sort(attribute="date") | reverse %}
   <ul class="entries">
-    {% for p in all_pages | slice(end=6) %}
+    {% for p in all_pages[:6] %}
     <li>
       <span class="entry-title"><a href="{{ p.permalink | safe }}">{{ p.title }}</a></span>
-      {%- if p.path is starting_with("/tils/") %}<span class="entry-kind">til</span>{% endif %}
-      <time datetime="{{ p.date | date(format='%+') }}">{{ p.date | date(format=config.extra.date_format) }}</time>
+      {%- if p.path is starting_with(pat="/tils/") %}<span class="entry-kind">til</span>{% endif %}
+      <time datetime="{{ p.date | date(format='%Y-%m-%d') }}">{{ p.date | date(format=config.extra.date_format) }}</time>
     </li>
     {% endfor %}
   </ul>
@@ -30,7 +30,7 @@
     {% set p = get_page(path=path) %}
     <li>
       <span class="entry-title"><a href="{{ p.permalink | safe }}">{{ p.title }}</a></span>
-      <time datetime="{{ p.date | date(format='%+') }}">{{ p.date | date(format="%Y") }}</time>
+      <time datetime="{{ p.date | date(format='%Y-%m-%d') }}">{{ p.date | date(format="%Y") }}</time>
     </li>
     {% endfor %}
   </ul>

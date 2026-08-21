@@ -6,8 +6,6 @@ description = "Jailbreaking a Kindle Oasis, putting it on my tailnet, and pointi
 in_search_index = true
 [taxonomies]
 tags = ["Kindle", "Self-hosting", "Tailscale", "Karakeep", "KOReader"]
-[extra]
-og_preview_img = "/images/karakeep-kindle-koreader.jpg"
 +++
 
 My Kindle Oasis mostly sat on the nightstand while I doomscrolled on the phone next to it. Meanwhile I kept saving articles to [Karakeep](https://karakeep.app/), my self-hosted bookmark manager. Saving had become a way of closing tabs without guilt: everything was tagged and searchable, and I read almost none of it.
